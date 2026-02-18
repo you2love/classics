@@ -3,1462 +3,1530 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>政治学与社会学经典著作</title>
+    <title>经典书籍阅读 - Classics Book</title>
     <style>
-:root {
-    --primary-color: #5c6bc0;
-    --primary-dark: #3949ab;
-    --primary-light: #9fa8da;
-    --accent-color: #ff7043;
-    --text-primary: #212121;
-    --text-secondary: #757575;
-    --bg-primary: #fafafa;
-    --bg-secondary: #f5f5f5;
-    --sidebar-width: 280px;
-    --sidebar-bg: #ffffff;
-    --border-color: #e0e0e0;
-    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
-    --shadow-md: 0 4px 8px rgba(0,0,0,0.12);
-    --shadow-lg: 0 8px 16px rgba(0,0,0,0.14);
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.6;
-    font-size: 14px;
-}
-
-.app-container { display: flex; min-height: 100vh; }
-.hidden { display: none !important; }
-
-.sidebar {
-    width: var(--sidebar-width);
-    background: var(--sidebar-bg);
-    border-right: 1px solid var(--border-color);
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
-    z-index: 1000;
-    transition: transform 0.3s ease;
-    box-shadow: var(--shadow-sm);
-}
-
-.sidebar-header {
-    padding: 24px 20px;
-    border-bottom: 1px solid var(--border-color);
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    color: white;
-    position: relative;
-}
-
-.sidebar-title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin: 0;
-    display: flex;
-    align-items: center;
-}
-
-.sidebar-title span { margin-left: 10px; }
-
-.btn-close-sidebar {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 8px;
-    display: none;
-}
-
-.main-content {
-    flex: 1;
-    margin-left: var(--sidebar-width);
-    min-height: 100vh;
-    background-color: var(--bg-primary);
-}
-
-.top-header {
-    background: white;
-    padding: 16px 24px;
-    border-bottom: 1px solid var(--border-color);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: var(--shadow-sm);
-}
-
-#toggleSidebar {
-    color: var(--text-primary);
-    font-size: 1.2rem;
-    padding: 8px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: none;
-}
-
-.page-title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--primary-dark);
-    margin: 0;
-}
-
-.header-actions { display: flex; align-items: center; gap: 12px; }
-
-.book-count {
-    font-size: 0.85rem;
-    padding: 6px 12px;
-    background: var(--text-secondary);
-    color: white;
-    border-radius: 4px;
-}
-
-.content-wrapper { padding: 32px 24px; max-width: 1200px; margin: 0 auto; }
-
-.sidebar-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-}
-.sidebar-overlay.active { display: block; }
-
-.search-box { padding: 20px; position: relative; }
-
-.search-box input {
-    border-radius: 8px;
-    border: 2px solid var(--border-color);
-    padding: 12px 40px 12px 16px;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-    width: 100%;
-}
-
-.search-box input:focus {
-    border-color: var(--primary-color);
-    outline: none;
-}
-
-.search-icon {
-    position: absolute;
-    right: 35px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-secondary);
-    font-size: 1rem;
-}
-
-.tree-nav { padding: 10px 0; }
-
-.tree-item { cursor: pointer; transition: all 0.2s ease; }
-
-.tree-item-content {
-    display: flex;
-    align-items: center;
-    padding: 12px 20px;
-    color: var(--text-primary);
-    transition: all 0.2s ease;
-    position: relative;
-}
-
-.tree-item-content:hover { background-color: var(--bg-secondary); }
-
-.tree-item-content.active {
-    background-color: rgba(92, 107, 192, 0.1);
-    color: var(--primary-color);
-    border-left: 3px solid var(--primary-color);
-}
-
-.tree-toggle {
-    margin-right: 8px;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    transition: transform 0.2s ease;
-    width: 16px;
-    text-align: center;
-}
-
-.tree-toggle.rotated { transform: rotate(90deg); }
-
-.tree-icon {
-    margin-right: 12px;
-    color: var(--primary-color);
-    font-size: 1rem;
-    width: 16px;
-    text-align: center;
-}
-
-.tree-text { flex: 1; font-size: 0.95rem; font-weight: 500; }
-
-.tree-badge {
-    background-color: var(--primary-light);
-    color: white;
-    font-size: 0.75rem;
-    padding: 2px 8px;
-    border-radius: 12px;
-}
-
-.tree-children { display: none; padding-left: 20px; background-color: rgba(0,0,0,0.02); }
-.tree-children.expanded { display: block; }
-.tree-children .tree-item-content { padding-left: 32px; }
-.tree-children .tree-children .tree-item-content { padding-left: 44px; }
-
-.welcome-section { text-align: center; padding: 60px 20px; }
-
-.welcome-icon {
-    font-size: 5rem;
-    color: var(--primary-color);
-    margin-bottom: 24px;
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-.welcome-content h2 { font-size: 1.8rem; color: var(--primary-dark); margin-bottom: 16px; }
-.welcome-content > p { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 40px; }
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 24px;
-    margin-bottom: 40px;
-}
-
-.feature-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 24px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
-}
-
-.feature-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-.feature-item i { font-size: 2rem; color: var(--primary-color); margin-bottom: 12px; }
-.feature-item span { font-weight: 500; color: var(--text-primary); }
-
-.hint-text {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    background: white;
-    padding: 16px 24px;
-    border-radius: 8px;
-    display: inline-block;
-    box-shadow: var(--shadow-sm);
-}
-
-.hint-text i { color: var(--accent-color); margin-right: 8px; }
-
-.book-detail { animation: fadeIn 0.5s ease; }
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.book-card {
-    background: white;
-    border-radius: 16px;
-    padding: 32px;
-    margin-bottom: 24px;
-    box-shadow: var(--shadow-md);
-    display: flex;
-    gap: 32px;
-}
-
-.book-cover { flex-shrink: 0; width: 200px; }
-
-.cover-placeholder {
-    width: 100%;
-    aspect-ratio: 2/3;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 3rem;
-}
-
-.book-info { flex: 1; }
-
-.book-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--primary-dark);
-    margin-bottom: 16px;
-    line-height: 1.3;
-}
-
-.book-meta { display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 20px; }
-
-.meta-item { display: flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 0.95rem; }
-.meta-item i { color: var(--primary-color); width: 16px; }
-
-.book-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-
-.book-tags .badge {
-    font-size: 0.85rem;
-    padding: 6px 12px;
-    border-radius: 20px;
-    background: var(--primary-color);
-    color: white;
-}
-
-.book-section {
-    background: white;
-    border-radius: 12px;
-    padding: 28px;
-    margin-bottom: 24px;
-    box-shadow: var(--shadow-sm);
-}
-
-.section-title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--primary-dark);
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid var(--primary-light);
-}
-
-.section-title i { margin-right: 8px; color: var(--primary-color); }
-
-.book-description { font-size: 1.05rem; line-height: 1.8; color: var(--text-primary); text-align: justify; }
-
-.quotes-container { display: flex; flex-direction: column; gap: 16px; }
-
-.quote-item {
-    background: var(--bg-secondary);
-    padding: 20px 24px;
-    border-left: 4px solid var(--primary-color);
-    border-radius: 0 8px 8px 0;
-    font-style: italic;
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: var(--text-primary);
-    position: relative;
-}
-
-.quote-item::before {
-    content: '"';
-    font-size: 3rem;
-    color: var(--primary-light);
-    position: absolute;
-    left: 10px;
-    top: -10px;
-    opacity: 0.5;
-}
-
-.book-impact { font-size: 1.05rem; line-height: 1.8; color: var(--text-primary); text-align: justify; }
-
-.sidebar::-webkit-scrollbar { width: 6px; }
-.sidebar::-webkit-scrollbar-track { background: transparent; }
-.sidebar::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
-.sidebar::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
-
-.core-points-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-
-.core-point-card {
-    background: linear-gradient(135deg, #f8f9fa, #fff);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: var(--shadow-sm);
-    border-left: 4px solid var(--primary-color);
-    transition: all 0.3s ease;
-}
-
-.core-point-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-
-.point-number {
-    width: 32px;
-    height: 32px;
-    background: var(--primary-color);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    margin-bottom: 12px;
-}
-
-.core-point-card h4 { font-size: 1rem; color: var(--primary-dark); margin-bottom: 8px; }
-.core-point-card p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; line-height: 1.6; }
-
-.table-responsive { overflow-x: auto; }
-
-.data-table { width: 100%; border-collapse: collapse; }
-
-.data-table th {
-    background: var(--primary-color);
-    color: white;
-    font-weight: 500;
-    padding: 12px;
-    text-align: left;
-}
-
-.data-table td { padding: 12px; border-bottom: 1px solid var(--border-color); }
-.data-table tr:nth-of-type(odd) { background-color: rgba(92, 107, 192, 0.05); }
-
-.badge-warning { background: #ffc107; color: #212121; padding: 4px 8px; border-radius: 4px; font-size: 0.85rem; }
-.badge-danger { background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.85rem; }
-
-.charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-
-.chart-card { background: white; border-radius: 12px; padding: 20px; box-shadow: var(--shadow-sm); }
-.chart-card h4 { color: var(--primary-dark); margin-bottom: 16px; font-size: 1.1rem; }
-.chart-card h4 i { margin-right: 8px; color: var(--primary-color); }
-.simple-chart { padding: 10px 0; }
-
-.bar-item { margin-bottom: 12px; }
-.bar-label { display: block; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 4px; }
-.bar-wrapper { background: var(--bg-secondary); border-radius: 4px; height: 28px; overflow: hidden; }
-
-.bar {
-    height: 100%;
-    background: var(--primary-color);
-    color: white;
-    display: flex;
-    align-items: center;
-    padding-left: 12px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    border-radius: 4px;
-    transition: width 0.5s ease;
-}
-
-.bar.accent { background: var(--accent-color); }
-
-.timeline-container { position: relative; padding-left: 30px; }
-.timeline-container::before {
-    content: '';
-    position: absolute;
-    left: 8px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: var(--primary-light);
-}
-
-.timeline-item { position: relative; padding-bottom: 24px; }
-.timeline-item:last-child { padding-bottom: 0; }
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -26px;
-    top: 4px;
-    width: 12px;
-    height: 12px;
-    background: var(--primary-color);
-    border-radius: 50%;
-    border: 2px solid white;
-    box-shadow: 0 0 0 2px var(--primary-color);
-}
-
-.timeline-year { font-weight: bold; color: var(--primary-color); font-size: 0.95rem; margin-bottom: 4px; }
-.timeline-content h5 { color: var(--text-primary); font-size: 1rem; margin-bottom: 4px; }
-.timeline-content p { color: var(--text-secondary); font-size: 0.9rem; margin: 0; }
-
-@media (max-width: 991px) {
-    .sidebar { transform: translateX(-100%); }
-    .sidebar.active { transform: translateX(0); }
-    .main-content { margin-left: 0; }
-    .btn-close-sidebar { display: block; }
-    #toggleSidebar { display: block; }
-    .book-card { flex-direction: column; align-items: center; text-align: center; }
-    .book-cover { width: 150px; }
-    .book-meta { justify-content: center; }
-    .book-tags { justify-content: center; }
-    .page-title { font-size: 1.2rem; }
-}
-
-@media (max-width: 576px) {
-    .welcome-content h2 { font-size: 1.5rem; }
-    .book-title { font-size: 1.5rem; }
-    .section-title { font-size: 1.2rem; }
-    .content-wrapper { padding: 20px 16px; }
-    .book-card, .book-section { padding: 20px; }
-}
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #dcdde1;
+            --sidebar-width: 280px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* 顶部导航 */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .navbar h1 {
+            font-size: 1.3rem;
+        }
+
+        .navbar .book-count {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* 左侧树形导航 */
+        .sidebar {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - 60px);
+            background: var(--card-bg);
+            border-right: 1px solid var(--border-color);
+            overflow-y: auto;
+            padding: 15px 0;
+            z-index: 50;
+        }
+
+        .sidebar-section {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-title {
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tree-item-content {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .tree-item-content:hover {
+            background-color: var(--bg-color);
+        }
+
+        .tree-item-content.active {
+            background-color: #e3f2fd;
+            color: var(--secondary-color);
+            border-right: 3px solid var(--secondary-color);
+        }
+
+        .tree-icon {
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+
+        .tree-text {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* 右侧主内容区 */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            margin-top: 60px;
+            padding: 30px;
+            min-height: calc(100vh - 60px);
+        }
+
+        /* 欢迎区域 */
+        .welcome-section {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .welcome-section h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .welcome-section p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 书籍详情 */
+        .book-detail {
+            display: none;
+        }
+
+        .book-detail.active {
+            display: block;
+        }
+
+        .book-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .book-title {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .book-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .book-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-impact {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .book-impact strong {
+            color: var(--primary-color);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+
+        /* 内容区块 */
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* 表格样式 */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+
+        .data-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .data-table tr:hover {
+            background-color: #e3f2fd;
+        }
+
+        /* 要点卡片 */
+        .core-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .core-point-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .core-point-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .core-point-card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .point-number {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 26px;
+            font-weight: bold;
+            font-size: 0.75rem;
+            margin-bottom: 8px;
+        }
+
+        /* 名句 */
+        .quote-box {
+            background: linear-gradient(135deg, #fef9e7, #fcf3cf);
+            padding: 20px 25px;
+            border-radius: 10px;
+            border-left: 4px solid #f1c40f;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        /* 章节表格 */
+        .chapter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .chapter-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .chapter-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        .chapter-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        /* 理论框架图 */
+        .framework-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid var(--success-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .framework-box h4 {
+            color: var(--success-color);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .framework-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .framework-label {
+            background: var(--success-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            min-width: 80px;
+            text-align: center;
+            margin-right: 12px;
+        }
+
+        .framework-content {
+            color: var(--text-primary);
+        }
+
+        /* 流程图 */
+        .flow-chart {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+
+        .flow-step {
+            background: var(--secondary-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        /* 数据卡片 */
+        .data-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .data-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .data-card-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .data-card-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        /* 标签样式 */
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-right: 5px;
+        }
+
+        .badge-primary { background: #e3f2fd; color: #1976d2; }
+        .badge-success { background: #e8f5e9; color: #388e3c; }
+        .badge-warning { background: #fff3e0; color: #f57c00; }
+        .badge-danger { background: #ffebee; color: #d32f2f; }
+
+        /* 移动端适配 */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+            .sidebar.active { transform: translateX(0); }
+            .main-content { margin-left: 0; }
+            .book-title { font-size: 1.3rem; }
+            .core-points-grid { grid-template-columns: 1fr; }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-secondary);
+            margin-top: 30px;
+        }
     </style>
 </head>
 <body>
-    <div class="app-container">
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <h3 class="sidebar-title">
-                    <span>&#x1F4DA;</span>
-                    <span>经典著作</span>
-                </h3>
-                <button class="btn-close-sidebar" id="closeSidebar">&#x2715;</button>
-            </div>
-            
-            <div class="search-box">
-                <input type="text" class="form-control" id="searchInput" placeholder="搜索...">
-                <span class="search-icon">&#x1F50D;</span>
-            </div>
-            
-            <nav class="tree-nav" id="treeNav"></nav>
-        </aside>
+    <!-- 顶部导航 -->
+    <nav class="navbar">
+        <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+        <h1>经典书籍阅读</h1>
+        <span class="book-count">共 10 本</span>
+    </nav>
 
-        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <!-- 左侧树形导航 -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-title">政治学</div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国社会各阶级的分析')"><span class="tree-icon">📖</span><span class="tree-text">中国社会各阶级的分析</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('治理中国')"><span class="tree-icon">📖</span><span class="tree-text">治理中国</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('政治学基础')"><span class="tree-icon">📖</span><span class="tree-text">政治学基础</span></a></div>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-title">政治经济</div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('置身事内')"><span class="tree-icon">📖</span><span class="tree-text">置身事内</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('大国大城')"><span class="tree-icon">📖</span><span class="tree-text">大国大城</span></a></div>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-title">社会学</div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('社会学概论新修')"><span class="tree-icon">📖</span><span class="tree-text">社会学概论新修</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('当代中国社会阶层研究报告')"><span class="tree-icon">📖</span><span class="tree-text">当代中国社会阶层研究报告</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('当代中国社会分层')"><span class="tree-icon">📖</span><span class="tree-text">当代中国社会分层</span></a></div>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-title">公共管理</div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('乡镇治理与政府制度化')"><span class="tree-icon">📖</span><span class="tree-text">乡镇治理与政府制度化</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('公共管理学')"><span class="tree-icon">📖</span><span class="tree-text">公共管理学</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('行政法与行政诉讼法')"><span class="tree-icon">📖</span><span class="tree-text">行政法与行政诉讼法</span></a></div>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-title">当下</div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('政策与人生规划')"><span class="tree-icon">📖</span><span class="tree-text">政策与人生规划</span></a></div>
+        </div>
+    </aside>
 
-        <main class="main-content">
-            <header class="top-header">
-                <button class="btn" id="toggleSidebar">&#x2630;</button>
-                <h1 class="page-title">政治学与社会学经典著作</h1>
-                <div class="header-actions">
-                    <span class="book-count">
-                        <span>&#x1F4CA;</span>
-                        <span id="bookCount">0</span> 本经济著作
-                    </span>
-                </div>
-            </header>
+    <!-- 右侧主内容区 -->
+    <main class="main-content">
+        <div class="welcome-section" id="welcomeSection">
+            <h2>欢迎阅读经典</h2>
+            <p>从左侧导航栏选择一本经典书籍，开始您的阅读之旅。每本书都包含核心要点、章节概览、数据表格和理论框架。</p>
+        </div>
 
-            <div class="content-wrapper">
-                <div id="welcomeSection" class="welcome-section">
-                    <div class="welcome-content">
-                        <div class="welcome-icon">&#x1F4DA;</div>
-                        <h2>政治学与社会学经典著作</h2>
-                        <p>理解中国政府运作与社会治理</p>
-                        <div class="features-grid">
-                            <div class="feature-item">
-                                <span style="font-size:2rem">&#x1F3E2;</span>
-                                <span>政府治理</span>
-                            </div>
-                            <div class="feature-item">
-                                <span style="font-size:2rem">&#x1F465;</span>
-                                <span>社会分析</span>
-                            </div>
-                            <div class="feature-item">
-                                <span style="font-size:2rem">&#x1F4CA;</span>
-                                <span>公共政策</span>
-                            </div>
-                            <div class="feature-item">
-                                <span style="font-size:2rem">&#x1F3E0;</span>
-                                <span>基层治理</span>
-                            </div>
-                        </div>
-                        <p class="hint-text">
-                            <span>&#x1F449;</span>
-                            点击左侧选择一本著作开始阅读
-                        </p>
+        <div id="bookDetail">
+            <!-- 置身事内 -->
+            <div class="book-detail" id="book-置身事内">
+                <div class="book-header">
+                    <h2 class="book-title">置身事内：中国政府与经济发展</h2>
+                    <div class="book-meta">
+                        <span>👤 作者：兰小欢</span>
+                        <span>📅 2021年</span>
+                        <span>📚 复旦大学出版社</span>
+                        <span>🌍 中国</span>
                     </div>
+                    <p class="book-description">复旦大学经济学院副教授兰小欢多年教学与研究内容的凝练，将经济学原理与中国经济发展的实践有机融合，以地方政府投融资为主线，深入解析微观机制。</p>
+                    <div class="book-impact"><strong>本书影响：</strong>帮助读者理解中国政治经济体系的运作方式，认识政府在经济发展中的角色。</div>
+                    <div class="tags"><span class="tag">经济学</span><span class="tag">政府治理</span><span class="tag">土地财政</span></div>
                 </div>
 
-                <div id="bookDetail" class="book-detail hidden">
-                    <div class="book-card">
-                        <div class="book-cover">
-                            <div class="cover-placeholder">&#x1F4CA;</div>
+                <div class="section">
+                    <h3 class="section-title">📚 全书章节结构</h3>
+                    <table class="chapter-table">
+                        <tr><th>章节</th><th>主要内容</th></tr>
+                        <tr><td>导言</td><td>从微观视角理解宏观经济</td></tr>
+                        <tr><td>第一章</td><td>政府治理与治理结构</td></tr>
+                        <tr><td>第二章</td><td>财税体制与政府收入</td></tr>
+                        <tr><td>第三章</td><td>政府投融资与债务</td></tr>
+                        <tr><td>第四章</td><td>工业化与政府投资</td></tr>
+                        <tr><td>第五章</td><td>城市化与土地问题</td></tr>
+                        <tr><td>第六章</td><td>地区间竞争与合作</td></tr>
+                        <tr><td>总结</td><td>政府与市场的边界</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">💬 核心名句</h3>
+                    <div class="quote-box">"政府不但影响蛋糕的分配，也参与蛋糕的生产。"</div>
+                    <div class="quote-box">"在中国，政府不但影响'重'如基础设施建设的资产，也影响'轻'如工业用地和商业用地的价格。"</div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📊 土地财政核心数据</h3>
+                    <table class="data-table">
+                        <tr><th>指标</th><th>说明</th><th>占比</th></tr>
+                        <tr><td>土地出让金</td><td>地方政府重要收入来源</td><td>≈50%</td></tr>
+                        <tr><td>土地抵押贷款</td><td>地方政府主要融资方式</td><td>≈60%</td></tr>
+                        <tr><td>土地增值收益</td><td>农用地转用增值收益分配</td><td>中央：地方 = 3:7</td></tr>
+                        <tr><td>工业用地</td><td>招商引资低价出让</td><td>约20%</td></tr>
+                        <tr><td>商住用地</td><td>市场化出让获高收益</td><td>约80%</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔄 土地财政四步曲</h3>
+                    <div class="flow-chart">
+                        <div class="flow-step">第一步<br>农地征收</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">第二步<br>土地变性</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">第三步<br>招拍挂出让</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">第四步<br>抵押融资</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔧 分税制改革要点</h3>
+                    <table class="data-table">
+                        <tr><th>税种</th><th>中央</th><th>地方</th><th>改革前</th></tr>
+                        <tr><td>增值税</td><td>50%</td><td>50%</td><td>全额地方</td></tr>
+                        <tr><td>消费税</td><td>100%</td><td>0%</td><td>中央地方分成</td></tr>
+                        <tr><td>企业所得税</td><td>60%</td><td>40%</td><td>按隶属关系</td></tr>
+                        <tr><td>个人所得税</td><td>60%</td><td>40%</td><td>地方</td></tr>
+                        <tr><td>营业税</td><td>0%</td><td>100%</td><td>全额地方</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📌 核心要点</h3>
+                    <div class="core-points-grid">
+                        <div class="core-point-card">
+                            <div class="point-number">1</div>
+                            <h4>政府与市场关系</h4>
+                            <p>不能脱离政府谈经济，理解中国特色的市场经济必须理解政府的作用。政府不仅影响蛋糕分配，也参与蛋糕生产。</p>
                         </div>
-                        <div class="book-info">
-                            <h2 class="book-title" id="bookTitle">书名</h2>
-                            <div class="book-meta">
-                                <span class="meta-item">
-                                    <span>&#x270D;&#xFE0F;</span>
-                                    <span id="bookAuthor">作者</span>
-                                </span>
-                                <span class="meta-item">
-                                    <span>&#x1F4C5;</span>
-                                    <span id="bookYear">年代</span>
-                                </span>
-                                <span class="meta-item">
-                                    <span>&#x1F310;</span>
-                                    <span id="bookCountry">国家</span>
-                                </span>
-                            </div>
-                            <div class="book-tags" id="bookTags"></div>
+                        <div class="core-point-card">
+                            <div class="point-number">2</div>
+                            <h4>分税制改革</h4>
+                            <p>1994年分税制改革导致土地财政的兴起，改变了地方政府的行为模式，央地财政关系发生根本性变化。</p>
                         </div>
-                    </div>
-
-                    <div class="book-section">
-                        <h3 class="section-title">
-                            <span>&#x2139;&#xFE0F;</span>
-                            作品简介
-                        </h3>
-                        <p class="book-description" id="bookDescription"></p>
-                    </div>
-
-                    <div class="book-section">
-                        <h3 class="section-title">
-                            <span>&#x1F4A1;</span>
-                            核心要点
-                        </h3>
-                        <div id="corePointsChart"></div>
-                    </div>
-
-                    <div class="book-section">
-                        <h3 class="section-title">
-                            <span>&#x1F4CB;</span>
-                            章节结构
-                        </h3>
-                        <div class="table-responsive">
-                            <table class="data-table" id="chapterTable">
-                                <thead><tr><th>章节</th><th>内容</th></tr></thead>
-                                <tbody></tbody>
-                            </table>
+                        <div class="core-point-card">
+                            <div class="point-number">3</div>
+                            <h4>土地金融</h4>
+                            <p>地方政府通过土地抵押进行融资，形成独特的城市化融资模式，土地成为重要的金融工具。</p>
                         </div>
-                    </div>
-
-                    <div class="book-section">
-                        <h3 class="section-title">
-                            <span>&#x1F5E3;</span>
-                            中国政府层级划分
-                        </h3>
-                        <div id="governmentStructureChart"></div>
-                    </div>
-
-                    <div class="book-section">
-                        <h3 class="section-title">
-                            <span>&#x1F4B0;</span>
-                            中央与地方财权事权分配
-                        </h3>
-                        <div id="fiscalDistributionChart"></div>
-                    </div>
-
-                    <div class="book-section">
-                        <h3 class="section-title">
-                            <span>&#x1F3AF;</span>
-                            地方政府发展逻辑
-                        </h3>
-                        <div id="developmentLogicChart"></div>
-                    </div>
-
-                    <div class="book-section">
-                        <h3 class="section-title">
-                            <span>&#x1F451;</span>
-                            官员考核与激励机制
-                        </h3>
-                        <div id="officialEvaluationChart"></div>
-                    </div>
-
-                    <div class="book-section">
-                        <h3 class="section-title">
-                            <span>&#x1F4CA;</span>
-                            关键数据
-                        </h3>
-                        <div id="dataCharts" class="charts-grid"></div>
-                    </div>
-
-                    <div class="book-section">
-                        <h3 class="section-title">
-                            <span>&#x1F551;</span>
-                            财政体制改革历程
-                        </h3>
-                        <div class="timeline" id="timelineChart"></div>
-                    </div>
-
-                    <div class="book-section">
-                        <h3 class="section-title">
-                            <span>&#x1FA99;</span>
-                            土地财政
-                        </h3>
-                        <div class="table-responsive">
-                            <table class="data-table" id="landFinanceTable">
-                                <thead><tr><th>来源</th><th>描述</th><th>规模/占比</th></tr></thead>
-                                <tbody></tbody>
-                            </table>
+                        <div class="core-point-card">
+                            <div class="point-number">4</div>
+                            <h4>政府投资</h4>
+                            <p>地方政府通过融资平台公司进行大量基础设施投资，推动工业化和城市化进程。</p>
                         </div>
-                    </div>
-
-                    <div class="book-section">
-                        <h3 class="section-title">
-                            <span>&#x26A0;&#xFE0F;</span>
-                            债务风险
-                        </h3>
-                        <div class="table-responsive">
-                            <table class="data-table" id="debtTable">
-                                <thead><tr><th>类型</th><th>规模/措施</th></tr></thead>
-                                <tbody></tbody>
-                            </table>
+                        <div class="core-point-card">
+                            <div class="point-number">5</div>
+                            <h4>地区竞争</h4>
+                            <p>地方政府间的竞争是理解中国经济增长的关键，政绩考核驱动了地方发展动力。</p>
                         </div>
-                    </div>
-
-                    <div class="book-section">
-                        <h3 class="section-title">
-                            <span>&#x275D;</span>
-                            经典摘录
-                        </h3>
-                        <div class="quotes-container" id="bookQuotes"></div>
-                    </div>
-
-                    <div class="book-section">
-                        <h3 class="section-title">
-                            <span>&#x2B50;</span>
-                            影响与评价
-                        </h3>
-                        <p class="book-impact" id="bookImpact"></p>
+                        <div class="core-point-card">
+                            <div class="point-number">6</div>
+                            <h4>供给侧改革</h4>
+                            <p>从需求侧管理转向供给侧改革，强调结构性调整和效率提升。</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </main>
-    </div>
+
+            <!-- 大国大城 -->
+            <div class="book-detail" id="book-大国大城">
+                <div class="book-header">
+                    <h2 class="book-title">大国大城</h2>
+                    <div class="book-meta">
+                        <span>👤 作者：陆铭</span>
+                        <span>📅 2016年</span>
+                        <span>📚 上海人民出版社</span>
+                        <span>🌍 中国</span>
+                    </div>
+                    <p class="book-description">上海交通大学陆铭教授聚焦中国城市化进程中的城乡经济矛盾，从经济学视角深入分析了大城市发展的规律与政策启示。</p>
+                    <div class="book-impact"><strong>本书影响：</strong>获第十二届文津图书奖，成为理解中国城市化问题的重要著作。</div>
+                    <div class="tags"><span class="tag">经济学</span><span class="tag">城市化</span><span class="tag">城乡融合</span></div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📊 中国城镇化率变化</h3>
+                    <table class="data-table">
+                        <tr><th>年份</th><th>城镇化率</th><th>城镇人口（亿）</th><th>农村人口（亿）</th></tr>
+                        <tr><td>2000年</td><td>36.2%</td><td>4.59</td><td>8.08</td></tr>
+                        <tr><td>2005年</td><td>43.0%</td><td>5.62</td><td>7.45</td></tr>
+                        <tr><td>2010年</td><td>49.9%</td><td>6.70</td><td>6.71</td></tr>
+                        <tr><td>2015年</td><td>56.1%</td><td>7.71</td><td>6.03</td></tr>
+                        <tr><td>2020年</td><td>63.9%</td><td>9.02</td><td>5.10</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">💬 核心名句</h3>
+                    <div class="quote-box">"只有聚集中经济发展才能走向均衡。"</div>
+                    <div class="quote-box">"城市化的本质是人的集聚，而不是土地的城镇化。"</div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔄 城市化核心逻辑</h3>
+                    <div class="flow-chart">
+                        <div class="flow-step">集聚效应<br>规模经济</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">分工深化<br>效率提升</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">产业升级<br>创新涌现</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">收入增长<br>需求扩大</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔧 三个D分析框架</h3>
+                    <table class="data-table">
+                        <tr><th>D</th><th>英文</th><th>含义</th><th>政策含义</th></tr>
+                        <tr><td>密度</td><td>Density</td><td>人口密度</td><td>提高密度降低成本</td></tr>
+                        <tr><td>距离</td><td>Distance</td><td>通勤距离</td><td>打破流动障碍</td></tr>
+                        <tr><td>分割</td><td>Division</td><td>制度分割</td><td>消除身份歧视</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📌 核心要点</h3>
+                    <div class="core-points-grid">
+                        <div class="core-point-card">
+                            <div class="point-number">1</div>
+                            <h4>集聚效应</h4>
+                            <p>大城市创造规模经济，提高资源配置效率。人口集聚带来知识溢出、创新涌现。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">2</div>
+                            <h4>自由移民</h4>
+                            <p>实现人均GDP均衡的路径，打破城乡二元结构。户籍制度制约了人口流动。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">3</div>
+                            <h4>三个D</h4>
+                            <p>密度、距离、分割是理解城市化的三个关键维度，政策应围绕这三个维度设计。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">4</div>
+                            <h4>服务业发展</h4>
+                            <p>大城市应以服务业为主，发展高端生产性服务业，提升城市竞争力。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">5</div>
+                            <h4>农村土地制度</h4>
+                            <p>农地流转制度改革，让农民获得财产性收入，推进农业规模化经营。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">6</div>
+                            <h4>公共资源配置</h4>
+                            <p>公共服务资源应随人流动，教育医疗资源应向人口流入地倾斜。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 中国社会各阶级的分析 -->
+            <div class="book-detail" id="book-中国社会各阶级的分析">
+                <div class="book-header">
+                    <h2 class="book-title">中国社会各阶级的分析</h2>
+                    <div class="book-meta">
+                        <span>👤 作者：毛泽东</span>
+                        <span>📅 1925年</span>
+                        <span>📚 人民出版社</span>
+                        <span>🌍 中国</span>
+                    </div>
+                    <p class="book-description">毛泽东于1925年撰写的重要文章，是毛泽东思想的重要组成部分。文章系统分析了中国社会各阶级的经济地位和政治态度。</p>
+                    <div class="book-impact"><strong>本书影响：</strong>为中国革命指明了方向，成为中国共产党分析社会结构的重要方法论。</div>
+                    <div class="tags"><span class="tag">政治</span><span class="tag">阶级分析</span><span class="tag">革命理论</span></div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📊 社会各阶级分析表</h3>
+                    <table class="data-table">
+                        <tr><th>阶级</th><th>经济地位</th><th>政治态度</th><th>革命立场</th></tr>
+                        <tr><td>地主阶级</td><td>占有土地，剥削农民</td><td>维护封建制度</td><td>革命对象</td></tr>
+                        <tr><td>买办阶级</td><td>依附帝国主义</td><td>反对民族独立</td><td>革命对象</td></tr>
+                        <tr><td>民族资产阶级</td><td>中等资本企业</td><td>两面性</td><td>可联合可斗争</td></tr>
+                        <tr><td>小资产阶级</td><td>自耕农、手工业者</td><td>要求革命</td><td>革命同盟军</td></tr>
+                        <tr><td>半无产阶级</td><td>贫农、雇农</td><td>坚决革命</td><td>革命主力</td></tr>
+                        <tr><td>无产阶级</td><td>无产者</td><td>领导革命</td><td>革命领导</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">💬 核心名句</h3>
+                    <div class="quote-box">"谁是我们的敌人？谁是我们的朋友？这是革命的首要问题。"</div>
+                    <div class="quote-box">"中国过去一切革命斗争成效甚少，其根本原因就是因为不能团结真正的朋友，以攻击真正的敌人。"</div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔧 革命路线图</h3>
+                    <div class="flow-chart">
+                        <div class="flow-step">认清敌友<br>阶级分析</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">团结朋友<br>统一战线</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">打击敌人<br>武装斗争</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">夺取政权<br>革命胜利</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📌 核心要点</h3>
+                    <div class="core-points-grid">
+                        <div class="core-point-card">
+                            <div class="point-number">1</div>
+                            <h4>阶级划分标准</h4>
+                            <p>以经济地位作为划分各阶级的根本标准，分析各阶级的革命态度。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">2</div>
+                            <h4>革命敌人</h4>
+                            <p>地主阶级和买办阶级是革命的敌人，代表着反动的生产关系。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">3</div>
+                            <h4>革命朋友</h4>
+                            <p>工人、农民、小资产阶级是革命的朋友，是革命的主要力量。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">4</div>
+                            <h4>领导阶级</h4>
+                            <p>无产阶级是中国革命的领导阶级，具有最先进的革命性。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">5</div>
+                            <h4>统一战线</h4>
+                            <p>建立广泛的统一战线，团结一切可以团结的力量。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">6</div>
+                            <h4>工农联盟</h4>
+                            <p>农民是无产阶级最可靠的同盟军，工农联盟是革命的基础。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 治理中国 -->
+            <div class="book-detail" id="book-治理中国">
+                <div class="book-header">
+                    <h2 class="book-title">治理中国：从革命到改革</h2>
+                    <div class="book-meta">
+                        <span>👤 作者：李侃如</span>
+                        <span>📅 2010年</span>
+                        <span>📚 中国人民大学出版社</span>
+                        <span>🌍 美国</span>
+                    </div>
+                    <p class="book-description">美国著名中国问题专家李侃如的代表作，从美国学者的视角系统分析了中国社会从革命到改革的历史变迁。</p>
+                    <div class="book-impact"><strong>本书影响：</strong>成为西方中国研究的经典教科书，为国际学术界理解中国政治提供了重要参考。</div>
+                    <div class="tags"><span class="tag">政治学</span><span class="tag">中国研究</span><span class="tag">治理</span></div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📚 全书结构</h3>
+                    <table class="chapter-table">
+                        <tr><th>篇目</th><th>主要内容</th></tr>
+                        <tr><td>第一篇：历史遗产</td><td>中华帝国的治理传统与式微</td></tr>
+                        <tr><td>第二篇：革命道路</td><td>毛泽东时期的政治运动与制度建设</td></tr>
+                        <tr><td>第三篇：改革转型</td><td>邓小平时代的改革开放</td></tr>
+                        <tr><td>第四篇：当代治理</td><td>江泽民、胡锦涛时期的治理创新</td></tr>
+                        <tr><td>结论</td><td>中国治理的挑战与前景</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">💬 核心名句</h3>
+                    <div class="quote-box">"治理是一个集理念、过程和目标三者并重的概念。"</div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔧 政府层级与职能</h3>
+                    <table class="data-table">
+                        <tr><th>层级</th><th>数量</th><th>主要职能</th></tr>
+                        <tr><td>中央</td><td>1</td><td>宏观决策、国防外交</td></tr>
+                        <tr><td>省/直辖市</td><td>34</td><td>区域规划、地方立法</td></tr>
+                        <tr><td>地级市</td><td>333</td><td>市域统筹、行业发展</td></tr>
+                        <tr><td>县/区</td><td>2844</td><td>县域治理、公共服务</td></tr>
+                        <tr><td>乡镇/街道</td><td>41636</td><td>基层治理、社会管理</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📌 核心要点</h3>
+                    <div class="core-points-grid">
+                        <div class="core-point-card">
+                            <div class="point-number">1</div>
+                            <h4>历史遗产</h4>
+                            <p>中华帝国的遗产与式微，分析传统治理模式对现代中国的影响。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">2</div>
+                            <h4>革命道路</h4>
+                            <p>从毛泽东思想到改革开放，梳理中国政治道路的演变历程。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">3</div>
+                            <h4>政府机构</h4>
+                            <p>从中央到基层的管理体系，分析中国政府机构的层级与职能。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">4</div>
+                            <h4>党的领导</h4>
+                            <p>党的领导是中国治理体系的核心，坚持党对一切的领导。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">5</div>
+                            <h4>制度自信</h4>
+                            <p>中国特色社会主义制度是历史和人民的选择。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">6</div>
+                            <h4>治理现代化</h4>
+                            <p>推进国家治理体系和治理能力现代化是新时期重要目标。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 政治学基础 -->
+            <div class="book-detail" id="book-政治学基础">
+                <div class="book-header">
+                    <h2 class="book-title">政治学基础</h2>
+                    <div class="book-meta">
+                        <span>👤 作者：王浦劬</span>
+                        <span>📅 2018年</span>
+                        <span>📚 北京大学出版社</span>
+                        <span>🌍 中国</span>
+                    </div>
+                    <p class="book-description">北京大学政府管理学院王浦劬教授著，系统介绍政治学的基本概念、理论体系和研究方法，是国内政治学入门经典教材。</p>
+                    <div class="book-impact"><strong>本书影响：</strong>国内政治学领域权威教材，培养了众多政治学研究人才。</div>
+                    <div class="tags"><span class="tag">政治学</span><span class="tag">教材</span><span class="tag">国家理论</span></div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📚 全书框架</h3>
+                    <table class="chapter-table">
+                        <tr><th>篇目</th><th>主要内容</th></tr>
+                        <tr><td>导论</td><td>政治学的概念、研究对象与方法</td></tr>
+                        <tr><td>政治关系</td><td>阶级、民族、宗教关系</td></tr>
+                        <tr><td>政治行为</td><td>选举、政党、决策行为</td></tr>
+                        <tr><td>政治体系</td><td>国家、政府的结构与功能</td></tr>
+                        <tr><td>政治文化</td><td>政治社会化与意识形态</td></tr>
+                        <tr><td>政治发展</td><td>现代化与政治改革</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">💬 核心名句</h3>
+                    <div class="quote-box">"政治是关于公共权力的活动和发展规律的科学。"</div>
+                    <div class="quote-box">"国家是阶级统治的工具，是一个阶级对另一个阶级的统治。"</div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔧 国家职能分类</h3>
+                    <table class="data-table">
+                        <tr><th>分类标准</th><th>类型</th><th>主要内容</th></tr>
+                        <tr><td>按作用范围</td><td>对内职能</td><td>政治统治、社会管理</td></tr>
+                        <tr><td>按作用范围</td><td>对外职能</td><td>国防、外交、贸易</td></tr>
+                        <tr><td>按本质</td><td>阶级统治</td><td>维护统治阶级利益</td></tr>
+                        <tr><td>按本质</td><td>社会管理</td><td>公共事务服务</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔄 政治权力运行机制</h3>
+                    <div class="flow-chart">
+                        <div class="flow-step">权力获取<br>合法性基础</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">权力运行<br>决策与执行</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">权力监督<br>制约与平衡</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">权力交接<br>制度化传承</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📌 核心要点</h3>
+                    <div class="core-points-grid">
+                        <div class="core-point-card">
+                            <div class="point-number">1</div>
+                            <h4>政治权力</h4>
+                            <p>政治权力的本质、来源、运用与合法性问题，权力是政治的核心。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">2</div>
+                            <h4>国家理论</h4>
+                            <p>国家的起源、本质、职能与类型等基本理论，理解国家本质。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">3</div>
+                            <h4>政治制度</h4>
+                            <p>政体、政府制度、选举制度等政治制度的比较分析。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">4</div>
+                            <h4>政党政治</h4>
+                            <p>政党的功能、类型，以及政党制度的演变与发展。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">5</div>
+                            <h4>政治文化</h4>
+                            <p>政治社会化、政治认同与政治意识形态的作用。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">6</div>
+                            <h4>政治发展</h4>
+                            <p>政治现代化、政治改革与政治稳定的关系。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 社会学概论新修 -->
+            <div class="book-detail" id="book-社会学概论新修">
+                <div class="book-header">
+                    <h2 class="book-title">社会学概论新修</h2>
+                    <div class="book-meta">
+                        <span>👤 作者：郑杭生</span>
+                        <span>📅 2019年</span>
+                        <span>📚 中国人民大学出版社</span>
+                        <span>🌍 中国</span>
+                    </div>
+                    <p class="book-description">中国人民大学郑杭生教授主编的社会学入门教材，系统介绍社会学的基本概念、理论和方法。</p>
+                    <div class="book-impact"><strong>本书影响：</strong>国内社会学领域经典教材，培养了数代社会学人才。</div>
+                    <div class="tags"><span class="tag">社会学</span><span class="tag">教材</span><span class="tag">社会运行</span></div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📚 全书结构</h3>
+                    <table class="chapter-table">
+                        <tr><th>篇目</th><th>主要内容</th></tr>
+                        <tr><td>导论</td><td>社会学的对象与功能</td></tr>
+                        <tr><td>社会运行</td><td>社会良性运行的条件与机制</td></tr>
+                        <tr><td>社会化</td><td>从生物人向社会人的转变</td></tr>
+                        <tr><td>社会群体</td><td>群体类型与组织结构</td></tr>
+                        <tr><td>社会制度</td><td>制度类型与功能</td></tr>
+                        <tr><td>社会分层</td><td>阶层结构与流动</td></tr>
+                        <tr><td>社会变迁</td><td>现代化与社会发展</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">💬 核心名句</h3>
+                    <div class="quote-box">"社会学是关于社会良性运行和协调发展的科学。"</div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔧 社会化阶段</h3>
+                    <table class="data-table">
+                        <tr><th>阶段</th><th>年龄</th><th>主要内容</th><th>社会化主体</th></tr>
+                        <tr><td>基本社会化</td><td>0-18岁</td><td>语言、价值观、行为规范</td><td>家庭、学校</td></tr>
+                        <tr><td>继续社会化</td><td>18-成年</td><td>职业知识、角色学习</td><td>工作单位</td></tr>
+                        <tr><td>再社会化</td><td>成年后</td><td>改变原有价值观</td><td>新环境</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📊 社会群体类型</h3>
+                    <table class="data-table">
+                        <tr><th>分类标准</th><th>类型</th><th>特点</th></tr>
+                        <tr><td>规模</td><td>大群体/小群体</td><td>成员数量与互动程度</td></tr>
+                        <tr><td>关系性质</td><td>初级群体/次级群体</td><td>亲密vs正式</td></tr>
+                        <tr><td>性质</td><td>血缘/地缘/业缘</td><td>按纽带类型划分</td></tr>
+                        <tr><td>归属感</td><td>内群体/外群体</td><td>是否认同</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📌 核心要点</h3>
+                    <div class="core-points-grid">
+                        <div class="core-point-card">
+                            <div class="point-number">1</div>
+                            <h4>社会运行论</h4>
+                            <p>社会良性运行的条件与机制，分析社会发展的客观规律。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">2</div>
+                            <h4>社会化</h4>
+                            <p>从生物人向社会人的转变，阐述个体社会化的过程与机制。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">3</div>
+                            <h4>社会群体</h4>
+                            <p>群体类型与组织结构，分析社会群体的形成与发展规律。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">4</div>
+                            <h4>社会制度</h4>
+                            <p>家庭、教育、宗教、经济等制度的结构与功能分析。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">5</div>
+                            <h4>社会分层</h4>
+                            <p>阶级、阶层与不平等的社会学分析框架。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">6</div>
+                            <h4>社会变迁</h4>
+                            <p>现代化、城市化、全球化的理论阐释与实践分析。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 当代中国社会阶层研究报告 -->
+            <div class="book-detail" id="book-当代中国社会阶层研究报告">
+                <div class="book-header">
+                    <h2 class="book-title">当代中国社会阶层研究报告</h2>
+                    <div class="book-meta">
+                        <span>👤 作者：陆学艺</span>
+                        <span>📅 2002年</span>
+                        <span>📚 社会科学文献出版社</span>
+                        <span>🌍 中国</span>
+                    </div>
+                    <p class="book-description">中国社会科学院社会学研究所陆学艺主编，基于大量社会调查数据，系统分析了中国社会阶层结构的变迁与现状。</p>
+                    <div class="book-impact"><strong>本书影响：</strong>标志着中国阶层研究从定性分析转向定量研究，为理解当代中国社会结构提供了重要框架。</div>
+                    <div class="tags"><span class="tag">社会学</span><span class="tag">阶层研究</span><span class="tag">社会分层</span></div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📊 十大社会阶层</h3>
+                    <table class="data-table">
+                        <tr><th>排序</th><th>阶层名称</th><th>主要特征</th><th>占有资源</th></tr>
+                        <tr><td>1</td><td>国家与社会管理者</td><td>党政机关干部</td><td>组织资源</td></tr>
+                        <tr><td>2</td><td>经理人员</td><td>企业中高层管理者</td><td>经济资源</td></tr>
+                        <tr><td>3</td><td>私营企业主</td><td>民营企业家</td><td>经济资源</td></tr>
+                        <tr><td>4</td><td>专业技术人员</td><td>教师、医生、工程师</td><td>文化资源</td></tr>
+                        <tr><td>5</td><td>办事人员</td><td>机关事业单位普通职员</td><td>组织资源</td></tr>
+                        <tr><td>6</td><td>个体工商户</td><td>小业主、小商贩</td><td>经济资源</td></tr>
+                        <tr><td>7</td><td>商业服务人员</td><td>服务员、保安等</td><td>较少</td></tr>
+                        <tr><td>8</td><td>产业工人</td><td>工厂工人</td><td>较少</td></tr>
+                        <tr><td>9</td><td>农业劳动者</td><td>从事农业的农民</td><td>较少</td></tr>
+                        <tr><td>10</td><td>城乡无业者</td><td>失业、半失业人员</td><td>极少</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">💬 核心名句</h3>
+                    <div class="quote-box">"当代中国社会正在发生深刻的社会分层和社会结构变迁。"</div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔧 五大社会等级</h3>
+                    <table class="data-table">
+                        <tr><th>等级</th><th>包含阶层</th><th>比例</th></tr>
+                        <tr><td>社会上层</td><td>国家管理者、经理、私企主上层</td><td>约5%</td></tr>
+                        <tr><td>中上层</td><td>专业技师、私企主中层</td><td>约10%</td></tr>
+                        <tr><td>中中层</td><td>办事人员、个体户、小管理者</td><td>约30%</td></tr>
+                        <tr><td>中下层</td><td>商业服务、产业工人</td><td>约35%</td></tr>
+                        <tr><td>底层</td><td>农业劳动者、无业者</td><td>约20%</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📌 核心要点</h3>
+                    <div class="core-points-grid">
+                        <div class="core-point-card">
+                            <div class="point-number">1</div>
+                            <h4>十大社会阶层</h4>
+                            <p>根据组织资源、经济资源、文化资源占有情况划分十大社会阶层。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">2</div>
+                            <h4>五大社会等级</h4>
+                            <p>按综合分层指标划分为社会上层、中上层、中中层、中下层、底层五个等级。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">3</div>
+                            <h4>阶层流动机制</h4>
+                            <p>教育、职业、代际流动等社会流动渠道的分析与研究。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">4</div>
+                            <h4>资源分布</h4>
+                            <p>组织资源、经济资源、文化资源的分布格局与配置机制。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">5</div>
+                            <h4>中产阶层</h4>
+                            <p>中产阶层的形成、扩大与社会稳定的关系。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">6</div>
+                            <h4>社会结构变迁</h4>
+                            <p>从"两个阶级一个阶层"到多元阶层结构的转变。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 当代中国社会分层 -->
+            <div class="book-detail" id="book-当代中国社会分层">
+                <div class="book-header">
+                    <h2 class="book-title">当代中国社会分层</h2>
+                    <div class="book-meta">
+                        <span>👤 作者：李强</span>
+                        <span>📅 2004年</span>
+                        <span>📚 高等教育出版社</span>
+                        <span>🌍 中国</span>
+                    </div>
+                    <p class="book-description">清华大学社会学系李强教授著，从社会分层视角分析中国社会转型期的阶层结构变化与不平等问题。</p>
+                    <div class="book-impact"><strong>本书影响：</strong>为理解中国社会分层机制提供了重要的理论框架和实证研究。</div>
+                    <div class="tags"><span class="tag">社会学</span><span class="tag">社会分层</span><span class="tag">不平等</span></div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📊 收入差距变化</h3>
+                    <table class="data-table">
+                        <tr><th>年份</th><th>基尼系数</th><th>城乡收入比</th><th>最高10%与最低10%比</th></tr>
+                        <tr><td>1978年</td><td>0.18</td><td>2.57:1</td><td>约3:1</td></tr>
+                        <tr><td>1990年</td><td>0.33</td><td>2.20:1</td><td>约4:1</td></tr>
+                        <tr><td>2000年</td><td>0.41</td><td>2.79:1</td><td>约8:1</td></tr>
+                        <tr><td>2010年</td><td>0.48</td><td>2.99:1</td><td>约13:1</td></tr>
+                        <tr><td>2020年</td><td>0.47</td><td>2.67:1</td><td>约10:1</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">💬 核心名句</h3>
+                    <div class="quote-box">"社会分层是社会不平等的制度化形式。"</div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔧 四大利益群体</h3>
+                    <table class="data-table">
+                        <tr><th>群体</th><th>特征</th><th>利益诉求</th></tr>
+                        <tr><td>精英群体</td><td>政治、经济、文化精英</td><td>维护既得利益</td></tr>
+                        <tr><td>中产群体</td><td>中产阶级</td><td>社会流动机会</td></tr>
+                        <tr><td>弱势群体</td><td>农民、失业者</td><td>基本生活保障</td></tr>
+                        <tr><td>边缘群体</td><td>流动人口、边缘人群</td><td>平等权利</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📌 核心要点</h3>
+                    <div class="core-points-grid">
+                        <div class="core-point-card">
+                            <div class="point-number">1</div>
+                            <h4>利益分化</h4>
+                            <p>改革过程中利益格局的重新分配与群体分化。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">2</div>
+                            <h4>阶层意识</h4>
+                            <p>各阶层的主观认同与客观阶层地位之间的关系。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">3</div>
+                            <h4>社会不平等</h4>
+                            <p>收入差距、教育不平等、职业分层等问题的制度分析。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">4</div>
+                            <h4>城乡二元</h4>
+                            <p>城乡分割的制度根源与打破路径。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">5</div>
+                            <h4>市场转型</h4>
+                            <p>从再分配体制到市场体制的社会分层变化。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">6</div>
+                            <h4>社会流动</h4>
+                            <p>代际流动、向上流动渠道与社会公平问题。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 乡镇治理与政府制度化 -->
+            <div class="book-detail" id="book-乡镇治理与政府制度化">
+                <div class="book-header">
+                    <h2 class="book-title">乡镇治理与政府制度化</h2>
+                    <div class="book-meta">
+                        <span>👤 作者：赵树凯</span>
+                        <span>📅 2018年</span>
+                        <span>📚 商务印书馆</span>
+                        <span>🌍 中国</span>
+                    </div>
+                    <p class="book-description">基于对20个乡镇的实地调研，深入分析了中国基层政府的低制度化问题，揭示了乡镇政府在财政、权力运行等方面的困境。</p>
+                    <div class="book-impact"><strong>本书影响：</strong>理解中国基层治理的重要著作，为基层治理改革提供了重要参考。</div>
+                    <div class="tags"><span class="tag">基层治理</span><span class="tag">农村研究</span><span class="tag">制度化</span></div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📊 乡镇财政状况</h3>
+                    <table class="data-table">
+                        <tr><th>指标</th><th>主要问题</th><th>影响</th></tr>
+                        <tr><td>财政收入</td><td>财源不足、依赖转移支付</td><td>财政困难</td></tr>
+                        <tr><td>财政支出</td><td>刚性支出多、人头费高</td><td>入不敷出</td></tr>
+                        <tr><td>债务</td><td>隐性债务、融资平台</td><td>债务风险</td></tr>
+                        <tr><td>体制</td><td>事权下放、财权上收</td><td>权责不对等</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">💬 核心名句</h3>
+                    <div class="quote-box">"基层政府的行为逻辑没有根本改变。"</div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔧 基层治理困境</h3>
+                    <table class="data-table">
+                        <tr><th>维度</th><th>问题表现</th><th>制度化程度</th></tr>
+                        <tr><td>权力运行</td><td>人情关系、选择性执法</td><td>低</td></tr>
+                        <tr><td>财政管理</td><td>预算外收支、挪用挤占</td><td>低</td></tr>
+                        <tr><td>人事管理</td><td>任人唯亲、编制混乱</td><td>中</td></tr>
+                        <tr><td>公共服务</td><td>供给不足、质量不高</td><td>低</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📌 核心要点</h3>
+                    <div class="core-points-grid">
+                        <div class="core-point-card">
+                            <div class="point-number">1</div>
+                            <h4>财政困局</h4>
+                            <p>乡镇财政赤字与债务问题，分析基层财政困难的根本原因。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">2</div>
+                            <h4>权力格局</h4>
+                            <p>上下级权力关系，揭示基层政府内部的权力运作机制。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">3</div>
+                            <h4>制度化</h4>
+                            <p>从人治向法治转型的挑战与路径，探索基层治理现代化。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">4</div>
+                            <h4>条块矛盾</h4>
+                            <p>乡镇政府与上级部门之间的权责不清问题。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">5</div>
+                            <h4>悬浮型政权</h4>
+                            <p>基层政府与群众关系疏离，服务功能弱化。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">6</div>
+                            <h4>治理创新</h4>
+                            <p>基层治理改革的方向与路径探索。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 公共管理学 -->
+            <div class="book-detail" id="book-公共管理学">
+                <div class="book-header">
+                    <h2 class="book-title">公共管理学</h2>
+                    <div class="book-meta">
+                        <span>👤 作者：张成福</span>
+                        <span>📅 2019年</span>
+                        <span>📚 中国人民大学出版社</span>
+                        <span>🌍 中国</span>
+                    </div>
+                    <p class="book-description">中国人民大学公共管理学院张成福教授著，系统介绍公共管理的理论、方法与实践，涵盖政府改革、公共服务等领域。</p>
+                    <div class="book-impact"><strong>本书影响：</strong>国内公共管理学领域核心教材，广泛用于 MPA 教学。</div>
+                    <div class="tags"><span class="tag">公共管理</span><span class="tag">行政管理</span><span class="tag">政府改革</span></div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📚 全书框架</h3>
+                    <table class="chapter-table">
+                        <tr><th>篇目</th><th>主要内容</th></tr>
+                        <tr><td>导论</td><td>公共管理的概念与发展</td></tr>
+                        <tr><td>公共组织</td><td>政府组织的结构与设计</td></tr>
+                        <tr><td>公共领导</td><td>领导理论与艺术</td></tr>
+                        <tr><td>公共决策</td><td>决策理论与程序</td></tr>
+                        <tr><td>公共政策</td><td>政策制定与执行</td></tr>
+                        <tr><td>公共服务</td><td>服务供给与民营化</td></tr>
+                        <tr><td>公共财政</td><td>预算与管理</td></tr>
+                        <tr><td>政府改革</td><td>新公共管理改革</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">💬 核心名句</h3>
+                    <div class="quote-box">"公共管理是以政府为核心的公共部门依法运用公共权力管理社会公共事务的过程。"</div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔧 公共物品供给方式</h3>
+                    <table class="data-table">
+                        <tr><th>类型</th><th>特点</th><th>供给方式</th><th>典型例子</th></tr>
+                        <tr><td>纯公共物品</td><td>非竞争性、非排他性</td><td>政府直接提供</td><td>国防、公共安全</td></tr>
+                        <tr><td>准公共物品</td><td>部分竞争或排他</td><td>政府与市场合作</td><td>教育、医疗</td></tr>
+                        <tr><td>公共资源</td><td>竞争性、非排他性</td><td>政府管制</td><td>公共自然资源</td></tr>
+                        <tr><td>私人物品</td><td>竞争性、排他性</td><td>市场提供</td><td>一般商品</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📌 核心要点</h3>
+                    <div class="core-points-grid">
+                        <div class="core-point-card">
+                            <div class="point-number">1</div>
+                            <h4>公共行政</h4>
+                            <p>公共行政的原理、组织、人事与决策等基本理论。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">2</div>
+                            <h4>公共政策</h4>
+                            <p>公共政策的制定、执行与评估过程与方法。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">3</div>
+                            <h4>公共服务</h4>
+                            <p>公共服务的供给机制、绩效管理与民营化改革。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">4</div>
+                            <h4>公共财政</h4>
+                            <p>公共预算、税收与财政支出的管理理论与实践。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">5</div>
+                            <h4>政府改革</h4>
+                            <p>新公共管理运动、电子政务与服务型政府建设。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">6</div>
+                            <h4>绩效管理</h4>
+                            <p>政府绩效评估、目标管理与结果导向。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 行政法与行政诉讼法 -->
+            <div class="book-detail" id="book-行政法与行政诉讼法">
+                <div class="book-header">
+                    <h2 class="book-title">行政法与行政诉讼法</h2>
+                    <div class="book-meta">
+                        <span>👤 作者：姜明安</span>
+                        <span>📅 2021年</span>
+                        <span>📚 北京大学出版社</span>
+                        <span>🌍 中国</span>
+                    </div>
+                    <p class="book-description">北京大学法学院姜明安教授著，行政法学领域权威教材，系统阐述行政法基本原则、行政主体、行政行为等核心内容。</p>
+                    <div class="book-impact"><strong>本书影响：</strong>国内行政法学经典教材，法学院必读数目。</div>
+                    <div class="tags"><span class="tag">行政法</span><span class="tag">法学</span><span class="tag">行政诉讼</span></div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📚 全书结构</h3>
+                    <table class="chapter-table">
+                        <tr><th>篇目</th><th>主要内容</th></tr>
+                        <tr><td>行政法基础理论</td><td>行政法的概念、渊源与基本原则</td></tr>
+                        <tr><td>行政主体</td><td>行政机关、公务员、法律授权组织</td></tr>
+                        <tr><td>行政行为</td><td>抽象与具体行政行为</td></tr>
+                        <tr><td>行政程序</td><td>正当程序与法定程序</td></tr>
+                        <tr><td>行政复议</td><td>行政复议制度与程序</td></tr>
+                        <tr><td>行政诉讼</td><td>受案范围、管辖、审理与判决</td></tr>
+                        <tr><td>行政赔偿</td><td>国家赔偿法与赔偿程序</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">💬 核心名句</h3>
+                    <div class="quote-box">"行政法是调整行政关系的法，其核心是规范和控制行政权。"</div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔧 行政行为分类</h3>
+                    <table class="data-table">
+                        <tr><th>分类标准</th><th>类型</th><th>法律效果</th></tr>
+                        <tr><td>对象</td><td>抽象行政行为</td><td>制定规章、规范性文件</td></tr>
+                        <tr><td>对象</td><td>具体行政行为</td><td>针对特定人、事</td></tr>
+                        <tr><td>职权</td><td>羁束行政行为</td><td>严格依法执行</td></tr>
+                        <tr><td>职权</td><td>裁量行政行为</td><td>一定自由裁量权</td></tr>
+                        <tr><td>处分性</td><td>授益行政行为</td><td>赋予权益</td></tr>
+                        <tr><td>处分性</td><td>负担行政行为</td><td>课以义务</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📊 行政救济渠道</h3>
+                    <table class="data-table">
+                        <tr><th>类型</th><th>受理机关</th><th>时效</th><th>审查标准</th></tr>
+                        <tr><td>行政复议</td><td>上级行政机关</td><td>60日</td><td>合法性与合理性</td></tr>
+                        <tr><td>行政诉讼</td><td>人民法院</td><td>6个月</td><td>合法性审查</td></tr>
+                        <tr><td>行政赔偿</td><td>赔偿义务机关/法院</td><td>2年</td><td>违法责任</td></tr>
+                        <tr><td>信访</td><td>各级政府</td><td>60日</td><td>情况核实</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📌 核心要点</h3>
+                    <div class="core-points-grid">
+                        <div class="core-point-card">
+                            <div class="point-number">1</div>
+                            <h4>行政法原则</h4>
+                            <p>合法行政、合理行政、程序正当、诚实守信等基本原则。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">2</div>
+                            <h4>行政行为</h4>
+                            <p>抽象行政行为与具体行政行为的类型与效力。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">3</div>
+                            <h4>行政救济</h4>
+                            <p>行政复议、行政诉讼、行政赔偿等救济途径与程序。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">4</div>
+                            <h4>行政程序</h4>
+                            <p>正当程序原则、告知、说明理由、听证等制度。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">5</div>
+                            <h4>行政主体</h4>
+                            <p>行政机关、授权组织与委托机关的法律地位。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">6</div>
+                            <h4>国家赔偿</h4>
+                            <p>行政赔偿的范围、标准与程序。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <script>
-var booksData = {
-  "categories": [
-    {
-      "id": "economics",
-      "name": "经济政治",
-      "children": [
-        {
-          "id": "china-development",
-          "name": "置身事内：中国政府与经济发展",
-          "author": "兰小欢",
-          "year": "2021",
-          "country": "中国",
-          "description": "复旦大学经济学院副教授兰小欢多年教学与研究内容的凝练，将经济学原理与中国经济发展的实践有机融合，以地方政府投融资为主线，深入浅出地论述了中国经济的发展。",
-          "impact": "帮助读者理解中国政治经济体系的运作方式，指出中国政府通过深度介入工业化和城市化的进程，在发展经济的同时逐步推动了市场机制的建立和完善。",
-          "tags": ["经济学", "政府治理", "中国发展"],
-          "quotes": [
-            "在我国，政府不但影响'蛋糕'的分配，也参与'蛋糕'的生产，所以我们不可能脱离政府谈经济。",
-            "社会进程本是整体，密不可分。所谓经济，不过是研究者从这洪流中人工提炼出的部分事实。",
-            "要想真正认识复杂的经济现象，必须极力避免政府和市场的二分法。"
-          ],
-          "structure": {
-            "chapters": [
-              {"name": "上篇：微观机制", "content": "地方政府的基本事务、收支、土地融资和开发、投资和债务"},
-              {"name": "下篇：宏观现象", "content": "城市化、工业化、房价、地区差异、债务风险、国内经济结构失衡、国际贸易冲突"},
-              {"name": "总结", "content": "提炼和全书内容要点"}
-            ]
-          },
-          "corePoints": [
-            {"title": "政府与市场关系", "content": "不能脱离政府谈经济，政府深度参与蛋糕生产与分配"},
-            {"title": "分税制改革", "content": "1994年分税制导致土地财政和土地金融诞生"},
-            {"title": "土地金融", "content": "地方政府通过土地抵押融资推动城市化工业化"},
-            {"title": "政府投资模式", "content": "政府主导投资带动经济发展，形成地方债务"},
-            {"title": "城市化特点", "content": "重土地、轻人，推高房价，加重居民债务"},
-            {"title": "工业化特点", "content": "重规模、重扩张，加速企业成长，加重债务风险"},
-            {"title": "供给侧改革", "content": "去杠杆、防风险，推进市场化改革"},
-            {"title": "双循环战略", "content": "扩大内需，对外开放，应对国际贸易冲突"}
-          ],
-          "governmentStructure": {
-            "levels": [
-              {"level": "中央", "role": "重大决策、统一领导", "count": "1"},
-              {"level": "省", "role": "区域统筹、政策执行", "count": "34"},
-              {"level": "市", "role": "城市管理、承上启下", "count": "333"},
-              {"level": "县区", "role": "县域治理、公共服务", "count": "2844"},
-              {"level": "乡镇", "role": "基层治理、具体执行", "count": "38736"}
-            ],
-            "principles": [
-              {"name": "外部性原则", "content": "由影响范围最大的层级负责"},
-              {"name": "信息复杂性原则", "content": "信息复杂的事项由信息优势方负责"},
-              {"name": "激励相容原则", "content": "让各方的利益与目标一致"}
-            ]
-          },
-          "fiscalDistribution": {
-            "taxDistribution": [
-              {"tax": "增值税", "central": "50%", "local": "50%"},
-              {"tax": "消费税", "central": "100%", "local": "0%"},
-              {"tax": "企业所得税", "central": "60%", "local": "40%"},
-              {"tax": "个人所得税", "central": "60%", "local": "40%"},
-              {"tax": "土地出让金", "central": "0%", "local": "100%"}
-            ],
-            "mismatch": "事权下放但财权上收，导致地方财政缺口"
-          },
-          "developmentLogic": {
-            "landFinance": [
-              {"step": "1. 低价征地", "description": "从农村征收集体土地转为国有"},
-              {"step": "2. 土地平整", "description": "进行基础设施建设"},
-              {"step": "3. 高价出让", "description": "出让土地使用权给开发商"},
-              {"step": "4. 循环投入", "description": "用出让金继续投资建设"}
-            ],
-            "characteristics": [
-              {"name": "重土地", "description": "重视土地开发和城市建设"},
-              {"name": "轻人", "description": "相对忽视人口市民化和公共服务"},
-              {"name": "重投资", "description": "依靠政府投资拉动增长"},
-              {"name": "重规模", "description": "追求GDP规模和增速"}
-            ]
-          },
-          "officialEvaluation": {
-            "kpi": [
-              {"metric": "GDP增长率", "weight": "高", "period": "任期 内"},
-              {"metric": "招商引资", "weight": "高", "period": "年度考核"},
-              {"metric": "财政收入", "weight": "中", "period": "年度考核"},
-              {"metric": "社会稳定", "weight": "中", "period": "任期考核"},
-              {"metric": "环境保护", "weight": "上升中", "period": "近年强化"}
-            ],
-            "promotion": [
-              {"system": "锦标赛制", "description": "官员晋升取决于相对GDP排名"},
-              {"feature": "纵向竞争", "description": "下级政府的表现影响上级考核"},
-              {"feature": "横向竞争", "description": "同级政府间GDP竞赛"},
-              {"issue": "问题", "description": "可能导致过度投资、资源浪费"}
-            ]
-          },
-          "data": {
-            "fiscalSystem": [
-              {"year": "1994", "event": "分税制改革", "impact": "中央财政占比提升，地方收入减少"},
-              {"year": "1998", "event": "住房制度改革", "impact": "房地产市场化启动"},
-              {"year": "2001", "event": "加入WTO", "impact": "出口驱动型经济增长"},
-              {"year": "2008", "event": "四万亿刺激", "impact": "政府投资大幅扩张"},
-              {"year": "2015", "event": "供给侧结构性改革", "content": "去杠杆、去产能、去库存"},
-              {"year": "2020", "event": "双循环战略", "content": "扩大内需为主，内外需结合"}
-            ],
-            "landFinance": [
-              {"source": "土地使用权出让", "description": "土地出让金是地方政府重要收入", "ratio": "约30-50%"},
-              {"source": "土地抵押融资", "description": "通过土地抵押获取银行贷款", "scale": "数十万亿"},
-              {"source": "城投债", "description": "地方政府融资平台发行债券", "scale": "持续增长"}
-            ],
-            "urbanization": [
-              {"metric": "2000年城镇化率", "value": "36%"},
-              {"metric": "2020年城镇化率", "value": "63.9%"},
-              {"metric": "年均提升", "value": "约1.4个百分点"}
-            ],
-            "debtRisk": [
-              {"type": "地方政府显性债务", "scale": "约30万亿"},
-              {"type": "地方政府隐性债务", "scale": "估计40-50万亿"},
-              {"type": "债务风险防范", "measure": "严控新增债务，化解存量风险"}
-            ]
-          },
-          {
-            "id": "class-analysis",
-            "name": "中国社会各阶级的分析",
-            "author": "毛泽东",
-            "year": "1925",
-            "country": "中国",
-            "description": "毛泽东于1925年撰写的重要文章，是毛泽东思想的奠基之作。文章开篇即提出'谁是我们的敌人？谁是我们的朋友？'这一革命的首要问题，通过对中国社会各阶级的经济地位和政治态度的分析，确定了革命的对象、动力和领导力量。",
-            "impact": "为中国革命指明了方向，是中国共产党在大革命时期的指导思想，影响了整个中国近现代史的进程。",
-            "tags": ["政治", "阶级分析", "革命"],
-            "quotes": [
-              "谁是我们的敌人？谁是我们的朋友？这是革命的首要问题。",
-              "中国过去一切革命斗争成效甚少，其基本原因就是因为不能团结真正的朋友，以攻击真正的敌人。",
-              "革命党是群众的向导，在革命中未有革命党领错了路而革命不失败的。"
-            ],
-            "corePoints": [
-              {"title": "阶级划分标准", "content": "以经济地位为基础划分地主阶级、买办阶级、中产阶级、小资产阶级、半无产阶级、无产阶级"},
-              {"title": "敌人", "content": "地主阶级和买办阶级是帝国主义走狗，是革命的对象"},
-              {"title": "朋友", "content": "工人、农民、小资产阶级和民族资产阶级左翼是革命的朋友"},
-              {"title": "领导力量", "content": "无产阶级是革命的领导力量"}
-            ],
-            "classAnalysis": {
-              "classes": [
-                {"class": "地主阶级&买办阶级", "status": "反革命", "reason": "依附帝国主义，维护旧秩序"},
-                {"class": "中产阶级", "status": "动摇", "reason": "既有革命要求又有妥协性"},
-                {"class": "小资产阶级", "status": "革命同盟军", "reason": "自给自足但具有动摇性"},
-                {"class": "半无产阶级", "status": "革命主力军", "reason": "生活困苦，反抗意识强"},
-                {"class": "无产阶级", "status": "领导阶级", "reason": "最具组织性和革命彻底性"}
-              ]
-            }
-          },
-          {
-            "id": "government-politics",
-            "name": "中国政府与政治",
-            "author": "景跃进等",
-            "year": "2020",
-            "country": "中国",
-            "description": "由清华大学、复旦大学等高校学者联合编写的政治学教材，系统阐述当代中国政府与政治的组织原理、基本结构、运行机制及历史发展。",
-            "impact": "是国内政治学领域的重要教材，帮助学生理解中国政治制度和治理体系。",
-            "tags": ["政治学", "教材", "制度"],
-            "quotes": [
-              "中国共产党领导是中国特色社会主义最本质的特征。",
-              "人民代表大会制度是我国的根本政治制度。"
-            ],
-            "corePoints": [
-              {"title": "党政体制", "content": "理解中国政府与政治的核心在于把握党政体制"},
-              {"title": "横向结构", "content": "人大、政协、政府、法院、检察院等"},
-              {"title": "纵向关系", "content": "中央与地方关系、民族区域自治、基层治理"},
-              {"title": "国家与社会", "content": "群众与公民视角下的国家社会关系变迁"}
-            ]
-          },
-          {
-            "id": "public-policy",
-            "name": "公共政策分析",
-            "author": "陈庆云",
-            "year": "2011",
-            "country": "中国",
-            "description": "北京大学陈庆云教授编写的公共管理专业教材，系统阐述公共政策分析的基本概念、原理及模型分析方法。",
-            "impact": "被多所高校选定为公共管理学考研考博参考书目，是国内公共政策领域的经典教材。",
-            "tags": ["公共管理", "政策分析", "教材"],
-            "quotes": [
-              "公共政策是政府对社会公共事务的管理手段。"
-            ],
-            "corePoints": [
-              {"title": "政策系统", "content": "政策主体、客体、环境、工具"},
-              {"title": "政策过程", "content": "问题界定、方案制定、执行、评估、终结"},
-              {"title": "政策分析", "content": "事实分析、价值分析、规范分析、可行性分析"}
-            ]
-          },
-          {
-            "id": "governing-china",
-            "name": "治理中国：从革命到改革",
-            "author": "李侃如",
-            "year": "2010",
-            "country": "美国",
-            "description": "美国著名中国问题专家李侃如的代表作，从美国学者的视角系统分析中国社会变革、政府管理体系和经济发展，是继费正清《美国与中国》之后的又一部重要学术著作。",
-            "impact": "反映了西方中国学研究的水平，是目前美国使用最广泛的介绍中国政治的教科书。",
-            "tags": ["政治学", "中国研究", "外国学者"],
-            "quotes": [
-              "治理是一个集理念、过程和目标三者并重的概念。"
-            ],
-            "corePoints": [
-              {"title": "历史遗产", "content": "中华帝国的遗产与式微、儒家思想、清朝衰落"},
-              {"title": "革命道路", "content": "毛泽东思想、文化大革命、改革开放"},
-              {"title": "政府机构", "content": "中央政府、县、乡等层级管理体系"},
-              {"title": "当代挑战", "content": "经济发展与环境保护的平衡"}
-            ]
-          },
-          {
-            "id": "sociology-intro",
-            "name": "社会学概论新修",
-            "author": "郑杭生",
-            "year": "2019",
-            "country": "中国",
-            "description": "中国人民大学郑杭生教授主编的社会学入门教材，贯彻社会学中国化的学术取向，以社会运行论为理论主线，是国内社会学领域最权威的教材之一。",
-            "impact": "获首届全国教材建设奖全国优秀教材一等奖，是国内社会学课程的经典教材。",
-            "tags": ["社会学", "教材", "理论"],
-            "quotes": [
-              "社会学是关于社会良性运行和协调发展的条件和机制的综合性具体社会科学。"
-            ],
-            "corePoints": [
-              {"title": "社会运行论", "content": "社会良性运行和协调发展的条件与机制"},
-              {"title": "社会转型论", "content": "从传统社会向现代社会转型的过程"},
-              {"title": "社会化", "content": "从生物人向社会人的转变过程"},
-              {"title": "社会群体与组织", "content": "群体类型、组织结构与运行机制"},
-              {"title": "社会制度与分层", "content": "制度功能、社会分层与社会流动"}
-            ]
-          },
-          {
-            "id": "rural-governance",
-            "name": "乡镇治理与政府制度化",
-            "author": "赵树凯",
-            "year": "2018",
-            "country": "中国",
-            "description": "国务院发展研究中心赵树凯基于20个乡镇的实地调研，分析基层政府的低制度化问题，是研究中国乡镇治理的经典著作。",
-            "impact": "开创了中国政府研究的新路径，是理解中国基层治理的重要学术作品。",
-            "tags": ["基层治理", "政府改革", "农村研究"],
-            "quotes": [
-              "基层政府的制度环境没有改变，基层政府的行为逻辑也没有改变。"
-            ],
-            "corePoints": [
-              {"title": "财政困局", "content": "乡镇财政赤字与债务危机"},
-              {"title": "权力格局", "content": "上下级之间的权力关系与问责体系"},
-              {"title": "公共服务", "content": "乡镇政府公共服务供给与冲突控制"},
-              {"title": "制度化路径", "content": "从人治向法治转型的方向"}
-            ]
-          },
-          {
-            "id": "big-country-big-city",
-            "name": "大国大城：当代中国的统一、发展与平衡",
-            "author": "陆铭",
-            "year": "2016",
-            "country": "中国",
-            "description": "上海交通大学陆铭教授聚焦中国城市化进程中的城乡经济结构性矛盾，主张发展大城市是解决城市病的根本之道，获第十二届文津图书奖。",
-            "impact": "为理解中国城市化路径提供了重要视角，对政策制定产生了积极影响。",
-            "tags": ["经济学", "城市化", "区域发展"],
-            "quotes": [
-              "只有聚集中经济发展才能走向均衡。",
-              "限制户籍解决不了城市病，让农民工返乡治愈不了乡村隐痛。"
-            ],
-            "corePoints": [
-              {"title": "三个D", "content": "密度(Density)、距离(Distance)、分割(Division)"},
-              {"title": "空间误解", "content": "纠正关于城市规模的不正确认识"},
-              {"title": "自由移民", "content": "实现地区间人均GDP均衡的唯一可行路径"},
-              {"title": "人均GDP均衡", "content": "以人均GDP均衡替代区域GDP总量均衡"}
-            ]
-          }
-        ]
-      }
-    ]
-  ]
-};
-var allBooks = [];
-
-document.addEventListener('DOMContentLoaded', function() {
-    loadBooksData();
-    initializeEventListeners();
-});
-
-function loadBooksData() {
-    allBooks = collectAllBooks(booksData.categories);
-    updateBookCount();
-    renderTreeNav(booksData.categories);
-}
-
-function collectAllBooks(categories) {
-    var books = [];
-    
-    function traverse(items) {
-        items.forEach(function(item) {
-            if (item.author && item.description) {
-                books.push(item);
-            }
-            if (item.children) {
-                traverse(item.children);
-            }
-        });
-    }
-    
-    traverse(categories);
-    return books;
-}
-
-function updateBookCount() {
-    document.getElementById('bookCount').textContent = allBooks.length;
-}
-
-function renderTreeNav(categories, parentElement, level) {
-    if (!parentElement) {
-        parentElement = document.getElementById('treeNav');
-        parentElement.innerHTML = '';
-    }
-    
-    categories.forEach(function(item) {
-        var isBook = item.author && item.description;
-        var hasChildren = item.children && item.children.length > 0;
-        
-        var treeItem = document.createElement('div');
-        treeItem.className = 'tree-item';
-        treeItem.dataset.id = item.id;
-        treeItem.dataset.name = item.name.toLowerCase();
-        
-        var itemContent = document.createElement('div');
-        itemContent.className = 'tree-item-content';
-        
-        if (hasChildren) {
-            var toggleIcon = document.createElement('span');
-            toggleIcon.className = 'tree-toggle';
-            toggleIcon.textContent = '>';
-            itemContent.appendChild(toggleIcon);
-        } else {
-            var spacer = document.createElement('span');
-            spacer.style.width = '16px';
-            spacer.style.display = 'inline-block';
-            itemContent.appendChild(spacer);
-        }
-        
-        var icon = document.createElement('span');
-        icon.className = 'tree-icon';
-        icon.textContent = isBook ? '&#x1F4D6;' : '&#x1F4C1;';
-        itemContent.appendChild(icon);
-        
-        var text = document.createElement('span');
-        text.className = 'tree-text';
-        text.textContent = item.name;
-        itemContent.appendChild(text);
-        
-        if (isBook && item.tags) {
-            var badge = document.createElement('span');
-            badge.className = 'badge tree-badge';
-            badge.textContent = item.tags[0] || '经典';
-            itemContent.appendChild(badge);
-        }
-        
-        treeItem.appendChild(itemContent);
-        parentElement.appendChild(treeItem);
-        
-        if (hasChildren) {
-            var childrenContainer = document.createElement('div');
-            childrenContainer.className = 'tree-children';
-            renderTreeNav(item.children, childrenContainer, level + 1);
-            treeItem.appendChild(childrenContainer);
-            
-            itemContent.addEventListener('click', function(e) {
-                e.stopPropagation();
-                var toggleIcon = this.querySelector('.tree-toggle');
-                toggleIcon.classList.toggle('rotated');
-                childrenContainer.classList.toggle('expanded');
+        function showBook(bookId) {
+            document.getElementById('welcomeSection').style.display = 'none';
+            document.querySelectorAll('.book-detail').forEach(function(el) {
+                el.classList.remove('active');
             });
-        }
-        
-        if (isBook) {
-            itemContent.addEventListener('click', function(e) {
-                e.stopPropagation();
-                showBookDetail(item);
-                
-                document.querySelectorAll('.tree-item-content').forEach(function(el) {
-                    el.classList.remove('active');
-                });
-                this.classList.add('active');
-                
-                if (window.innerWidth < 992) {
-                    closeSidebar();
-                }
+            document.getElementById('book-' + bookId).classList.add('active');
+            document.querySelectorAll('.tree-item-content').forEach(function(el) {
+                el.classList.remove('active');
             });
-        }
-    });
-}
-
-function showBookDetail(book) {
-    document.getElementById('welcomeSection').classList.add('hidden');
-    document.getElementById('bookDetail').classList.remove('hidden');
-    
-    document.getElementById('bookTitle').textContent = book.name;
-    document.getElementById('bookAuthor').textContent = book.author;
-    document.getElementById('bookYear').textContent = book.year;
-    document.getElementById('bookCountry').textContent = book.country;
-    document.getElementById('bookDescription').textContent = book.description;
-    document.getElementById('bookImpact').textContent = book.impact;
-    
-    var tagsContainer = document.getElementById('bookTags');
-    tagsContainer.innerHTML = '';
-    if (book.tags) {
-        book.tags.forEach(function(tag) {
-            var badge = document.createElement('span');
-            badge.className = 'badge';
-            badge.textContent = tag;
-            tagsContainer.appendChild(badge);
-        });
-    }
-    
-    var quotesContainer = document.getElementById('bookQuotes');
-    quotesContainer.innerHTML = '';
-    if (book.quotes) {
-        book.quotes.forEach(function(quote) {
-            var quoteItem = document.createElement('div');
-            quoteItem.className = 'quote-item';
-            quoteItem.textContent = quote;
-            quotesContainer.appendChild(quoteItem);
-        });
-    }
-    
-    renderCharts(book);
-    
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function renderCharts(book) {
-    renderCorePoints(book.corePoints);
-    renderChapterTable(book.structure);
-    
-    if (book.governmentStructure) {
-        document.getElementById('governmentStructureChart').parentElement.style.display = 'block';
-        renderGovernmentStructure(book.governmentStructure);
-    } else {
-        document.getElementById('governmentStructureChart').parentElement.style.display = 'none';
-    }
-    
-    if (book.fiscalDistribution) {
-        document.getElementById('fiscalDistributionChart').parentElement.style.display = 'block';
-        renderFiscalDistribution(book.fiscalDistribution);
-    } else {
-        document.getElementById('fiscalDistributionChart').parentElement.style.display = 'none';
-    }
-    
-    if (book.developmentLogic) {
-        document.getElementById('developmentLogicChart').parentElement.style.display = 'block';
-        renderDevelopmentLogic(book.developmentLogic);
-    } else {
-        document.getElementById('developmentLogicChart').parentElement.style.display = 'none';
-    }
-    
-    if (book.officialEvaluation) {
-        document.getElementById('officialEvaluationChart').parentElement.style.display = 'block';
-        renderOfficialEvaluation(book.officialEvaluation);
-    } else {
-        document.getElementById('officialEvaluationChart').parentElement.style.display = 'none';
-    }
-    
-    if (book.data && book.data.urbanization) {
-        document.getElementById('dataCharts').parentElement.style.display = 'block';
-        renderDataCharts(book.data);
-    } else {
-        document.getElementById('dataCharts').parentElement.style.display = 'none';
-    }
-    
-    if (book.data && book.data.fiscalSystem) {
-        document.getElementById('timelineChart').parentElement.style.display = 'block';
-        renderTimeline(book.data.fiscalSystem);
-    } else {
-        document.getElementById('timelineChart').parentElement.style.display = 'none';
-    }
-    
-    if (book.data && book.data.landFinance) {
-        document.getElementById('landFinanceTable').parentElement.style.display = 'block';
-        renderLandFinanceTable(book.data.landFinance);
-    } else {
-        document.getElementById('landFinanceTable').parentElement.style.display = 'none';
-    }
-    
-    if (book.data && book.data.debtRisk) {
-        document.getElementById('debtTable').parentElement.style.display = 'block';
-        renderDebtTable(book.data.debtRisk);
-    } else {
-        document.getElementById('debtTable').parentElement.style.display = 'none';
-    }
-}
-
-function renderCorePoints(corePoints) {
-    var container = document.getElementById('corePointsChart');
-    if (!corePoints) {
-        container.innerHTML = '';
-        return;
-    }
-    
-    var grid = document.createElement('div');
-    grid.className = 'core-points-grid';
-    
-    corePoints.forEach(function(point, index) {
-        var card = document.createElement('div');
-        card.className = 'core-point-card';
-        card.innerHTML = '<div class="point-number">' + (index + 1) + '</div><h4>' + point.title + '</h4><p>' + point.content + '</p>';
-        grid.appendChild(card);
-    });
-    
-    container.innerHTML = '';
-    container.appendChild(grid);
-}
-
-function renderChapterTable(structure) {
-    var tbody = document.querySelector('#chapterTable tbody');
-    if (!structure || !structure.chapters) {
-        tbody.innerHTML = '';
-        return;
-    }
-    
-    tbody.innerHTML = structure.chapters.map(function(ch) {
-        return '<tr><td><strong>' + ch.name + '</strong></td><td>' + ch.content + '</td></tr>';
-    }).join('');
-}
-
-function renderGovernmentStructure(gs) {
-    var container = document.getElementById('governmentStructureChart');
-    if (!gs || !gs.levels) {
-        container.innerHTML = '';
-        return;
-    }
-    
-    var html = '<div class="table-responsive"><table class="data-table"><thead><tr><th>层级</th><th>数量</th><th>主要职能</th></tr></thead><tbody>';
-    gs.levels.forEach(function(l) {
-        html += '<tr><td><strong>' + l.level + '</strong></td><td>' + l.count + '</td><td>' + l.role + '</td></tr>';
-    });
-    html += '</tbody></table></div>';
-    
-    html += '<h4 style="margin:20px 0 10px">事权划分三原则</h4><div class="core-points-grid">';
-    gs.principles.forEach(function(p, i) {
-        html += '<div class="core-point-card"><div class="point-number">' + (i+1) + '</div><h4>' + p.name + '</h4><p>' + p.content + '</p></div>';
-    });
-    html += '</div>';
-    
-    container.innerHTML = html;
-}
-
-function renderFiscalDistribution(fd) {
-    var container = document.getElementById('fiscalDistributionChart');
-    if (!fd || !fd.taxDistribution) {
-        container.innerHTML = '';
-        return;
-    }
-    
-    var html = '<div class="table-responsive"><table class="data-table"><thead><tr><th>税种</th><th>中央</th><th>地方</th></tr></thead><tbody>';
-    fd.taxDistribution.forEach(function(t) {
-        html += '<tr><td><strong>' + t.tax + '</strong></td><td>' + t.central + '</td><td>' + t.local + '</td></tr>';
-    });
-    html += '</tbody></table></div>';
-    html += '<p style="margin-top:15px;color:var(--text-secondary);"><strong>核心问题：</strong>' + fd.mismatch + '</p>';
-    
-    container.innerHTML = html;
-}
-
-function renderDevelopmentLogic(dl) {
-    var container = document.getElementById('developmentLogicChart');
-    if (!dl || !dl.landFinance) {
-        container.innerHTML = '';
-        return;
-    }
-    
-    var html = '<h4>土地财政四步曲</h4><div class="core-points-grid">';
-    dl.landFinance.forEach(function(l, i) {
-        html += '<div class="core-point-card"><div class="point-number">' + l.step + '</div><h4>' + l.description + '</h4></div>';
-    });
-    html += '</div>';
-    
-    html += '<h4 style="margin:20px 0 10px">发展模式特点</h4><div class="core-points-grid">';
-    dl.characteristics.forEach(function(c) {
-        html += '<div class="core-point-card" style="border-left-color:var(--accent-color)"><h4>' + c.name + '</h4><p>' + c.description + '</p></div>';
-    });
-    html += '</div>';
-    
-    container.innerHTML = html;
-}
-
-function renderOfficialEvaluation(oe) {
-    var container = document.getElementById('officialEvaluationChart');
-    if (!oe || !oe.kpi) {
-        container.innerHTML = '';
-        return;
-    }
-    
-    var html = '<div class="table-responsive"><table class="data-table"><thead><tr><th>考核指标</th><th>权重</th><th>考核周期</th></tr></thead><tbody>';
-    oe.kpi.forEach(function(k) {
-        html += '<tr><td><strong>' + k.metric + '</strong></td><td>' + k.weight + '</td><td>' + k.period + '</td></tr>';
-    });
-    html += '</tbody></table></div>';
-    
-    html += '<h4 style="margin:20px 0 10px">晋升机制</h4><div class="core-points-grid">';
-    if (oe.promotion) {
-        html += '<div class="core-point-card"><div class="point-number">制</div><h4>' + oe.promotion.system + '</h4><p>' + oe.promotion.description + '</p></div>';
-        oe.promotion.feature.split('；').forEach(function(f, i) {
-            html += '<div class="core-point-card"><div class="point-number">' + (i+1) + '</div><p>' + f + '</p></div>';
-        });
-        if (oe.promotion.issue) {
-            html += '<div class="core-point-card" style="border-left-color:#dc3545"><div class="point-number" style="background:#dc3545">!</div><p><strong>' + oe.promotion.issue + '：</strong>' + oe.promotion.description + '</p></div>';
-        }
-    }
-    html += '</div>';
-    
-    container.innerHTML = html;
-}
-
-function renderDataCharts(data) {
-    var container = document.getElementById('dataCharts');
-    if (!data || !data.urbanization) {
-        container.innerHTML = '';
-        return;
-    }
-    
-    var html = '<div class="chart-card"><h4><span>&#x1F3E0;</span> 城镇化率变化</h4><div class="simple-chart">';
-    
-    if (data.urbanization[0]) {
-        html += '<div class="bar-item"><span class="bar-label">' + data.urbanization[0].metric + '</span><div class="bar-wrapper"><div class="bar" style="width: ' + parseInt(data.urbanization[0].value) + '%">' + data.urbanization[0].value + '</div></div></div>';
-    }
-    if (data.urbanization[1]) {
-        html += '<div class="bar-item"><span class="bar-label">' + data.urbanization[1].metric + '</span><div class="bar-wrapper"><div class="bar" style="width: ' + parseInt(data.urbanization[1].value) + '%">' + data.urbanization[1].value + '</div></div></div>';
-    }
-    if (data.urbanization[2]) {
-        html += '<div class="bar-item"><span class="bar-label">' + data.urbanization[2].metric + '</span><div class="bar-wrapper"><div class="bar accent" style="width: 30%">' + data.urbanization[2].value + '</div></div></div>';
-    }
-    
-    html += '</div></div>';
-    container.innerHTML = html;
-}
-
-function renderTimeline(fiscalSystem) {
-    var container = document.getElementById('timelineChart');
-    if (!fiscalSystem) {
-        container.innerHTML = '';
-        return;
-    }
-    
-    var timeline = document.createElement('div');
-    timeline.className = 'timeline-container';
-    
-    fiscalSystem.forEach(function(item) {
-        var itemEl = document.createElement('div');
-        itemEl.className = 'timeline-item';
-        itemEl.innerHTML = '<div class="timeline-year">' + item.year + '</div><div class="timeline-content"><h5>' + item.event + '</h5><p>' + (item.impact || item.content) + '</p></div>';
-        timeline.appendChild(itemEl);
-    });
-    
-    container.innerHTML = '';
-    container.appendChild(timeline);
-}
-
-function renderLandFinanceTable(landFinance) {
-    var tbody = document.querySelector('#landFinanceTable tbody');
-    if (!landFinance) {
-        tbody.innerHTML = '';
-        return;
-    }
-    
-    tbody.innerHTML = landFinance.map(function(item) {
-        return '<tr><td><strong>' + item.source + '</strong></td><td>' + item.description + '</td><td><span class="badge-warning">' + (item.ratio || item.scale) + '</span></td></tr>';
-    }).join('');
-}
-
-function renderDebtTable(debtRisk) {
-    var tbody = document.querySelector('#debtTable tbody');
-    if (!debtRisk) {
-        tbody.innerHTML = '';
-        return;
-    }
-    
-    tbody.innerHTML = debtRisk.map(function(item) {
-        return '<tr><td><strong>' + item.type + '</strong></td><td><span class="badge-danger">' + (item.scale || item.measure) + '</span></td></tr>';
-    }).join('');
-}
-
-function initializeEventListeners() {
-    document.getElementById('toggleSidebar').addEventListener('click', openSidebar);
-    document.getElementById('closeSidebar').addEventListener('click', closeSidebar);
-    document.getElementById('sidebarOverlay').addEventListener('click', closeSidebar);
-    
-    document.getElementById('searchInput').addEventListener('input', handleSearch);
-    
-    window.addEventListener('resize', function() {
-        if (window.innerWidth >= 992) {
-            document.getElementById('sidebarOverlay').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-}
-
-function openSidebar() {
-    document.getElementById('sidebar').classList.add('active');
-    document.getElementById('sidebarOverlay').classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeSidebar() {
-    document.getElementById('sidebar').classList.remove('active');
-    document.getElementById('sidebarOverlay').classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-function handleSearch(e) {
-    var searchTerm = e.target.value.toLowerCase().trim();
-    var treeItems = document.querySelectorAll('.tree-item');
-    
-    if (searchTerm === '') {
-        treeItems.forEach(function(item) {
-            item.style.display = '';
-        });
-        
-        document.querySelectorAll('.tree-children.expanded').forEach(function(el) {
-            el.classList.remove('expanded');
-        });
-        document.querySelectorAll('.tree-toggle.rotated').forEach(function(el) {
-            el.classList.remove('rotated');
-        });
-        
-        return;
-    }
-    
-    treeItems.forEach(function(item) {
-        var itemName = item.dataset.name || '';
-        var isMatch = itemName.includes(searchTerm);
-        
-        if (isMatch) {
-            item.style.display = '';
-            
-            var parent = item.parentElement;
-            while (parent && parent.classList.contains('tree-children')) {
-                parent.classList.add('expanded');
-                var toggleIcon = parent.previousElementSibling ? parent.previousElementSibling.querySelector('.tree-toggle') : null;
-                if (toggleIcon) {
-                    toggleIcon.classList.add('rotated');
-                }
-                parent = parent.parentElement;
+            event.target.closest('.tree-item-content').classList.add('active');
+            if (window.innerWidth < 768) {
+                document.getElementById('sidebar').classList.remove('active');
             }
-        } else {
-            item.style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-    });
-}
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        document.querySelector('.main-content').addEventListener('click', function() {
+            if (window.innerWidth < 768) {
+                document.getElementById('sidebar').classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>
