@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>经典书籍阅读 - Classics Book</title>
+    <title>知识改变命运</title>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -478,12 +478,16 @@
     <!-- 顶部导航 -->
     <nav class="navbar">
         <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-        <h1>经典书籍阅读</h1>
-        <span class="book-count">共 10 本</span>
+        <h1>知识改变命运</h1>
     </nav>
 
     <!-- 左侧树形导航 -->
     <aside class="sidebar" id="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-title">当下</div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('政策与人生规划')"><span class="tree-icon">📖</span><span class="tree-text">政策与人生规划</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('人生各阶段的分析')"><span class="tree-icon">📖</span><span class="tree-text">人生各阶段的分析</span></a></div>
+        </div>
         <div class="sidebar-section">
             <div class="sidebar-title">政治学</div>
             <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国社会各阶级的分析')"><span class="tree-icon">📖</span><span class="tree-text">中国社会各阶级的分析</span></a></div>
@@ -506,10 +510,6 @@
             <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('乡镇治理与政府制度化')"><span class="tree-icon">📖</span><span class="tree-text">乡镇治理与政府制度化</span></a></div>
             <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('公共管理学')"><span class="tree-icon">📖</span><span class="tree-text">公共管理学</span></a></div>
             <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('行政法与行政诉讼法')"><span class="tree-icon">📖</span><span class="tree-text">行政法与行政诉讼法</span></a></div>
-        </div>
-        <div class="sidebar-section">
-            <div class="sidebar-title">当下</div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('政策与人生规划')"><span class="tree-icon">📖</span><span class="tree-text">政策与人生规划</span></a></div>
         </div>
     </aside>
 
@@ -1494,6 +1494,341 @@
                             <div class="point-number">6</div>
                             <h4>国家赔偿</h4>
                             <p>行政赔偿的范围、标准与程序。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 政策与人生规划 -->
+            <div class="book-detail" id="book-政策与人生规划">
+                <div class="book-header">
+                    <h2 class="book-title">政策与人生规划：用政策指南引领人生</h2>
+                    <div class="book-meta">
+                        <span>📅 当代</span>
+                        <span>🌍 中国</span>
+                    </div>
+                    <p class="book-description">政策如何影响人生重大决策，包括职业选择、城市落户、房产购置、创业投资、生育教育、</p>养老规划等。
+                    <div class="book-impact"><strong>本书价值：</strong>用政策思维指导人生决策，顺势而为，守住底线，实现个人发展与国家战略的同频共振。</div>
+                    <div class="tags"><span class="tag">政策解读</span><span class="tag">人生规划</span><span class="tag">职业发展</span><span class="tag">财富管理</span></div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📚 核心原则</h3>
+                    <table class="chapter-table">
+                        <tr><th>原则</th><th>内容</th><th>行动要点</th></tr>
+                        <tr><td>原则一：红线优先</td><td>先看严禁/限制领域，再抓政策鼓励机遇</td><td>绝对不碰政策红线</td></tr>
+                        <tr><td>原则二：长期vs短期</td><td>人生大事看5年规划，日常决策看年度政策</td><td>匹配时间维度</td></tr>
+                        <tr><td>原则三：只抓相关</td><td>锁定人生阶段，匹配核心需求</td><td>其余不用浪费精力</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔄 人生决策政策查询流程</h3>
+                    <div class="flow-chart">
+                        <div class="flow-step">人生重大决策<br>是什么类型？</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">职业/赛道→5年规划<br>城市/落户→人才政策<br>房产→房住不炒<br>生育教育→配套支持<br>养老→三支柱政策</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">看官方原文<br>判断鼓励or红线</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">鼓励→抓住红利<br>红线→绝对避开</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">💼 职业与事业规划</h3>
+                    <table class="data-table">
+                        <tr><th>行业类型</th><th>代表行业</th><th>政策态度</th></tr>
+                        <tr><td>白名单（鼓励类）</td><td>人工智能、高端制造、新能源、生物医药、养老托育、乡村振兴、数字经济、绿色低碳</td><td>✓ 政策鼓励</td></tr>
+                        <tr><td>黄灯（限制类）</td><td>高耗能、高污染、产能过剩</td><td>⚠ 规范严控</td></tr>
+                        <tr><td>红灯（淘汰类）</td><td>违规学科教培、落后产能</td><td>✗ 政策严禁</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🏙 城市选择决策矩阵</h3>
+                    <table class="data-table">
+                        <tr><th>选择要素</th><th>优先方向</th><th>典型城市</th></tr>
+                        <tr><td>国家战略定位</td><td>国家中心城市、自贸试验区、先行示范区、重点城市群</td><td>北上广深、海南</td></tr>
+                        <tr><td>主导产业</td><td>匹配国家战略的新兴产业</td><td>合肥-新能源、杭州-数字经济、成都-文创、西安-航空航天</td></tr>
+                        <tr><td>人才政策</td><td>零门槛落户、租房/购房补贴、技能补贴</td><td>各城市人才引进政策</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">💰 创业者政策红利</h3>
+                    <table class="data-table">
+                        <tr><th>红利类型</th><th>具体政策</th><th>适用范围</th></tr>
+                        <tr><td>税收减免</td><td>增值税减免、企业所得税减半、专项附加扣除</td><td>小规模纳税人</td></tr>
+                        <tr><td>资金支持</td><td>创业担保贷款、政府贴息、免息贷款（几十万到几百万）</td><td>创业者</td></tr>
+                        <tr><td>场地支持</td><td>创业孵化基地、众创空间、财税法务支持</td><td>初创企业</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🚫 创业红线清单</h3>
+                    <table class="data-table">
+                        <tr><th>严禁领域</th><th>谨慎领域</th><th>后果</th></tr>
+                        <tr><td>虚拟货币交易、非法集资、违规学科教培、非法行医、无证经营</td><td>医美、直播带货、金融信贷、食品安全</td><td>罚款/没收/刑责</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🏠 房产决策</h3>
+                    <div class="flow-chart">
+                        <div class="flow-step">购房目的？<br>刚需/改善</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">政策支持方向<br>首套房优惠、最低首付<br>房贷利率优惠、契税减免<br>多孩家庭补贴</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">城市选择<br>人口流入+产业活力<br>核心城市核心地段</div>
+                    </div>
+                    <p style="margin-top:10px;"><strong>投资/炒房：</strong>绝对不要！政策严控三四线远郊盘、小产权房、违规商办公寓、高负债房企期房</p>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">💳 日常政策红利一览</h3>
+                    <table class="data-table">
+                        <tr><th>红利类型</th><th>政策内容</th><th>年均节省</th></tr>
+                        <tr><td>个税专项附加扣除</td><td>7项扣除最高192000元</td><td>几千-几万元</td></tr>
+                        <tr><td>生育津贴</td><td>产假期间工资全额</td><td>几万元</td></tr>
+                        <tr><td>育儿补贴</td><td>二孩/三孩一次性补贴</td><td>1-5万元</td></tr>
+                        <tr><td>租房补贴</td><td>高校毕业生补贴</td><td>几千-几万元</td></tr>
+                        <tr><td>购房补贴</td><td>人才购房优惠</td><td>几万元</td></tr>
+                        <tr><td>职业技能补贴</td><td>考证书国家给钱</td><td>1000-5000元</td></tr>
+                        <tr><td>养老补贴</td><td>基础养老金</td><td>每月几百元</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">👶 生育政策支持体系</h3>
+                    <table class="data-table">
+                        <tr><th>支持类型</th><th>具体政策</th></tr>
+                        <tr><td>生育相关</td><td>产假延长、陪产假、育儿假、生育津贴（实发工资）</td></tr>
+                        <tr><td>育儿相关</td><td>普惠托育、幼儿园学位补贴、婴幼儿照护扣除、多孩家庭购房优惠</td></tr>
+                        <tr><td>现金补贴</td><td>一次性生育补贴、育儿津贴、生育保险（几万到几十万）</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🎓 教育决策政策对照</h3>
+                    <table class="data-table">
+                        <tr><th>决策选项</th><th>政策导向</th><th>建议</th></tr>
+                        <tr><td>买天价学区房</td><td>强化学区房治理、多校划片、教师轮岗</td><td>❌ 溢价持续缩水</td></tr>
+                        <tr><td>报学科类培训</td><td>双减政策严控</td><td>❌ 加重负担、风险大</td></tr>
+                        <tr><td>职业教育</td><td>大力发展、升学通道打通</td><td>✓ 技能人才缺口大</td></tr>
+                        <tr><td>盲目鸡娃</td><td>义务教育优质均衡发展</td><td>❌ 反而适得其反</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🏛 养老规划三支柱</h3>
+                    <div class="flow-chart">
+                        <div class="flow-step">第一支柱<br>基本养老保险<br>职工/城乡居民<br>多交多得长交多得</div>
+                        <div class="flow-arrow">+</div>
+                        <div class="flow-step">第二支柱<br>企业/职业年金<br>公司配套缴费<br>额外养老收入</div>
+                        <div class="flow-arrow">+</div>
+                        <div class="flow-step">第三支柱<br>个人养老金<br>每年最高12000元<br>税收递延优惠</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">⚠️ 政策红线检查清单</h3>
+                    <table class="data-table">
+                        <tr><th>领域</th><th>红线行为</th><th>后果</th><th>严重程度</th></tr>
+                        <tr><td>税务</td><td>偷税漏税</td><td>罚款+刑责</td><td>★★★★★</td></tr>
+                        <tr><td>交通</td><td>酒驾醉驾</td><td>刑拘+吊销</td><td>★★★★★</td></tr>
+                        <tr><td>金融</td><td>非法集资</td><td>刑责+追缴</td><td>★★★★★</td></tr>
+                        <tr><td>反诈</td><td>电信诈骗</td><td>刑责+案底</td><td>★★★★★</td></tr>
+                        <tr><td>经营</td><td>无证经营</td><td>罚款+停业</td><td>★★★★☆</td></tr>
+                        <tr><td>建设</td><td>违规违建</td><td>强拆+罚款</td><td>★★★☆☆</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🛡 维权渠道一览</h3>
+                    <table class="data-table">
+                        <tr><th>维权类型</th><th>渠道</th><th>适用场景</th></tr>
+                        <tr><td>职场维权</td><td>劳动监察大队、劳动仲裁、社保投诉</td><td>劳动纠纷</td></tr>
+                        <tr><td>消费维权</td><td>12315投诉、工商投诉、司法诉讼</td><td>消费纠纷</td></tr>
+                        <tr><td>生活维权</td><td>12345热线、行政投诉、法律诉讼</td><td>民生问题</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📅 政策使用年度日历</h3>
+                    <table class="data-table">
+                        <tr><th>频率</th><th>行动</th><th>说明</th></tr>
+                        <tr><td>每日</td><td>国务院客户端收藏</td><td>收藏政策/服务板块</td></tr>
+                        <tr><td>每周</td><td>政策动态跟踪</td><td>关注政策变化</td></tr>
+                        <tr><td>每月</td><td>国务院常务会议+地方民生政策梳理</td><td>了解政策落实</td></tr>
+                        <tr><td>每年</td><td>中央经济工作会议+政府工作报告精读</td><td>调整下一年规划</td></tr>
+                        <tr><td>决策前</td><td>重大决策政策查询</td><td>查国家政策+地方细则</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔍 政策查询资源汇总</h3>
+                    <table class="data-table">
+                        <tr><th>资源类型</th><th>查询渠道</th><th>适用场景</th></tr>
+                        <tr><td>国家政策</td><td>国务院客户端/官网</td><td>重大决策、红线查询</td></tr>
+                        <tr><td>地方政策</td><td>本地政府官网/人社局</td><td>落户、补贴、人才政策</td></tr>
+                        <tr><td>行业政策</td><td>发改委/工信部/商务部</td><td>职业选择、创业方向</td></tr>
+                        <tr><td>税务政策</td><td>税务局官网/12366</td><td>个税、社保、补贴</td></tr>
+                        <tr><td>民生政策</td><td>12345/政务服务APP</td><td>办事指南、投诉建议</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📌 政策人生三问</h3>
+                    <div class="flow-chart">
+                        <div class="flow-step">国家鼓励的<br>方向是什么？</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">五年规划<br>产业目录</div>
+                    </div>
+                    <div class="flow-chart" style="margin-top:10px;">
+                        <div class="flow-step">国家禁止的<br>红线是什么？</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">严禁/限制<br>类目录</div>
+                    </div>
+                    <div class="flow-chart" style="margin-top:10px;">
+                        <div class="flow-step">我该把时间/精力<br>/钱投哪？</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">匹配自身<br>阶段需求</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📌 核心要点</h3>
+                    <div class="core-points-grid">
+                        <div class="core-point-card">
+                            <div class="point-number">1</div>
+                            <h4>红线优先</h4>
+                            <p>严禁领域绝对不碰。任何人生决策前，先查政策红线，确保不触碰法律底线。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">2</div>
+                            <h4>长期决策看长期政策</h4>
+                            <p>人生大事（职业、落户、房产）看5年规划、中长期战略；日常决策看年度政策。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">3</div>
+                            <h4>只抓相关</h4>
+                            <p>匹配自身阶段和需求，锁定相关政策领域，其余不用浪费精力。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">4</div>
+                            <h4>看官方原文</h4>
+                            <p>拒绝二手解读，直接查阅国务院、发改委等官方政策原文。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">5</div>
+                            <h4>顺势而为</h4>
+                            <p>顺应国家发展方向，在政策鼓励领域寻找机会，实现个人与国家的同频共振。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">6</div>
+                            <h4>守住底线</h4>
+                            <p>了解政策红线区域，不抱侥幸心理，避免因一时失足造成终身遗憾。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">💬 核心名句</h3>
+                    <div class="quote-box">"用政策思维指导人生决策，顺势而为，守住底线。"</div>
+                    <div class="quote-box">"国家鼓励的方向，就是个人发展的最佳赛道。"</div>
+                    <div class="quote-box">"人生重大决策前，一定要先查政策再看机会。"</div>
+                </div>
+            </div>
+
+            <!-- 人生各阶段的分析 -->
+            <div class="book-detail" id="book-人生各阶段的分析">
+                <div class="book-header">
+                    <h2 class="book-title">人生各阶段的分析</h2>
+                    <div class="book-meta">
+                        <span>📅 当代</span>
+                        <span>🌍 中国</span>
+                    </div>
+                    <p class="book-description">借鉴毛泽东《中国社会各阶级的分析》方法论，系统分析人生不同阶段的特征、挑战与应对策略。核心回答：谁是朋友？谁是敌人？</p>
+                    <div class="book-impact"><strong>分析目的：</strong>帮助读者认清人生各阶段的主要矛盾，把握主要方向，在每个阶段做出正确选择。</div>
+                    <div class="tags"><span class="tag">人生规划</span><span class="tag">阶段分析</span><span class="tag">方法论</span></div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📊 人生各阶段分析表</h3>
+                    <table class="data-table">
+                        <tr><th>阶段</th><th>核心任务</th><th>主要挑战（敌人）</th><th>核心资源（朋友）</th><th>策略</th></tr>
+                        <tr><td>学业期（0-22岁）</td><td>学习知识、培养能力</td><td>应试压力、兴趣压抑、认知局限</td><td>父母支持、良师益友、优质教育资源</td><td>打牢基础、广泛探索</td></tr>
+                        <tr><td>职业初期（22-30岁）</td><td>确定方向、积累资本</td><td>迷茫焦虑、收入低、选择错误赛道</td><td>好公司、好导师、行业趋势</td><td>选对赛道、快速成长</td></tr>
+                        <tr><td>职业中期（30-45岁）</td><td>建立地位、扩大收入</td><td>中年危机、技能过时、健康下滑</td><td>核心技能、人脉网络、行业口碑</td><td>深耕专业、拓展副业</td></tr>
+                        <tr><td>职业后期（45-60岁）</td><td>传承经验、准备退休</td><td>边缘化焦虑、收入下降、健康问题</td><td>行业资源、经验口碑、副业准备</td><td>价值输出、平稳过渡</td></tr>
+                        <tr><td>退休期（60岁+）</td><td>健康养老、享受生活</td><td>健康衰退、孤独感、收入锐减</td><td>养老金、家庭陪伴、兴趣爱好</td><td>身心健康、适度参与</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">💬 核心名句</h3>
+                    <div class="quote-box">"谁是我们的朋友？谁是我们的敌人？这是人生选择的首要问题。"</div>
+                    <div class="quote-box">"人生过去所有选择的成效甚少，其根本原因就是因为不能团结真正的朋友，以战胜真正的敌人。"</div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔄 人生阶段路线图</h3>
+                    <div class="flow-chart">
+                        <div class="flow-step">认清敌友<br>阶段分析</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">团结朋友<br>积累资源</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">战胜敌人<br>克服挑战</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">跨越阶段<br>持续成长</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🎯 各阶段核心抉择</h3>
+                    <table class="data-table">
+                        <tr><th>阶段</th><th>核心抉择</th><th>正确选择</th><th>错误选择</th></tr>
+                        <tr><td>学业期</td><td>专业/学校选择</td><td>兴趣+前景+能力匹配</td><td>盲目跟风/仅看薪资</td></tr>
+                        <tr><td>职业初期</td><td>行业/岗位选择</td><td>政策鼓励+自身优势+成长空间</td><td>只看眼前收入/躺平</td></tr>
+                        <tr><td>职业中期</td><td>深耕/转型抉择</td><td>专业纵深+副业拓展</td><td>温水煮青蛙/盲目创业</td></tr>
+                        <tr><td>职业后期</td><td>继续/退休抉择</td><td>价值输出+养老准备</td><td>权力恋栈/无所事事</td></tr>
+                        <tr><td>退休期</td><td>养老方式选择</td><td>健康优先+适度社交</td><td>孤独终老/过度操劳</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📌 核心要点</h3>
+                    <div class="core-points-grid">
+                        <div class="core-point-card">
+                            <div class="point-number">1</div>
+                            <h4>阶段划分标准</h4>
+                            <p>以年龄和主要任务作为划分人生各阶段的标准，分析各阶段的主要矛盾和核心挑战。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">2</div>
+                            <h4>识别真正敌人</h4>
+                            <p>每个阶段的"敌人"是阻碍你成长的因素：迷茫、焦虑、错误选择、技能过时、健康下降等。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">3</div>
+                            <h4>团结真正朋友</h4>
+                            <p>每个阶段的"朋友"是帮助你的资源：家人、导师、行业趋势、政策红利、健康等。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">4</div>
+                            <h4>阶段不可跨越</h4>
+                            <p>每个阶段有其必要任务，跳跃式发展往往需要付出更大代价。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">5</div>
+                            <h4>提前做好准备</h4>
+                            <p>在进入下一阶段前做好准备，如职业中期开始规划养老，职业初期积累核心能力。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">6</div>
+                            <h4>顺势而为</h4>
+                            <p>结合政策与人生阶段分析，在每个阶段做出最符合自身条件的选择。</p>
                         </div>
                     </div>
                 </div>
