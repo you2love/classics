@@ -447,6 +447,192 @@
         .badge-warning { background: #fff3e0; color: #f57c00; }
         .badge-danger { background: #ffebee; color: #d32f2f; }
 
+        /* 手风琴组件 */
+        .accordion {
+            margin: 10px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .accordion-header {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #e9ecef, #dee2e6);
+        }
+
+        .accordion-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .accordion-header.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+            background: var(--card-bg);
+        }
+
+        .accordion-content.active {
+            max-height: 5000px;
+        }
+
+        .accordion-inner {
+            padding: 15px 20px;
+        }
+
+        /* 横向时间轴 */
+        .timeline-horizontal {
+            display: flex;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .timeline-horizontal::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .timeline-horizontal::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            min-width: 100px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .timeline-item:first-child::before {
+            left: 50%;
+        }
+
+        .timeline-item:last-child::before {
+            right: 50%;
+        }
+
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+            margin: 17px auto;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--secondary-color);
+        }
+
+        .timeline-age {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .timeline-desc {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            padding: 0 5px;
+        }
+
+        /* 对比卡片 */
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .compare-card {
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .compare-card.enemy {
+            background: linear-gradient(135deg, #ffebee, #ffcdd2);
+            border-left: 4px solid #e74c3c;
+        }
+
+        .compare-card.friend {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-left: 4px solid #27ae60;
+        }
+
+        .compare-card h4 {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .compare-card.enemy h4 { color: #c62828; }
+        .compare-card.friend h4 { color: #2e7d32; }
+
+        .compare-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .compare-card li {
+            font-size: 0.8rem;
+            padding: 5px 0;
+            border-bottom: 1px dashed rgba(0,0,0,0.1);
+        }
+
+        .compare-card li:last-child {
+            border-bottom: none;
+        }
+
+        .strategy-card {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .strategy-card h4 {
+            color: #1565c0;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .strategy-card p {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+        }
+
         /* 移动端适配 */
         .menu-toggle {
             display: none;
@@ -464,6 +650,9 @@
             .main-content { margin-left: 0; }
             .book-title { font-size: 1.3rem; }
             .core-points-grid { grid-template-columns: 1fr; }
+            .compare-grid { grid-template-columns: 1fr; }
+            .timeline-horizontal { overflow-x: auto; }
+            .timeline-item { min-width: 100px; }
         }
 
         footer {
@@ -1723,15 +1912,39 @@
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">📊 人生各阶段分析表</h3>
-                    <table class="data-table">
-                        <tr><th>阶段</th><th>核心抉择</th><th>敌人（挑战）</th><th>朋友（资源）</th><th>正确策略</th><th>错误策略</th></tr>
-                        <tr><td>学业期（0-22岁）</td><td>专业/学校选择</td><td>应试压力、兴趣压抑、认知局限</td><td>父母支持、良师益友、优质教育资源</td><td>兴趣+前景+能力匹配、打牢基础</td><td>盲目跟风/仅看薪资/死读书</td></tr>
-                        <tr><td>职业初期（22-30岁）</td><td>行业/岗位选择</td><td>迷茫焦虑、收入低、选择错误赛道</td><td>好公司、好导师、行业趋势</td><td>政策鼓励+成长空间+深耕3-5年</td><td>只看眼前收入/频繁跳槽/躺平</td></tr>
-                        <tr><td>职业中期（30-45岁）</td><td>深耕/转型抉择</td><td>中年危机、技能过时、健康下滑</td><td>核心技能、人脉网络、行业口碑</td><td>专业纵深+副业拓展+持续学习</td><td>温水煮青蛙/忽视健康/乱投资</td></tr>
-                        <tr><td>职业后期（45-60岁）</td><td>继续/退休抉择</td><td>边缘化焦虑、收入下降、健康问题</td><td>行业资源、经验口碑、副业准备</td><td>价值输出+培养新人+养老规划</td><td>权力恋栈/无所事事/拒绝变化</td></tr>
-                        <tr><td>退休期（60岁+）</td><td>养老方式选择</td><td>健康衰退、孤独感、收入锐减</td><td>养老金、家庭陪伴、兴趣爱好</td><td>健康优先+适度社交+科学养生</td><td>孤独终老/过度操劳/停止思考</td></tr>
-                    </table>
+                    <h3 class="section-title">📊 人生阶段时间轴</h3>
+                    <div class="timeline-horizontal">
+                        <div class="timeline-item">
+                            <div class="timeline-age">0-22岁</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">学业期</div>
+                            <div class="timeline-desc">专业/学校选择<br>打牢基础</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-age">22-30岁</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">职业初期</div>
+                            <div class="timeline-desc">行业/岗位选择<br>深耕3-5年</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-age">30-45岁</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">职业中期</div>
+                            <div class="timeline-desc">深耕/转型抉择<br>副业拓展</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-age">45-60岁</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">职业后期</div>
+                            <div class="timeline-desc">继续/退休抉择<br>养老规划</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-age">60岁+</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">退休期</div>
+                            <div class="timeline-desc">养老方式选择<br>健康优先</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="section">
@@ -1755,103 +1968,206 @@
 
                 <div class="section">
                     <h3 class="section-title">📚 各维度详细分析</h3>
-                    
-                    <h4 style="margin:15px 0 10px;">一、成长（0-18岁）</h4>
-                    <table class="data-table">
-                        <tr><th>维度</th><th>核心任务</th><th>敌人（阻碍因素）</th><th>朋友（助力因素）</th><th>正确策略</th></tr>
-                        <tr><td>身体成长</td><td>健康成长发育</td><td>不良饮食习惯、缺乏运动、睡眠不足、沉迷电子产品</td><td>科学喂养、适量运动、充足睡眠、户外活动</td><td>每天运动1小时、保证9小时睡眠、控制电子产品时间</td></tr>
-                        <tr><td>认知成长</td><td>建立基础知识体系</td><td>死记硬背、缺乏思考、认知闭塞、信息茧房</td><td>好奇心驱动、广泛阅读、优质教育、良师益友</td><td>培养批判性思维、广泛涉猎、探索兴趣、学会学习</td></tr>
-                        <tr><td>性格成长</td><td>形成健全人格</td><td>过度溺爱、忽视陪伴、负面家庭环境、校园霸凌</td><td>父母关爱、良好家风、正向引导、社交能力培养</td><td>无条件的爱+有边界的管教、情绪管理能力培养</td></tr>
-                        <tr><td>能力成长</td><td>培养核心能力</td><td>只重成绩、忽视实践、缺乏独立、过度依赖</td><td>全面发展、动手能力、试错机会、挫折教育</td><td>德智体美劳全面发展、培养独立思考和动手能力</td></tr>
-                    </table>
+                    <p style="color:var(--text-secondary);margin-bottom:15px;font-size:0.9rem;">点击展开查看各维度详细分析</p>
 
-                    <h4 style="margin:20px 0 10px;">二、升学（6-25岁）</h4>
-                    <table class="data-table">
-                        <tr><th>阶段</th><th>核心任务</th><th>敌人</th><th>朋友</th><th>正确策略</th></tr>
-                        <tr><td>小升初</td><td>选择合适中学</td><td>择校焦虑、盲目鸡娃、不考虑孩子实际情况</td><td>对口学区、孩子兴趣、特长发展</td><td>适合最重要、关注身心健康、避免过度竞争</td></tr>
-                        <tr><td>初升高</td><td>选择高中或职高</td><td>歧视职业教育、只看升学率、不关注孩子适合</td><td>因材施教、职业教育也是好出路、兴趣导向</td><td>普职分流理性选择、适合的就是最好的</td></tr>
-                        <tr><td>高考</td><td>选择大学和专业</td><td>志愿填报失误、专业选择盲目、就业导向过强</td><td>兴趣导向、能力匹配、政策鼓励专业、行业趋势</td><td>城市>学校>专业、选择国家战略急需专业</td></tr>
-                        <tr><td>考研/留学</td><td>提升学历或镀金</td><td>逃避就业、盲目考研、考研高考化</td><td>明确目标、职业规划、性价比考量</td><td>想清楚为什么读、选对方向比努力更重要</td></tr>
-                    </table>
+                    <div class="accordion-group">
+                        <!-- 一、成长 -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>🌱 一、成长（0-18岁）</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <table class="data-table">
+                                        <tr><th>维度</th><th>核心任务</th><th>敌人（阻碍因素）</th><th>朋友（助力因素）</th><th>正确策略</th></tr>
+                                        <tr><td>身体成长</td><td>健康成长发育</td><td>不良饮食习惯、缺乏运动、睡眠不足、沉迷电子产品</td><td>科学喂养、适量运动、充足睡眠、户外活动</td><td>每天运动1小时、保证9小时睡眠、控制电子产品时间</td></tr>
+                                        <tr><td>认知成长</td><td>建立基础知识体系</td><td>死记硬背、缺乏思考、认知闭塞、信息茧房</td><td>好奇心驱动、广泛阅读、优质教育、良师益友</td><td>培养批判性思维、广泛涉猎、探索兴趣、学会学习</td></tr>
+                                        <tr><td>性格成长</td><td>形成健全人格</td><td>过度溺爱、忽视陪伴、负面家庭环境、校园霸凌</td><td>父母关爱、良好家风、正向引导、社交能力培养</td><td>无条件的爱+有边界的管教、情绪管理能力培养</td></tr>
+                                        <tr><td>能力成长</td><td>培养核心能力</td><td>只重成绩、忽视实践、缺乏独立、过度依赖</td><td>全面发展、动手能力、试错机会、挫折教育</td><td>德智体美劳全面发展、培养独立思考和动手能力</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
-                    <h4 style="margin:20px 0 10px;">三、婚姻（22-40岁）</h4>
-                    <table class="data-table">
-                        <tr><th>阶段</th><th>核心任务</th><th>敌人</th><th>朋友</th><th>正确策略</th></tr>
-                        <tr><td>恋爱期</td><td>寻找合适伴侣</td><td>恋爱脑、只看颜值/物质、快餐式恋爱、骑驴找马</td><td>价值观契合、情绪稳定、责任感、上进心</td><td>以结婚为目的恋爱、关注内核品质、多相处了解</td></tr>
-                        <tr><td>订婚/结婚</td><td>确定婚姻关系</td><td>闪婚裸婚、忽视对方家庭、冲动消费、攀比心理</td><td>双方家庭背景相近、沟通顺畅、经济基础</td><td>充分沟通、门当户对、理性消费、婚礼简约</td></tr>
-                        <tr><td>新婚期</td><td>建立婚姻基础</td><td>巨婴式婚姻、婆媳矛盾、财务混乱、沟通不畅</td><td>独立生活、经济透明、共同成长、互相尊重</td><td>建立夫妻共同账户、制定家庭规则、保持亲密沟通</td></tr>
-                        <tr><td>婚姻危机</td><td>维护婚姻关系</td><td>冷暴力/热暴力、出轨、财务危机、丧偶式育儿</td><td>共同成长、有效沟通、夫妻关系>亲子关系</td><td>有问题及时沟通、婚姻需要经营、定期夫妻独处</td></tr>
-                    </table>
+                        <!-- 二、升学 -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>🎓 二、升学（6-25岁）</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <table class="data-table">
+                                        <tr><th>阶段</th><th>核心任务</th><th>敌人</th><th>朋友</th><th>正确策略</th></tr>
+                                        <tr><td>小升初</td><td>选择合适中学</td><td>择校焦虑、盲目鸡娃、不考虑孩子实际情况</td><td>对口学区、孩子兴趣、特长发展</td><td>适合最重要、关注身心健康、避免过度竞争</td></tr>
+                                        <tr><td>初升高</td><td>选择高中或职高</td><td>歧视职业教育、只看升学率、不关注孩子适合</td><td>因材施教、职业教育也是好出路、兴趣导向</td><td>普职分流理性选择、适合的就是最好的</td></tr>
+                                        <tr><td>高考</td><td>选择大学和专业</td><td>志愿填报失误、专业选择盲目、就业导向过强</td><td>兴趣导向、能力匹配、政策鼓励专业、行业趋势</td><td>城市>学校>专业、选择国家战略急需专业</td></tr>
+                                        <tr><td>考研/留学</td><td>提升学历或镀金</td><td>逃避就业、盲目考研、考研高考化</td><td>明确目标、职业规划、性价比考量</td><td>想清楚为什么读、选对方向比努力更重要</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
-                    <h4 style="margin:20px 0 10px;">四、工作（22-60岁）</h4>
-                    <table class="data-table">
-                        <tr><th>阶段</th><th>核心任务</th><th>敌人</th><th>朋友</th><th>正确策略</th></tr>
-                        <tr><td>职业初期</td><td>确定职业方向</td><td>频繁跳槽、只看钱、躺平心态、不学习</td><td>好公司、好导师、行业趋势、核心技能</td><td>选对赛道、深耕3-5年、快速学习积累</td></tr>
-                        <tr><td>职业上升期</td><td>晋升管理层/专家</td><td>无效内卷、职场政治、忽视健康、技能单一</td><td>核心能力、领导力、行业人脉、差异化优势</td><td>成为不可或缺的人、向上管理、横向拓展</td></tr>
-                        <tr><td>职业中期</td><td>保持竞争力</td><td>温水煮青蛙、中年危机、技能过时、瓶颈期</td><td>持续学习、副业准备、人脉资源、健康管理</td><td>未雨绸缪、发展副业、保持好奇心</td></tr>
-                        <tr><td>职业后期</td><td>传承与转型</td><td>权力恋栈、不培养后人、倚老卖老、拒绝变化</td><td>经验传承、行业智囊、副业基础、灵活心态</td><td>做好交接、培养新人、价值输出、优雅退场</td></tr>
-                    </table>
+                        <!-- 三、婚姻 -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>💑 三、婚姻（22-40岁）</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <table class="data-table">
+                                        <tr><th>阶段</th><th>核心任务</th><th>敌人</th><th>朋友</th><th>正确策略</th></tr>
+                                        <tr><td>恋爱期</td><td>寻找合适伴侣</td><td>恋爱脑、只看颜值/物质、快餐式恋爱、骑驴找马</td><td>价值观契合、情绪稳定、责任感、上进心</td><td>以结婚为目的恋爱、关注内核品质、多相处了解</td></tr>
+                                        <tr><td>订婚/结婚</td><td>确定婚姻关系</td><td>闪婚裸婚、忽视对方家庭、冲动消费、攀比心理</td><td>双方家庭背景相近、沟通顺畅、经济基础</td><td>充分沟通、门当户对、理性消费、婚礼简约</td></tr>
+                                        <tr><td>新婚期</td><td>建立婚姻基础</td><td>巨婴式婚姻、婆媳矛盾、财务混乱、沟通不畅</td><td>独立生活、经济透明、共同成长、互相尊重</td><td>建立夫妻共同账户、制定家庭规则、保持亲密沟通</td></tr>
+                                        <tr><td>婚姻危机</td><td>维护婚姻关系</td><td>冷暴力/热暴力、出轨、财务危机、丧偶式育儿</td><td>共同成长、有效沟通、夫妻关系>亲子关系</td><td>有问题及时沟通、婚姻需要经营、定期夫妻独处</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
-                    <h4 style="margin:20px 0 10px;">五、发展（贯穿一生）</h4>
-                    <table class="data-table">
-                        <tr><th>维度</th><th>核心任务</th><th>敌人</th><th>朋友</th><th>正确策略</th></tr>
-                        <tr><td>财富积累</td><td>实现财务自由</td><td>月光族、过度消费、乱投资、被诈骗、不储蓄</td><td>强制储蓄、投资理财、房产配置、保险保障</td><td>收入-储蓄=支出、资产配置、长期主义</td></tr>
-                        <tr><td>社会地位</td><td>获得社会认可</td><td>玻璃心、社恐、只说不做、眼高手低</td><td>核心能力、社会资源、为人处世、持续输出</td><td>成为领域专家、积累人脉、口碑经营</td></tr>
-                        <tr><td>家庭关系</td><td>经营和谐家庭</td><td>忽视家人、沟通障碍、溺爱/忽视孩子、婆媳矛盾</td><td>有效沟通、边界感、共同成长、互相支持</td><td>家庭第一、平衡工作与家庭、高质量陪伴</td></tr>
-                        <tr><td>身心健康</td><td>保持健康状态</td><td>熬夜、压力大、不运动、饮食不规律、情绪压抑</td><td>健康生活、运动习惯、良好心态、定期体检</td><td>每天运动30分钟、11点前睡、定期体检</td></tr>
-                        <tr><td>个人成长</td><td>持续自我提升</td><td>固化思维、拒绝学习、认知茧房、舒适区</td><td>终身学习、跨领域交流、批判性思维、反思总结</td><td>每年读20本书、找到学习圈子、输出倒逼输入</td></tr>
-                    </table>
+                        <!-- 四、工作 -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>💼 四、工作（22-60岁）</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <table class="data-table">
+                                        <tr><th>阶段</th><th>核心任务</th><th>敌人</th><th>朋友</th><th>正确策略</th></tr>
+                                        <tr><td>职业初期</td><td>确定职业方向</td><td>频繁跳槽、只看钱、躺平心态、不学习</td><td>好公司、好导师、行业趋势、核心技能</td><td>选对赛道、深耕3-5年、快速学习积累</td></tr>
+                                        <tr><td>职业上升期</td><td>晋升管理层/专家</td><td>无效内卷、职场政治、忽视健康、技能单一</td><td>核心能力、领导力、行业人脉、差异化优势</td><td>成为不可或缺的人、向上管理、横向拓展</td></tr>
+                                        <tr><td>职业中期</td><td>保持竞争力</td><td>温水煮青蛙、中年危机、技能过时、瓶颈期</td><td>持续学习、副业准备、人脉资源、健康管理</td><td>未雨绸缪、发展副业、保持好奇心</td></tr>
+                                        <tr><td>职业后期</td><td>传承与转型</td><td>权力恋栈、不培养后人、倚老卖老、拒绝变化</td><td>经验传承、行业智囊、副业基础、灵活心态</td><td>做好交接、培养新人、价值输出、优雅退场</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
-                    <h4 style="margin:20px 0 10px;">六、退休（60岁+）</h4>
-                    <table class="data-table">
-                        <tr><th>维度</th><th>核心任务</th><th>敌人</th><th>朋友</th><th>正确策略</th></tr>
-                        <tr><td>养老规划</td><td>确保晚年生活质量</td><td>无养老储蓄、依赖子女、养老机构歧视</td><td>养老保险、企业年金、个人养老金、房产</td><td>提前规划三支柱养老金、储备养老资金</td></tr>
-                        <tr><td>健康管理</td><td>保持身体健康</td><td>慢性病、行动不便、阿尔茨海默症</td><td>定期体检、适量运动、科学饮食</td><td>每年体检、每天运动、饮食清淡</td></tr>
-                        <tr><td>心理健康</td><td>保持精神愉悦</td><td>孤独感、失落感、退休综合征</td><td>家庭陪伴、兴趣爱好、社会活动</td><td>培养兴趣爱好、参加社交活动、保持学习</td></tr>
-                        <tr><td>家庭关系</td><td>维护家庭和谐</td><td>代际矛盾、过度干预子女、孤独</td><td>子女独立、适度距离、相互尊重</td><td>尊重子女选择、保持适度联系、享受天伦</td></tr>
-                        <tr><td>遗产规划</td><td>合理安排身后事</td><td>财产纠纷、遗产税、传承断层</td><td>遗嘱、保险信托、家族传承</td><td>提前立遗嘱、做好财产分配、传承家风</td></tr>
-                    </table>
+                        <!-- 五、发展 -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>📈 五、发展（贯穿一生）</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <table class="data-table">
+                                        <tr><th>维度</th><th>核心任务</th><th>敌人</th><th>朋友</th><th>正确策略</th></tr>
+                                        <tr><td>财富积累</td><td>实现财务自由</td><td>月光族、过度消费、乱投资、被诈骗、不储蓄</td><td>强制储蓄、投资理财、房产配置、保险保障</td><td>收入-储蓄=支出、资产配置、长期主义</td></tr>
+                                        <tr><td>社会地位</td><td>获得社会认可</td><td>玻璃心、社恐、只说不做、眼高手低</td><td>核心能力、社会资源、为人处世、持续输出</td><td>成为领域专家、积累人脉、口碑经营</td></tr>
+                                        <tr><td>家庭关系</td><td>经营和谐家庭</td><td>忽视家人、沟通障碍、溺爱/忽视孩子、婆媳矛盾</td><td>有效沟通、边界感、共同成长、互相支持</td><td>家庭第一、平衡工作与家庭、高质量陪伴</td></tr>
+                                        <tr><td>身心健康</td><td>保持健康状态</td><td>熬夜、压力大、不运动、饮食不规律、情绪压抑</td><td>健康生活、运动习惯、良好心态、定期体检</td><td>每天运动30分钟、11点前睡、定期体检</td></tr>
+                                        <tr><td>个人成长</td><td>持续自我提升</td><td>固化思维、拒绝学习、认知茧房、舒适区</td><td>终身学习、跨领域交流、批判性思维、反思总结</td><td>每年读20本书、找到学习圈子、输出倒逼输入</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 六、退休 -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>🌅 六、退休（60岁+）</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <table class="data-table">
+                                        <tr><th>维度</th><th>核心任务</th><th>敌人</th><th>朋友</th><th>正确策略</th></tr>
+                                        <tr><td>养老规划</td><td>确保晚年生活质量</td><td>无养老储蓄、依赖子女、养老机构歧视</td><td>养老保险、企业年金、个人养老金、房产</td><td>提前规划三支柱养老金、储备养老资金</td></tr>
+                                        <tr><td>健康管理</td><td>保持身体健康</td><td>慢性病、行动不便、阿尔茨海默症</td><td>定期体检、适量运动、科学饮食</td><td>每年体检、每天运动、饮食清淡</td></tr>
+                                        <tr><td>心理健康</td><td>保持精神愉悦</td><td>孤独感、失落感、退休综合征</td><td>家庭陪伴、兴趣爱好、社会活动</td><td>培养兴趣爱好、参加社交活动、保持学习</td></tr>
+                                        <tr><td>家庭关系</td><td>维护家庭和谐</td><td>代际矛盾、过度干预子女、孤独</td><td>子女独立、适度距离、相互尊重</td><td>尊重子女选择、保持适度联系、享受天伦</td></tr>
+                                        <tr><td>遗产规划</td><td>合理安排身后事</td><td>财产纠纷、遗产税、传承断层</td><td>遗嘱、保险信托、家族传承</td><td>提前立遗嘱、做好财产分配、传承家风</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 七、投资理财 -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>💰 七、投资理财（贯穿一生）</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <table class="data-table">
+                                        <tr><th>维度</th><th>核心任务</th><th>敌人</th><th>朋友</th><th>正确策略</th></tr>
+                                        <tr><td>储蓄积累</td><td>积累原始资本</td><td>月光族、超前消费、攀比心理</td><td>强制储蓄、收入规划、俭朴生活</td><td>收入-储蓄=支出、养成储蓄习惯</td></tr>
+                                        <tr><td>保险保障</td><td>转移风险</td><td>侥幸心理、忽视保险、买错保险</td><td>社保+商业保险、重疾+医疗+寿险</td><td>优先保障型再理财型、先大人后小孩</td></tr>
+                                        <tr><td>投资增值</td><td>资产保值增值</td><td>贪婪心理、追涨杀跌、听信内幕、all in</td><td>价值投资、资产配置、长期主义</td><td>不懂不投、分散投资、复利思维</td></tr>
+                                        <tr><td>房产配置</td><td>居住+保值</td><td>炒房思维、高杠杆购房、买错城市</td><td>自住刚需、政策导向、人口流入</td><td>房子是用来住的、核心城市核心地段</td></tr>
+                                        <tr><td>债务管理</td><td>合理使用杠杆</td><td>过度负债、高利贷、以贷养贷</td><td>良性负债、低息贷款、量入为出</td><td>负债率<50%、优先偿还高息债务</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 八、健康生活 -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>🏃 八、健康生活（贯穿一生）</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <table class="data-table">
+                                        <tr><th>维度</th><th>核心任务</th><th>敌人</th><th>朋友</th><th>正确策略</th></tr>
+                                        <tr><td>作息规律</td><td>保证充足睡眠</td><td>熬夜追剧、失眠、手机依赖</td><td>固定作息、睡前仪式、舒适环境</td><td>每天7-8小时、11点前入睡</td></tr>
+                                        <tr><td>运动健身</td><td>保持身体活力</td><td>久坐不动、三分钟热度、运动损伤</td><td>适量运动、循序渐进、兴趣驱动</td><td>每周3-5次、每次30分钟、循序渐进</td></tr>
+                                        <tr><td>饮食健康</td><td>均衡营养摄入</td><td>暴饮暴食、垃圾食品、节食减肥</td><td>粗细搭配、荤素均衡、七八分饱</td><td>早餐吃好、午餐吃饱、晚餐吃少</td></tr>
+                                        <tr><td>心理健康</td><td>保持精神健康</td><td>焦虑内卷、抑郁倾向、情绪压抑</td><td>正念冥想、兴趣爱好、社交支持</td><td>接纳情绪、适当倾诉、培养兴趣</td></tr>
+                                        <tr><td>定期体检</td><td>早发现早治疗</td><td>讳疾忌医、忽视症状、拒绝体检</td><td>年度体检、专项筛查、疫苗接种</td><td>40岁后增加专项体检、异常及时复查</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 九、人品自律 -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>⚖️ 九、人品自律（贯穿一生）</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <table class="data-table">
+                                        <tr><th>维度</th><th>核心任务</th><th>敌人</th><th>朋友</th><th>正确策略</th></tr>
+                                        <tr><td>诚信经营</td><td>建立信任基础</td><td>撒谎成性、言而无信、投机取巧</td><td>诚实守信、言出必行、长期主义</td><td>对人真诚、说到做到、童叟无欺</td></tr>
+                                        <tr><td>感恩图报</td><td>维护人际关系</td><td>忘恩负义、过河拆桥、索取型人格</td><td>知恩图报、礼尚往来、互相帮助</td><td>记住他人好、适时回报、表达感谢</td></tr>
+                                        <tr><td>自律节制</td><td>掌控自身行为</td><td>拖延症、成瘾行为、情绪化决策</td><td>目标管理、习惯养成、延迟满足</td><td>制定计划、执行到位、复盘调整</td></tr>
+                                        <tr><td>责任担当</td><td>承担应有责任</td><td>推卸责任、逃避问题、巨婴心态</td><td>主动承担、勇于负责、解决问题</td><td>对事负责、出了问题不甩锅</td></tr>
+                                        <tr><td>善良正直</td><td>保持善良本性</td><td>自私自利、欺软怕硬、见利忘义</td><td>换位思考、乐于助人、坚持原则</td><td>与人为善、但有底线、不卑不亢</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 十、自学成材 -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>📖 十、自学成材（贯穿一生）</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <table class="data-table">
+                                        <tr><th>维度</th><th>核心任务</th><th>敌人</th><th>朋友</th><th>正确策略</th></tr>
+                                        <tr><td>学习动力</td><td>保持学习热情</td><td>三分钟热度、缺乏目标、功利心切</td><td>内在动机、兴趣驱动、成长思维</td><td>终身学习、活到老学到老</td></tr>
+                                        <tr><td>学习方法</td><td>提高学习效率</td><td>死记硬背、假努力、低效重复</td><td>刻意练习、输出倒逼、费曼学习法</td><td>输入+输出结合、形成知识体系</td></tr>
+                                        <tr><td>信息筛选</td><td>获取优质信息</td><td>信息茧房、谣言误导、碎片化信息</td><td>权威来源、交叉验证、深度阅读</td><td>关注优质源头、批判性思维</td></tr>
+                                        <tr><td>跨界能力</td><td>培养综合能力</td><td>思维固化、只专一技、拒绝新事物</td><td>跨领域学习、T型技能、持续迭代</td><td>一专多能、保持好奇心</td></tr>
+                                        <tr><td>认知升级</td><td>提升思维层次</td><td>认知茧房、固执己见、拒绝改变</td><td>多元视角、批判思维、反思总结</td><td>每年读20本书、与高人交流</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <h4 style="margin:20px 0 10px;">七、投资理财（贯穿一生）</h4>
-                <table class="data-table">
-                    <tr><th>维度</th><th>核心任务</th><th>敌人</th><th>朋友</th><th>正确策略</th></tr>
-                    <tr><td>储蓄积累</td><td>积累原始资本</td><td>月光族、超前消费、攀比心理</td><td>强制储蓄、收入规划、俭朴生活</td><td>收入-储蓄=支出、养成储蓄习惯</td></tr>
-                    <tr><td>保险保障</td><td>转移风险</td><td>侥幸心理、忽视保险、买错保险</td><td>社保+商业保险、重疾+医疗+寿险</td><td>优先保障型再理财型、先大人后小孩</td></tr>
-                    <tr><td>投资增值</td><td>资产保值增值</td><td>贪婪心理、追涨杀跌、听信内幕、all in</td><td>价值投资、资产配置、长期主义</td><td>不懂不投、分散投资、复利思维</td>
-                    <tr><td>房产配置</td><td>居住+保值</td><td>炒房思维、高杠杆购房、买错城市</td><td>自住刚需、政策导向、人口流入</td><td>房子是用来住的、核心城市核心地段</td></tr>
-                    <tr><td>债务管理</td><td>合理使用杠杆</td><td>过度负债、高利贷、以贷养贷</td><td>良性负债、低息贷款、量入为出</td><td>负债率<50%、优先偿还高息债务</td></tr>
-                </table>
-
-                <h4 style="margin:20px 0 10px;">八、健康生活（贯穿一生）</h4>
-                <table class="data-table">
-                    <tr><th>维度</th><th>核心任务</th><th>敌人</th><th>朋友</th><th>正确策略</th></tr>
-                    <tr><td>作息规律</td><td>保证充足睡眠</td><td>熬夜追剧、失眠、手机依赖</td><td>固定作息、睡前仪式、舒适环境</td><td>每天7-8小时、11点前入睡</td></tr>
-                    <tr><td>运动健身</td><td>保持身体活力</td><td>久坐不动、三分钟热度、运动损伤</td><td>适量运动、循序渐进、兴趣驱动</td><td>每周3-5次、每次30分钟、循序渐进</td></tr>
-                    <tr><td>饮食健康</td><td>均衡营养摄入</td><td>暴饮暴食、垃圾食品、节食减肥</td><td>粗细搭配、荤素均衡、七八分饱</td><td>早餐吃好、午餐吃饱、晚餐吃少</td></tr>
-                    <tr><td>心理健康</td><td>保持精神健康</td><td>焦虑内卷、抑郁倾向、情绪压抑</td><td>正念冥想、兴趣爱好、社交支持</td><td>接纳情绪、适当倾诉、培养兴趣</td></tr>
-                    <tr><td>定期体检</td><td>早发现早治疗</td><td>讳疾忌医、忽视症状、拒绝体检</td><td>年度体检、专项筛查、疫苗接种</td><td>40岁后增加专项体检、异常及时复查</td></tr>
-                </table>
-
-                <h4 style="margin:20px 0 10px;">九、人品自律（贯穿一生）</h4>
-                <table class="data-table">
-                    <tr><th>维度</th><th>核心任务</th><th>敌人</th><th>朋友</th><th>正确策略</th></tr>
-                    <tr><td>诚信经营</td><td>建立信任基础</td><td>撒谎成性、言而无信、投机取巧</td><td>诚实守信、言出必行、长期主义</td><td>对人真诚、说到做到、童叟无欺</td></tr>
-                    <tr><td>感恩图报</td><td>维护人际关系</td><td>忘恩负义、过河拆桥、索取型人格</td><td>知恩图报、礼尚往来、互相帮助</td><td>记住他人好、适时回报、表达感谢</td></tr>
-                    <tr><td>自律节制</td><td>掌控自身行为</td><td>拖延症、成瘾行为、情绪化决策</td><td>目标管理、习惯养成、延迟满足</td><td>制定计划、执行到位、复盘调整</td></tr>
-                    <tr><td>责任担当</td><td>承担应有责任</td><td>推卸责任、逃避问题、巨婴心态</td><td>主动承担、勇于负责、解决问题</td><td>对事负责、出了问题不甩锅</td></tr>
-                    <tr><td>善良正直</td><td>保持善良本性</td><td>自私自利、欺软怕硬、见利忘义</td><td>换位思考、乐于助人、坚持原则</td><td>与人为善、但有底线、不卑不亢</td></tr>
-                </table>
-
-                <h4 style="margin:20px 0 10px;">十、自学成材（贯穿一生）</h4>
-                <table class="data-table">
-                    <tr><th>维度</th><th>核心任务</th><th>敌人</th><th>朋友</th><th>正确策略</th></tr>
-                    <tr><td>学习动力</td><td>保持学习热情</td><td>三分钟热度、缺乏目标、功利心切</td><td>内在动机、兴趣驱动、成长思维</td><td>终身学习、活到老学到老</td></tr>
-                    <tr><td>学习方法</td><td>提高学习效率</td><td>死记硬背、假努力、低效重复</td><td>刻意练习、输出倒逼、费曼学习法</td><td>输入+输出结合、形成知识体系</td></tr>
-                    <tr><td>信息筛选</td><td>获取优质信息</td><td>信息茧房、谣言误导、碎片化信息</td><td>权威来源、交叉验证、深度阅读</td><td>关注优质源头、批判性思维</td>
-                    <tr><td>跨界能力</td><td>培养综合能力</td><td>思维固化、只专一技、拒绝新事物</td><td>跨领域学习、T型技能、持续迭代</td><td>一专多能、保持好奇心</td></tr>
-                    <tr><td>认知升级</td><td>提升思维层次</td><td>认知茧房、固执己见、拒绝改变</td><td>多元视角、批判思维、反思总结</td><td>每年读20本书、与高人交流</td></tr>
-                </table>
 
                 <div class="section">
                     <h3 class="section-title">📌 核心要点</h3>
@@ -1936,62 +2252,125 @@
 
                 <div class="section">
                     <h3 class="section-title">⚠️ 常见错误思想及言论</h3>
-                    
-                    <h4 style="margin:15px 0 10px;">一、学业期常见错误思想</h4>
-                    <table class="data-table">
-                        <tr><th>错误言论</th><th>错误原因</th><th>正确认知</th></tr>
-                        <tr><td>"读书没用，出来还是给小学毕业的老板打工"</td><td>幸存者偏差，只看到少数个案</td><td>读书是普通人最大的上升通道，学历与收入正相关</td></tr>
-                        <tr><td>"60分万岁，多一分浪费"</td><td>短视行为，浪费学习能力最强的时光</td><td>学习是培养能力的过程，受益终身</td></tr>
-                        <tr><td>"志愿填报是家长的事"</td><td>放弃人生主动权</td><td>结合兴趣、前景、政策选择自己的专业</td></tr>
-                        <tr><td>"考研是为了逃避就业"</td><td>目标不明确，随大流</td><td>想清楚为什么读，考研是手段不是目的</td></tr>
-                    </table>
+                    <p style="color:var(--text-secondary);margin-bottom:15px;font-size:0.9rem;">点击展开查看各类错误思想分析</p>
 
-                    <h4 style="margin:20px 0 10px;">二、职业期常见错误思想</h4>
-                    <table class="data-table">
-                        <tr><th>错误言论</th><th>错误原因</th><th>正确认知</th></tr>
-                        <tr><td>"打工是给老板赚钱，学不到东西"</td><td>思维局限，不懂得积累</td><td>每一份工作都是给自己积累经验和资本</td></tr>
-                        <tr><td>"年轻时候不享受，老了有钱也没意义"</td><td>短视消费观，没有长远规划</td><td>年轻时的积累决定老年时的生活质量</td></tr>
-                        <tr><td>"打工是不可能打工的"</td><td>眼高手低，不切实际</td><td>积累够了再创业，没积累创业就是交学费</td></tr>
-                        <tr><td>"等工作稳定了再理财"</td><td>收入低不是不理财的借口</td><td>理财越早越好，复利需要时间</td></tr>
-                        <tr><td>"中年危机是必然的，躲不过去"</td><td>被动接受，不做准备</td><td>提前准备可以平滑过渡，甚至成为机遇</td></tr>
-                    </table>
+                    <div class="accordion-group">
+                        <!-- 一、学业期常见错误思想 -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>📚 一、学业期常见错误思想</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <table class="data-table">
+                                        <tr><th>错误言论</th><th>错误原因</th><th>正确认知</th></tr>
+                                        <tr><td>"读书没用，出来还是给小学毕业的老板打工"</td><td>幸存者偏差，只看到少数个案</td><td>读书是普通人最大的上升通道，学历与收入正相关</td></tr>
+                                        <tr><td>"60分万岁，多一分浪费"</td><td>短视行为，浪费学习能力最强的时光</td><td>学习是培养能力的过程，受益终身</td></tr>
+                                        <tr><td>"志愿填报是家长的事"</td><td>放弃人生主动权</td><td>结合兴趣、前景、政策选择自己的专业</td></tr>
+                                        <tr><td>"考研是为了逃避就业"</td><td>目标不明确，随大流</td><td>想清楚为什么读，考研是手段不是目的</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
-                    <h4 style="margin:20px 0 10px;">三、婚姻期常见错误思想</h4>
-                    <table class="data-table">
-                        <tr><th>错误言论</th><th>错误原因</th><th>正确认知</th></tr>
-                        <tr><td>"干得好不如嫁/娶得好"</td><td>依赖思想，放弃自我成长</td><td>婚姻是共同成长，不是扶贫或依附</td></tr>
-                        <tr><td>"结婚就是完成任务"</td><td>将就心理，害人害己</td><td>婚姻是一辈子的事，宁缺毋滥</td></tr>
-                        <tr><td>"有了孩子就好了"</td><td>逃避问题，问题不会自动消失</td><td>孩子是婚姻的试金石，不是解决问题的工具</td></tr>
-                        <tr><td>"爱情是婚姻的全部"</td><td>浪漫主义，忽视现实</td><td>婚姻需要经营，三观契合比爱情更重要</td></tr>
-                    </table>
+                        <!-- 二、职业期常见错误思想 -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>💼 二、职业期常见错误思想</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <table class="data-table">
+                                        <tr><th>错误言论</th><th>错误原因</th><th>正确认知</th></tr>
+                                        <tr><td>"打工是给老板赚钱，学不到东西"</td><td>思维局限，不懂得积累</td><td>每一份工作都是给自己积累经验和资本</td></tr>
+                                        <tr><td>"年轻时候不享受，老了有钱也没意义"</td><td>短视消费观，没有长远规划</td><td>年轻时的积累决定老年时的生活质量</td></tr>
+                                        <tr><td>"打工是不可能打工的"</td><td>眼高手低，不切实际</td><td>积累够了再创业，没积累创业就是交学费</td></tr>
+                                        <tr><td>"等工作稳定了再理财"</td><td>收入低不是不理财的借口</td><td>理财越早越好，复利需要时间</td></tr>
+                                        <tr><td>"中年危机是必然的，躲不过去"</td><td>被动接受，不做准备</td><td>提前准备可以平滑过渡，甚至成为机遇</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
-                    <h4 style="margin:20px 0 10px;">四、投资理财常见错误思想</h4>
-                    <table class="data-table">
-                        <tr><th>错误言论</th><th>错误原因</th><th>正确认知</th></tr>
-                        <tr><td>"钱是赚出来的不是省出来的"</td><td>忽略原始积累的重要性</td><td>本金少的时候，省钱比赚钱容易</td></tr>
-                        <tr><td>"年轻人不需要理财"</td><td>理财意识淡薄</td><td>理财越早越好，复利需要时间</td></tr>
-                        <tr><td>"钱存银行最安全"</td><td>忽略通胀，实际亏损</td><td>适当配置资产，跑赢通胀</td></tr>
-                        <tr><td>"高收益必然高风险"（成为不学习的借口）</td><td>误解风险与收益的关系</td><td>可以通过学习降低风险，提高收益</td></tr>
-                        <tr><td>"别人赚了我也赚"</td><td>盲目跟风，追涨杀跌</td><td>不懂不投，独立判断</td></tr>
-                    </table>
+                        <!-- 三、婚姻期常见错误思想 -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>💑 三、婚姻期常见错误思想</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <table class="data-table">
+                                        <tr><th>错误言论</th><th>错误原因</th><th>正确认知</th></tr>
+                                        <tr><td>"干得好不如嫁/娶得好"</td><td>依赖思想，放弃自我成长</td><td>婚姻是共同成长，不是扶贫或依附</td></tr>
+                                        <tr><td>"结婚就是完成任务"</td><td>将就心理，害人害己</td><td>婚姻是一辈子的事，宁缺毋滥</td></tr>
+                                        <tr><td>"有了孩子就好了"</td><td>逃避问题，问题不会自动消失</td><td>孩子是婚姻的试金石，不是解决问题的工具</td></tr>
+                                        <tr><td>"爱情是婚姻的全部"</td><td>浪漫主义，忽视现实</td><td>婚姻需要经营，三观契合比爱情更重要</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
-                    <h4 style="margin:20px 0 10px;">五、健康生活常见错误思想</h4>
-                    <table class="data-table">
-                        <tr><th>错误言论</th><th>错误原因</th><th>正确认知</th></tr>
-                        <tr><td>"年轻时候拼命，老了再保养"</td><td>健康不可逆，年轻不珍惜</td><td>健康是积累出来的，老了很难补回来</td></tr>
-                        <tr><td>"我年轻，不会得病的"</td><td>侥幸心理</td><td>很多疾病年轻化，预防胜于治疗</td></tr>
-                        <tr><td>"运动是老年人做的事"</td><td>忽视运动的重要性</td><td>运动越早越好，养成习惯</td></tr>
-                        <tr><td>"我睡不着是正常的"</td><td>忽视睡眠问题</td><td>睡眠是最好的养生，要重视</td></tr>
-                    </table>
+                        <!-- 四、投资理财常见错误思想 -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>💰 四、投资理财常见错误思想</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <table class="data-table">
+                                        <tr><th>错误言论</th><th>错误原因</th><th>正确认知</th></tr>
+                                        <tr><td>"钱是赚出来的不是省出来的"</td><td>忽略原始积累的重要性</td><td>本金少的时候，省钱比赚钱容易</td></tr>
+                                        <tr><td>"年轻人不需要理财"</td><td>理财意识淡薄</td><td>理财越早越好，复利需要时间</td></tr>
+                                        <tr><td>"钱存银行最安全"</td><td>忽略通胀，实际亏损</td><td>适当配置资产，跑赢通胀</td></tr>
+                                        <tr><td>"高收益必然高风险"（成为不学习的借口）</td><td>误解风险与收益的关系</td><td>可以通过学习降低风险，提高收益</td></tr>
+                                        <tr><td>"别人赚了我也赚"</td><td>盲目跟风，追涨杀跌</td><td>不懂不投，独立判断</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
-                    <h4 style="margin:20px 0 10px;">六、人品自律常见错误思想</h4>
-                    <table class="data-table">
-                        <tr><th>错误言论</th><th>错误原因</th><th>正确认知</th></tr>
-                        <tr><td>"成大事者不拘小节"</td><td>忽视细节的重要性</td><td>细节决定成败，人品体现在点滴</td></tr>
-                        <tr><td>"老实人吃亏"</td><td>短期思维</td><td>长期来看，诚信是最好的名片</td></tr>
-                        <tr><td>"关系到位就能搞定一切"</td><td>迷信关系，忽视能力</td><td>靠山山倒，靠人人跑，最终还是要靠实力</td></tr>
-                        <tr><td>"他都这样对我，我为什么还要对他好"</td><td>以牙还牙，陷入负面循环</td><td>做好自己，不因他人而降低品格</td></tr>
-                    </table>
+                        <!-- 五、健康生活常见错误思想 -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>🏃 五、健康生活常见错误思想</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <table class="data-table">
+                                        <tr><th>错误言论</th><th>错误原因</th><th>正确认知</th></tr>
+                                        <tr><td>"年轻时候拼命，老了再保养"</td><td>健康不可逆，年轻不珍惜</td><td>健康是积累出来的，老了很难补回来</td></tr>
+                                        <tr><td>"我年轻，不会得病的"</td><td>侥幸心理</td><td>很多疾病年轻化，预防胜于治疗</td></tr>
+                                        <tr><td>"运动是老年人做的事"</td><td>忽视运动的重要性</td><td>运动越早越好，养成习惯</td></tr>
+                                        <tr><td>"我睡不着是正常的"</td><td>忽视睡眠问题</td><td>睡眠是最好的养生，要重视</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 六、人品自律常见错误思想 -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>⚖️ 六、人品自律常见错误思想</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <table class="data-table">
+                                        <tr><th>错误言论</th><th>错误原因</th><th>正确认知</th></tr>
+                                        <tr><td>"成大事者不拘小节"</td><td>忽视细节的重要性</td><td>细节决定成败，人品体现在点滴</td></tr>
+                                        <tr><td>"老实人吃亏"</td><td>短期思维</td><td>长期来看，诚信是最好的名片</td></tr>
+                                        <tr><td>"关系到位就能搞定一切"</td><td>迷信关系，忽视能力</td><td>靠山山倒，靠人人跑，最终还是要靠实力</td></tr>
+                                        <tr><td>"他都这样对我，我为什么还要对他好"</td><td>以牙还牙，陷入负面循环</td><td>做好自己，不因他人而降低品格</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="section">
@@ -2028,6 +2407,28 @@
 
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        function toggleAccordion(header) {
+            var content = header.nextElementSibling;
+            var isOpen = content.classList.contains('active');
+
+            // 切换当前项
+            if (isOpen) {
+                content.classList.remove('active');
+                header.classList.remove('active');
+            } else {
+                // 关闭当前手风琴组内的其他打开项
+                var parent = header.parentElement;
+                if (parent.classList.contains('accordion-group')) {
+                    parent.querySelectorAll('.accordion-content.active').forEach(function(el) {
+                        el.classList.remove('active');
+                        el.previousElementSibling.classList.remove('active');
+                    });
+                }
+                content.classList.add('active');
+                header.classList.add('active');
+            }
         }
 
         document.querySelector('.main-content').addEventListener('click', function() {
