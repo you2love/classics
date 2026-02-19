@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人情、面子与权力的再生产</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #dcdde1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* 顶部导航 */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .navbar h1 {
+            font-size: 1.3rem;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            margin-top: 90px;
+        }
+
+        .book-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .book-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .book-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .book-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .book-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-impact {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .book-impact strong {
+            color: var(--primary-color);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+
+        .data-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .data-table tr:hover {
+            background-color: #e3f2fd;
+        }
+
+        .core-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .core-point-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .core-point-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .core-point-card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .point-number {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 26px;
+            font-weight: bold;
+            font-size: 0.75rem;
+            margin-bottom: 8px;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #fef9e7, #fcf3cf);
+            padding: 20px 25px;
+            border-radius: 10px;
+            border-left: 4px solid #f1c40f;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .chapter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .chapter-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .chapter-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        .chapter-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .framework-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid var(--success-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .framework-box h4 {
+            color: var(--success-color);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .framework-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .framework-label {
+            background: var(--success-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            min-width: 80px;
+            text-align: center;
+            margin-right: 12px;
+        }
+
+        .framework-content {
+            color: var(--text-primary);
+        }
+
+        .flow-chart {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+
+        .flow-step {
+            background: var(--secondary-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        .data-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .data-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .data-card-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .data-card-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-right: 5px;
+        }
+
+        .badge-primary { background: #e3f2fd; color: #1976d2; }
+        .badge-success { background: #e8f5e9; color: #388e3c; }
+        .badge-warning { background: #fff3e0; color: #f57c00; }
+        .badge-danger { background: #ffebee; color: #d32f2f; }
+
+        .accordion {
+            margin: 10px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .accordion-header {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #e9ecef, #dee2e6);
+        }
+
+        .accordion-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .accordion-header.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+            background: var(--card-bg);
+        }
+
+        .accordion-content.active {
+            max-height: 5000px;
+        }
+
+        .accordion-inner {
+            padding: 15px 20px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            border-left: 4px solid var(--warning-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .highlight-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .example-box h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .example-box p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .book-title { font-size: 1.4rem; }
+            .core-points-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <nav class="navbar">
+        <a href="../index.html" style="color: white; text-decoration: none; font-size: 1.3rem;">← 返回书单</a>
+    </nav>
+
+    <div class="container">
+        <div class="book-header">
+            <h1 class="book-title">人情、面子与权力的再生产</h1>
+            <p class="book-subtitle">中国社会运作的文化逻辑</p>
+            <div class="book-meta">
+                <span>👤 作者：翟学伟</span>
+                <span>📅 2011年</span>
+                <span>📚 北京大学出版社</span>
+                <span>🌍 中国</span>
+            </div>
+            <p class="book-description">本书从社会学和文化学角度，深入剖析了中国社会中人情、面子、权力三者之间的复杂关系，揭示了这些概念在中国社会运作中的核心地位。</p>
+            <div class="book-impact"><strong>本书影响：</strong>开创性地提出了中国社会运作的文化逻辑分析框架，为理解中国社会提供了重要的理论工具。</div>
+            <div class="tags"><span class="tag">社会学</span><span class="tag">文化研究</span><span class="tag">权力研究</span><span class="tag">本土研究</span></div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📚 全书章节结构</h2>
+            <table class="chapter-table">
+                <tr><th>章节</th><th>主要内容</th></tr>
+                <tr><td>序言</td><td>人情、面子与权力的研究意义</td></tr>
+                <tr><td>第一章</td><td>人情的社会学内涵</td></tr>
+                <tr><td>第二章</td><td>面子的文化逻辑</td></tr>
+tr><td>第三章</td><td>权力的社会网络基础</td></tr>
+                <tr><td>第四章</td><td>人情与权力的互动</td></tr>
+                <tr><td>第五章</td><td>面子与权力的关系</td></tr>
+                <tr><td>第六章</td><td>权力再生产的机制</td></tr>
+                <tr><td>第七章</td><td>中国社会运作的文化逻辑</td></tr>
+                <tr><td>后记</td><td>理论与现实的思考</td></tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🎯 核心观点</h2>
+            <div class="core-points-grid">
+                <div class="core-point-card">
+                    <span class="point-number">1</span>
+                    <h4>人情的社会资本属性</h4>
+                    <p>人情在中国社会中是一种重要的社会资本，是维系社会关系、实现社会交换的基本方式。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">2</span>
+                    <h4>面子的象征意义</h4>
+                    <p>面子不仅是个人尊严的体现，更是社会地位的象征，影响着人们的社会行为和互动。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">3</span>
+                    <h4>权力的关系网络基础</h4>
+                    <p>在中国的社会语境下，权力的基础往往不是正式制度，而是人际关系网络。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">4</span>
+                    <h4>三者的互动关系</h4>
+                    <p>人情、面子、权力三者相互依存、相互强化，构成了中国社会运作的基本逻辑。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">5</span>
+                    <h4>权力的再生产机制</h4>
+                    <p>权力通过人情网络的维护、面子的交换等方式实现再生产，形成稳定的权力结构。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">6</span>
+                    <h4>文化逻辑的持续性</h4>
+                    <p>尽管社会在变化，但人情、面子、权力的文化逻辑依然深刻影响着中国社会的运作。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">💡 核心概念解析</h2>
+            
+            <div class="example-box">
+                <h4>人情的定义</h4>
+                <p>人情是指人与人之间的情感纽带和互惠关系，是中国社会关系的基础。人情包括情感、恩惠、责任等多个层面。</p>
+            </div>
+
+            <div class="example-box">
+                <h4>面子的内涵</h4>
+                <p><strong>1. 个人层面：</strong>个人尊严和自我价值感</p>
+                <p><strong>2. 社会层面：</strong>社会地位和声望</p>
+                <p><strong>3. 互动层面：</strong>社会交换的媒介</p>
+                <p><strong>4. 文化层面：</strong>文化价值的体现</p>
+            </div>
+
+            <div class="example-box">
+                <h4>权力的特点</h4>
+                <p><strong>1. 关系性：</strong>权力建立在人际关系之上</p>
+                <p><strong>2. 互惠性：</strong>权力通过人情交换实现</p>
+                <p><strong>3> 象征性：</strong>权力通过面子体现</p>
+                <p><strong>4. 再生产性：</strong>权力能够自我维持和扩大</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📖 理论框架</h2>
+            
+            <div class="quote-box">
+                "人情、面子、权力构成了中国社会运作的三角关系。人情是基础，面子是媒介，权力是目标。三者相互依存，共同维持着社会的运作。"
+            </div>
+
+            <table class="data-table">
+                <tr>
+                    <th>概念</th>
+                    <th>定义</th>
+                    <th>功能</th>
+                    <th>运作方式</th>
+                </tr>
+                <tr>
+                    <td>人情</td>
+                    <td>情感纽带和互惠关系</td>
+                    <td>维系社会关系</td>
+                    <td>互惠交换</td>
+                </tr>
+                <tr>
+                    <td>面子</td>
+                    <td>尊严和地位的象征</td>
+                    <td>调节社会行为</td>
+                    <td>面子交换</td>
+                </tr>
+                <tr>
+                    <td>权力</td>
+                    <td>影响力和控制力</td>
+                    <td>实现社会目标</td>
+                    <td>关系网络</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🔬 权力再生产机制</h2>
+            
+            <div class="framework-box">
+                <h4>权力再生产路径</h4>
+                <div class="framework-item">
+                    <span class="framework-label">关系积累</span>
+                    <span class="framework-content">通过人情交换积累关系资源</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">面子维护</span>
+                    <span class="framework-content">通过面子交换维护社会地位</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">权力获取</span>
+                    <span class="framework-content">利用关系和面子获取权力</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">权力巩固</span>
+                    <span class="framework-content">通过人情和面子巩固权力</span>
+                </div>
+            </div>
+
+            <div class="flow-chart">
+                <div class="flow-step">人情交换</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">关系积累</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">面子交换</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">权力获取</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">权力再生产</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🌐 社会意义</h2>
+            
+            <div class="highlight-box">
+                <h4>理论创新</h4>
+                <p>本书提出了中国社会运作的文化逻辑分析框架，为理解中国社会提供了新的理论视角。</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>实践指导</h4>
+                <p>了解人情、面子、权力的运作逻辑，有助于在中国的社会环境中更好地生存和发展。</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>文化理解</h4>
+                <p>本书帮助理解中国文化的深层逻辑，促进对中国社会的深入认识。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📊 关键数据</h2>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="data-card-value">20+</div>
+                    <div class="data-card-label">研究年数</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">50+</div>
+                    <div class="data-card-label">案例研究</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">10+</div>
+                    <div class="data-card-label">核心概念</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">5+</div>
+                    <div class="data-card-label">理论模型</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📝 经典论述</h2>
+            
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于人情的社会学意义</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>人情是中国社会的基本运作逻辑。它不仅是情感的表达，更是社会交换的媒介。通过人情交换，人们建立和维护社会关系，实现社会目标。</p>
+                        <p>人情网络是中国社会的基础，理解人情，才能理解中国社会。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于面子的文化逻辑</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>面子是中国文化中独特的概念。它不仅是个人尊严的体现，更是社会地位的象征。面子影响着人们的社会行为和互动。</p>
+                        <p>面子交换是中国社会的重要活动，通过面子交换，人们实现社会目标的达成。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于权力的再生产</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>权力不是静态的，而是不断再生产的。在中国的社会语境下，权力的再生产依赖于人情网络的维护和面子的交换。</p>
+                        <p>理解权力的再生产机制，才能理解中国社会的权力运作逻辑。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🎓 阅读建议</h2>
+            <div class="core-points-grid">
+                <div class="core-point-card">
+                    <h4>适合人群</h4>
+                    <p>社会学研究者、文化学者、政治学学者、在中国工作的外国人</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>阅读方法</h4>
+                    <p>结合案例理解理论，思考实践应用，联系现实观察</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>延伸阅读</h4>
+                    <p>《中国人的心理与行为》《中国人的思维方式》《当代中国社会心态研究》</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>实践价值</h4>
+                    <p>理解中国社会运作逻辑，提高社会适应能力，改善人际关系</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(header) {
+            header.classList.toggle('active');
+            const content = header.nextElementSibling;
+            content.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打工者的呐喊：一个农民工的十年</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #dcdde1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* 顶部导航 */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .navbar h1 {
+            font-size: 1.3rem;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            margin-top: 90px;
+        }
+
+        .book-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .book-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .book-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .book-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .book-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-impact {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .book-impact strong {
+            color: var(--primary-color);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+
+        .data-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .data-table tr:hover {
+            background-color: #e3f2fd;
+        }
+
+        .core-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .core-point-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .core-point-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .core-point-card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .point-number {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 26px;
+            font-weight: bold;
+            font-size: 0.75rem;
+            margin-bottom: 8px;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #fef9e7, #fcf3cf);
+            padding: 20px 25px;
+            border-radius: 10px;
+            border-left: 4px solid #f1c40f;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .chapter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .chapter-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .chapter-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        .chapter-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .framework-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid var(--success-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .framework-box h4 {
+            color: var(--success-color);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .framework-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .framework-label {
+            background: var(--success-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            min-width: 80px;
+            text-align: center;
+            margin-right: 12px;
+        }
+
+        .framework-content {
+            color: var(--text-primary);
+        }
+
+        .flow-chart {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+
+        .flow-step {
+            background: var(--secondary-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        .data-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .data-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .data-card-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .data-card-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-right: 5px;
+        }
+
+        .badge-primary { background: #e3f2fd; color: #1976d2; }
+        .badge-success { background: #e8f5e9; color: #388e3c; }
+        .badge-warning { background: #fff3e0; color: #f57c00; }
+        .badge-danger { background: #ffebee; color: #d32f2f; }
+
+        .accordion {
+            margin: 10px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .accordion-header {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #e9ecef, #dee2e6);
+        }
+
+        .accordion-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .accordion-header.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+            background: var(--card-bg);
+        }
+
+        .accordion-content.active {
+            max-height: 5000px;
+        }
+
+        .accordion-inner {
+            padding: 15px 20px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            border-left: 4px solid var(--warning-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .highlight-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .example-box h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .example-box p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .book-title { font-size: 1.4rem; }
+            .core-points-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <nav class="navbar">
+        <a href="../index.html" style="color: white; text-decoration: none; font-size: 1.3rem;">← 返回书单</a>
+    </nav>
+
+    <div class="container">
+        <div class="book-header">
+            <h1 class="book-title">打工者的呐喊：一个农民工的十年</h1>
+            <p class="book-subtitle">一个农民工的十年</p>
+            <div class="book-meta">
+                <span>👤 作者：陈家刚</span>
+                <span>📅 2015年</span>
+                <span>📚 中信出版社</span>
+                <span>🌍 中国</span>
+            </div>
+            <p class="book-description">本书以第一人称的视角，记录了一个农民工十年的打工经历，真实展现了农民工群体的生活状态、面临的困境和对未来的期盼。</p>
+            <div class="book-impact"><strong>本书影响：</strong>以亲身经历的真实记录，让读者深入了解农民工群体的真实生活，引发了社会对农民工权益的广泛关注。</div>
+            <div class="tags"><span class="tag">纪实文学</span><span class="tag">农民工</span><span class="tag">个人史</span><span class="tag">社会观察</span></div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📚 全书章节结构</h2>
+            <table class="chapter-table">
+                <tr><th>章节</th><th>主要内容</th></tr>
+                <tr><td>序言</td><td>为什么要记录这十年</td></tr>
+                <tr><td>第一章</td><td>离开家乡：最初的抉择</td></tr>
+                <tr><td>第二章</td><td>初入城市：适应与迷茫</td></tr>
+                <tr><td>第三章</td><td>打工生活：工厂与工地</td></tr>
+                <tr><td>第四章</td><td>维权之路：讨薪与抗争</td></tr>
+                <tr><td>第五章</td><td>情感世界：爱情与家庭</td></tr>
+                <tr><td>第六章</td><td>回乡之旅：归来的思考</td></tr>
+                <tr><td>后记</td><td>对未来的展望</td></tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🎯 核心观点</h2>
+            <div class="core-points-grid">
+                <div class="core-point-card">
+                    <span class="point-number">1</span>
+                    <h4>真实的生活体验</h4>
+                    <p>本书以第一人称的真实记录，展现了农民工群体的真实生活体验，没有任何美化，也没有任何夸张。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">2</span>
+                    <h4>权益保障的重要性</h4>
+                    <p>农民工面临的最大问题是权益保障问题，包括工资拖欠、工伤赔偿、社会保障等，需要引起重视。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">3</span>
+                    <h4>社会融入的困难</h4>
+                    <p>农民工在城市中的社会融入面临诸多困难，包括文化差异、社会歧视、制度障碍等。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">4</span>
+                    <h4>家庭关系的考验</h4>
+                    <p>长期在外打工对家庭关系造成考验，包括夫妻关系、亲子关系、父母关系等。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">5</span>
+                    <h4>个人成长的历程</h4>
+                    <p>十年打工经历是一个个人成长的过程，包括技能提升、观念转变、思想成熟等。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">6</span>
+                    <h4>对未来的期盼</h4>
+                    <p>尽管面临诸多困难，但农民工群体依然对未来抱有期盼，希望能够通过努力改变命运。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">💡 核心概念解析</h2>
+            
+            <div class="example-box">
+                <h4>农民工的生活特点</h4>
+                <p>农民工的生活特点包括：工作强度大、收入不稳定、生活条件差、社交圈窄、文化娱乐少、精神压力大等。</p>
+            </div>
+
+            <div class="example-box">
+                <h4>面临的困境</h4>
+                <p><strong>1. 经济困境：</strong>收入低、开销大、积蓄少</p>
+                <p><strong>2. 社会困境：</strong>被歧视、受排挤、无话语权</p>
+                <p><strong>3. 心理困境：</strong>孤独感、焦虑感、自卑感</p>
+                <p><strong>4. 权利困境：</strong>维权难、保障少、无依靠</p>
+            </div>
+
+            <div class="example-box">
+                <h4>抗争与妥协</h4>
+                <p><strong>1. 积极抗争：</strong>通过法律途径维护权益</p>
+                <p><strong>2. 消极妥协：</strong>选择忍受和适应</p>
+                <p><strong>3. 互助合作：</strong>依靠同乡和朋友支持</p>
+                <p><strong>4. 自我调节：</strong>调整心态，寻找希望</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📖 重要事件</h2>
+            
+            <div class="quote-box">
+                "2008年金融危机，工厂倒闭，我被拖欠了三个月工资。我和工友们一起维权，经过多次交涉，终于拿到了工资。这让我明白了团结的力量。"
+            </div>
+
+            <table class="data-table">
+                <tr>
+                    <th>时间</th>
+                    <th>事件</th>
+                    <th>影响</th>
+                </tr>
+                <tr>
+                    <td>2005年</td>
+                    <td>第一次外出打工</td>
+                    <td>开始城市生活</td>
+                </tr>
+                <tr>
+                    <td>2008年</td>
+                    <td>遭遇工厂倒闭</td>
+                    <td>学习维权</td>
+                </tr>
+                <tr>
+                    <td>2010年</td>
+                    <td>工伤事故</td>
+                    <td>面临生活困境</td>
+                </tr>
+                <tr>
+                    <td>2012年</td>
+                    <td>结婚生子</td>
+                    <td>承担家庭责任</td>
+                </tr>
+                <tr>
+                    <td>2015年</td>
+                    <td>返乡创业</td>
+                    <td>寻求新的出路</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🔬 成长历程</h2>
+            
+            <div class="framework-box">
+                <h4>十年成长轨迹</h4>
+                <div class="framework-item">
+                    <span class="framework-label">初期</span>
+                    <span class="framework-content">适应城市，学习技能，积累经验</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">中期</span>
+                    <span class="framework-content">提升能力，扩大视野，面对挑战</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">后期</span>
+                    <span class="framework-content">思想成熟，规划未来，寻找出路</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">转折</span>
+                    <span class="framework-content">返乡创业，寻求新的发展</span>
+                </div>
+            </div>
+
+            <div class="flow-chart">
+                <div class="flow-step">离乡</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">打工</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">维权</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">成长</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">回归</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🌐 社会意义</h2>
+            
+            <div class="highlight-box">
+                <h4>真实的记录</h4>
+                <p>本书以真实的第一人称记录，为农民工群体发声，让社会了解他们的真实生活和困境。</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>权益的呼吁</h4>
+                <p>本书呼吁社会关注农民工权益保障问题，推动相关政策的完善和执行。</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>平等的渴望</h4>
+                <p>本书表达了农民工群体对平等、尊严、认可的渴望，希望社会给予他们应有的尊重。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📊 关键数据</h2>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="data-card-value">10年</div>
+                    <div class="data-card-label">打工经历</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">5+</div>
+                    <div class="data-card-label">工作城市</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">3+</div>
+                    <div class="data-card-label">行业经历</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">2次</div>
+                    <div class="data-card-label">维权经历</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📝 经典论述</h2>
+            
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于打工的意义</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>打工不仅仅是为了赚钱，更是为了改变命运。虽然过程艰辛，但每一次努力都是向梦想靠近一步。</p>
+                        <p>打工的经历让我成长，让我明白生活的真谛，也让我对未来有了更清晰的规划。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于维权的重要性</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>维权不仅是为了自己的利益，也是为了维护公平正义。每一次维权都是对社会不公的抗议。</p>
+                        <p>维权的道路艰难，但必须坚持下去。只有让违法者付出代价，才能从根本上改变现状。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于未来的希望</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>虽然十年打工经历充满艰辛，但我对未来依然抱有希望。希望社会更加公平，希望农民工群体能够获得应有的尊重和权利。</p>
+                        <p>返乡创业是新的开始，我希望通过自己的努力，为家乡的发展贡献力量，也为其他打工者树立榜样。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🎓 阅读建议</h2>
+            <div class="core-points-grid">
+                <div class="core-point-card">
+                    <h4>适合人群</h4>
+                    <p>社会学研究者、政策制定者、农民工群体、关心社会公平的读者</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>阅读方法</h4>
+                    <p>关注真实体验，理解农民工困境，思考社会公平</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>延伸阅读</h4>
+                    <p>《打工男孩》《出梁庄记》《大地上的亲人》《中国在梁庄》</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>实践价值</h4>
+                    <p>了解农民工群体，关注权益保障，推动社会进步</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(header) {
+            header.classList.toggle('active');
+            const content = header.nextElementSibling;
+            content.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

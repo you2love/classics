@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>出梁庄记</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #dcdde1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* 顶部导航 */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .navbar h1 {
+            font-size: 1.3rem;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            margin-top: 90px;
+        }
+
+        .book-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .book-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .book-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .book-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .book-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-impact {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .book-impact strong {
+            color: var(--primary-color);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+
+        .data-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .data-table tr:hover {
+            background-color: #e3f2fd;
+        }
+
+        .core-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .core-point-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .core-point-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .core-point-card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .point-number {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 26px;
+            font-weight: bold;
+            font-size: 0.75rem;
+            margin-bottom: 8px;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #fef9e7, #fcf3cf);
+            padding: 20px 25px;
+            border-radius: 10px;
+            border-left: 4px solid #f1c40f;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .chapter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .chapter-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .chapter-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        .chapter-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .framework-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid var(--success-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .framework-box h4 {
+            color: var(--success-color);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .framework-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .framework-label {
+            background: var(--success-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            min-width: 80px;
+            text-align: center;
+            margin-right: 12px;
+        }
+
+        .framework-content {
+            color: var(--text-primary);
+        }
+
+        .flow-chart {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+
+        .flow-step {
+            background: var(--secondary-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        .data-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .data-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .data-card-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .data-card-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-right: 5px;
+        }
+
+        .badge-primary { background: #e3f2fd; color: #1976d2; }
+        .badge-success { background: #e8f5e9; color: #388e3c; }
+        .badge-warning { background: #fff3e0; color: #f57c00; }
+        .badge-danger { background: #ffebee; color: #d32f2f; }
+
+        .accordion {
+            margin: 10px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .accordion-header {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #e9ecef, #dee2e6);
+        }
+
+        .accordion-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .accordion-header.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+            background: var(--card-bg);
+        }
+
+        .accordion-content.active {
+            max-height: 5000px;
+        }
+
+        .accordion-inner {
+            padding: 15px 20px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            border-left: 4px solid var(--warning-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .highlight-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .example-box h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .example-box p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .book-title { font-size: 1.4rem; }
+            .core-points-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <nav class="navbar">
+        <a href="../index.html" style="color: white; text-decoration: none; font-size: 1.3rem;">← 返回书单</a>
+    </nav>
+
+    <div class="container">
+        <div class="book-header">
+            <h1 class="book-title">出梁庄记</h1>
+            <p class="book-subtitle">一个村庄的变迁与外出打工者的故事</p>
+            <div class="book-meta">
+                <span>👤 作者：梁鸿</span>
+                <span>📅 2013年</span>
+                <span>📚 花城出版社</span>
+                <span>🌍 中国</span>
+            </div>
+            <p class="book-description">《出梁庄记》是梁鸿继《中国在梁庄》之后的又一力作。作者追踪梁庄村民在外打工的经历，记录了他们的生活、奋斗和困境，展现了中国农村人口流动的真实图景。</p>
+            <div class="book-impact"><strong>本书影响：</strong>获得鲁迅文学奖等多个重要奖项，被誉为"中国乡村叙事的经典之作"，深刻影响了对农民工问题的讨论。</div>
+            <div class="tags"><span class="tag">纪实文学</span><span class="tag">农民工</span><span class="tag">乡村研究</span><span class="tag">社会学</span></div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📚 全书章节结构</h2>
+            <table class="chapter-table">
+                <tr><th>章节</th><th>主要内容</th></tr>
+                <tr><td>序言</td><td>离开梁庄的意义</td></tr>
+                <tr><td>第一章</td><td>西安：老乡们的生活</td></tr>
+                <tr><td>第二章</td><td>郑州：建筑工地上的梁庄人</td></tr>
+                <tr><td>第三章</td><td>北京：漂泊的城市生活</td></tr>
+                <tr><td>第四章</td><td>南方：工厂里的青春</td></tr>
+                <tr><td>第五章</td><td>回乡：归来的困境</td></tr>
+                <tr><td>后记</td><td>关于村庄与城市的思考</td></tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🎯 核心观点</h2>
+            <div class="core-points-grid">
+                <div class="core-point-card">
+                    <span class="point-number">1</span>
+                    <h4>村庄的空心化</h4>
+                    <p>随着大量人口外出打工，梁庄逐渐空心化，留守老人和儿童成为村庄的主要居民，乡村社会结构发生深刻变化。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">2</span>
+                    <h4>流动的身份认同</h4>
+                    <p>外出打工者面临着"身在城，心在乡"的身份困境，他们既无法完全融入城市，又难以回到乡村。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">3</span>
+                    <h4>家庭结构的变迁</h4>
+                    <p>打工导致家庭结构变化，留守儿童、留守老人、夫妻分居等问题日益突出，传统家庭功能受到冲击。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">4</span>
+                    <h4>城乡断裂的痛苦</h4>
+                    <p>城乡之间存在着深刻的文化、经济、社会断裂，打工者成为这种断裂的直接承受者。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">5</span>
+                    <h4>个体的奋斗与挣扎</h4>
+                    <p>每个外出打工者都在用自己的方式奋斗和挣扎，他们的故事是中国现代化进程中最真实、最动人的部分。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">6</span>
+                    <h4>乡村的未来</h4>
+                    <p>乡村的未来不仅取决于经济发展，更取决于能否重建乡村的文化和社会，让乡村重新成为有吸引力的生活空间。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">💡 核心概念解析</h2>
+            
+            <div class="example-box">
+                <h4>梁庄的意义</h4>
+                <p>梁庄是一个普通的河南村庄，但它的变迁反映了中国千千万万个村庄的命运。梁庄的故事是中国乡村命运的缩影。</p>
+            </div>
+
+            <div class="example-box">
+                <h4>外出打工的特点</h4>
+                <p><strong>1. 主动性：</strong>为了改善生活主动选择外出</p>
+                <p><strong>2. 艰巨性：</strong>面临工作、生活、情感多重困难</p>
+                <p><strong>3. 复杂性：</strong>涉及经济、社会、文化多方面</p>
+                <p><strong>4. 长期性：</strong>许多人长期在外打工</p>
+            </div>
+
+            <div class="example-box">
+                <h4>城乡关系的变化</h4>
+                <p><strong>1. 经济关系：</strong>乡村向城市提供劳动力</p>
+                <p><strong>2. 社会关系：</strong>城乡人口流动加剧</p>
+                <p><strong>3. 文化关系：</strong>城市文化冲击乡村文化</p>
+                <p><strong>4. 心理关系：</strong>心理距离扩大</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📖 人物故事</h2>
+            
+            <div class="quote-box">
+                "梁鸿的堂哥明喜，在西安做了十几年装修工，虽然生活有所改善，但始终买不起房，也落不下户。他最大的心愿是孩子能考上大学，彻底改变命运。"
+            </div>
+
+            <table class="data-table">
+                <tr>
+                    <th>人物</th>
+                    <th>去向</th>
+                    <th>职业</th>
+                    <th>命运轨迹</th>
+                </tr>
+                <tr>
+                    <td>明喜</td>
+                    <td>西安</td>
+                    <td>装修工</td>
+                    <td>辛苦工作，改善生活但无法扎根</td>
+                </tr>
+                <tr>
+                    <td>春梅</td>
+                    <td>郑州</td>
+                    <td>建筑工</td>
+                    <td>因工伤返乡，生活艰难</td>
+                </tr>
+                <tr>
+                    <td>小华</td>
+                    <td>北京</td>
+                    <td>小商贩</td>
+                    <td>在城市打拼，但始终缺乏安全感</td>
+                </tr>
+                <tr>
+                    <td>阿强</td>
+                    <td>南方</td>
+                    <td>工厂工人</td>
+                    <td>在流水线上消耗青春，渴望改变</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🔬 乡村变迁机制</h2>
+            
+            <div class="framework-box">
+                <h4>乡村变迁机制</h4>
+                <div class="framework-item">
+                    <span class="framework-label">推力因素</span>
+                    <span class="framework-content">农村收入低、就业机会少、生活条件差</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">拉力因素</span>
+                    <span class="framework-content">城市收入高、机会多、生活便利</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">流动过程</span>
+                    <span class="framework-content">通过亲戚朋友网络获得信息和帮助</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">适应困境</span>
+                    <span class="framework-content">文化差异、社会排斥、制度障碍</span>
+                </div>
+            </div>
+
+            <div class="flow-chart">
+                <div class="flow-step">乡村推力</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">城市拉力</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">人口流动</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">乡村变迁</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">社会重构</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🌐 社会意义</h2>
+            
+            <div class="highlight-box">
+                <h4>乡村研究的典范</h4>
+                <p>《出梁庄记》以其深入的田野调查和细腻的文学表达，成为当代中国乡村研究的典范作品。</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>农民工群体的代言人</h4>
+                <p>本书为农民工群体发声，让社会更加关注这个庞大而沉默的群体，推动相关政策的讨论和完善。</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>文学与社会的结合</h4>
+                <p>本书成功地将文学叙事与社会研究结合，既有文学的感染力，又有学术的深度，开创了非虚构写作的新范式。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📊 关键数据</h2>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="data-card-value">10+</div>
+                    <div class="data-card-label">跟踪年数</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">50+</div>
+                    <div class="data-card-label">采访人物</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">10+</div>
+                    <div class="data-card-label">走访城市</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">30万+</div>
+                    <div class="data-card-label">字数</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📝 经典论述</h2>
+            
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于村庄的命运</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>梁庄的命运是无数中国村庄命运的缩影。随着城市化的推进，乡村逐渐边缘化、空心化。但这并不意味着乡村会消失，它正在经历深刻的转型。</p>
+                        <p>关键是如何让这种转型更加人性化，如何让乡村重新成为有活力、有希望的生活空间。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于打工者的困境</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>打工者的困境不仅仅是经济困境，更是身份困境、文化困境、情感困境。他们在城市和乡村之间徘徊，找不到真正的归属。</p>
+                        <p>这种困境不是个人问题，而是社会结构问题，需要从制度和文化层面寻求解决。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于未来的希望</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>尽管面临诸多困难，但我们仍然对未来抱有希望。希望来自人们的坚韧不拔，来自社会的进步，来自制度的完善。</p>
+                        <p>我们期待一个更加公平、更加包容的社会，让每个人都能找到自己的位置，实现自己的价值。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🎓 阅读建议</h2>
+            <div class="core-points-grid">
+                <div class="core-point-card">
+                    <h4>适合人群</h4>
+                    <p>社会学研究者、文学爱好者、政策制定者、关心乡村发展的读者</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>阅读方法</h4>
+                    <p>关注人物故事，思考乡村问题，联系现实观察</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>延伸阅读</h4>
+                    <p>《中国在梁庄》《打工男孩》《大地上的亲人》《中国在梁庄》</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>实践价值</h4>
+                    <p>了解乡村变迁，关注农民工群体，推动社会进步</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(header) {
+            header.classList.toggle('active');
+            const content = header.nextElementSibling;
+            content.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

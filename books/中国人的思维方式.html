@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国人的思维方式</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #dcdde1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* 顶部导航 */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .navbar h1 {
+            font-size: 1.3rem;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            margin-top: 90px;
+        }
+
+        .book-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .book-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .book-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .book-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .book-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-impact {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .book-impact strong {
+            color: var(--primary-color);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+
+        .data-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .data-table tr:hover {
+            background-color: #e3f2fd;
+        }
+
+        .core-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .core-point-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .core-point-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .core-point-card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .point-number {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 26px;
+            font-weight: bold;
+            font-size: 0.75rem;
+            margin-bottom: 8px;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #fef9e7, #fcf3cf);
+            padding: 20px 25px;
+            border-radius: 10px;
+            border-left: 4px solid #f1c40f;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .chapter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .chapter-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .chapter-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        .chapter-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .framework-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid var(--success-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .framework-box h4 {
+            color: var(--success-color);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .framework-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .framework-label {
+            background: var(--success-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            min-width: 80px;
+            text-align: center;
+            margin-right: 12px;
+        }
+
+        .framework-content {
+            color: var(--text-primary);
+        }
+
+        .flow-chart {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+
+        .flow-step {
+            background: var(--secondary-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        .data-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .data-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .data-card-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .data-card-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-right: 5px;
+        }
+
+        .badge-primary { background: #e3f2fd; color: #1976d2; }
+        .badge-success { background: #e8f5e9; color: #388e3c; }
+        .badge-warning { background: #fff3e0; color: #f57c00; }
+        .badge-danger { background: #ffebee; color: #d32f2f; }
+
+        .accordion {
+            margin: 10px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .accordion-header {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #e9ecef, #dee2e6);
+        }
+
+        .accordion-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .accordion-header.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+            background: var(--card-bg);
+        }
+
+        .accordion-content.active {
+            max-height: 5000px;
+        }
+
+        .accordion-inner {
+            padding: 15px 20px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            border-left: 4px solid var(--warning-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .highlight-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .example-box h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .example-box p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .book-title { font-size: 1.4rem; }
+            .core-points-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <nav class="navbar">
+        <a href="../index.html" style="color: white; text-decoration: none; font-size: 1.3rem;">← 返回书单</a>
+    </nav>
+
+    <div class="container">
+        <div class="book-header">
+            <h1 class="book-title">中国人的思维方式</h1>
+            <p class="book-subtitle">文化心理学研究</p>
+            <div class="book-meta">
+                <span>👤 作者：彭凯平</span>
+                <span>📅 2014年</span>
+                <span>📚 北京大学出版社</span>
+                <span>🌍 中国</span>
+            </div>
+            <p class="book-description">本书从文化心理学角度，深入探讨中国人的思维方式特点，包括整体性思维、直觉思维、情境思维等，揭示中西思维方式的差异及其文化根源。</p>
+            <div class="book-impact"><strong>本书影响：</strong>为理解中国人思维特点提供了科学依据，推动了跨文化心理学研究的发展，促进了中西文化交流和理解。</div>
+            <div class="tags"><span class="tag">心理学</span><span class="tag">文化研究</span><span class="tag">思维方式</span><span class="tag">跨文化</span></div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📚 全书章节结构</h2>
+            <table class="chapter-table">
+                <tr><th>章节</th><th>主要内容</th></tr>
+                <tr><td>序言</td><td>思维方式的文化差异</td></tr>
+                <tr><td>第一章</td><td>整体性思维与分析性思维</td></tr>
+                <tr><td>第二章</td><td>直觉思维与逻辑思维</td></tr>
+                <tr><td>第三章</td><td>情境思维与情境独立</td></tr>
+                <tr><td>第四章</td><td>辩证思维与形式逻辑</td></tr>
+                <tr><td>第五章</td><td>关系思维与属性思维</td></tr>
+                <tr><td>第六章</td><td>中庸思维与极端思维</td></tr>
+                <tr><td>第七章</td><td>思维方式的跨文化比较</td></tr>
+                <tr><td>后记</td><td>思维方式的演变与未来</td></tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🎯 核心观点</h2>
+            <div class="core-points-grid">
+                <div class="core-point-card">
+                    <span class="point-number">1</span>
+                    <h4>整体性思维</h4>
+                    <p>中国人倾向于整体性思维，关注事物之间的联系和整体性，而不是将事物分解为独立的元素。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">2</span>
+                    <h4>直觉思维</h4>
+                    <p>中国人更依赖直觉和经验，而不是严密的逻辑推理，在决策时往往凭直觉和经验判断。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">3</span>
+                    <h4>情境思维</h4>
+                    <p>中国人的思维具有强烈的情境依赖性，行为和判断会根据具体情境而变化。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">4</span>
+                    <h4>辩证思维</h4>
+                    <p>中国人习惯辩证思维，能够看到事物的两面性，避免极端化。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">5</span>
+                    <h4>关系思维</h4>
+                    <p>中国人重视关系，思维时总是考虑事物之间的关系，而不是孤立的属性。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">6</span>
+                    <h4>中庸思维</h4>
+                    <p>中庸思维是中国人思维的重要特点，追求平衡和谐，避免走极端。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">💡 核心概念解析</h2>
+            
+            <div class="example-box">
+                <h4>思维方式的定义</h4>
+                <p>思维方式是指人们在认知、判断、决策时所采用的思维模式和习惯，包括信息的处理方式、问题的解决方法等。</p>
+            </div>
+
+            <div class="example-box">
+                <h4>中西思维差异</h4>
+                <p><strong>1. 中国：</strong>整体性、直觉性、情境性、辩证性</p>
+                <p><strong>2. 西方：</strong>分析性、逻辑性、情境独立、形式逻辑</p>
+                <p><strong>3. 差异根源：</strong>文化背景、历史传统、社会结构</p>
+                <p><strong>4. 互补性：</strong>各有优势，可以相互学习</p>
+            </div>
+
+            <div class="example-box">
+                <h4>文化根源</h4>
+                <p><strong>1. 儒家思想：</strong>强调和谐、中庸、关系</p>
+                <p><strong>2. 道家思想：</strong>强调整体、辩证、变化</p>
+                <p><strong>3. 农业文明：</strong>重视自然、节气、整体</p>
+                <p><strong>4. 集体主义：</strong>重视群体、关系、和谐</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📊 研究发现</h2>
+            
+            <div class="quote-box">
+                "实验发现，在分类任务中，中国被试倾向于根据关系进行分类，而美国被试倾向于根据属性进行分类。这体现了思维方式的文化差异。"
+            </div>
+
+            <table class="data-table">
+                <tr>
+                    <th>思维类型</th>
+                    <th>中国人</th>
+                    <th>西方人</th>
+                    <th>差异表现</th>
+                </tr>
+                <tr>
+                    <td>分类方式</td>
+                    <td>关系分类</td>
+                    <td>属性分类</td>
+                    <td>关注关系 vs 关注属性</td>
+                </tr>
+                <tr>
+                    <td>归因方式</td>
+                    <td>情境归因</td>
+                    <td>个人归因</td>
+                    <td>强调情境 vs 强调个人</td>
+                </tr>
+                <tr>
+                    <td>决策方式</td>
+                    <td>直觉决策</td>
+                    <td>逻辑决策</td>
+                    <td>凭直觉 vs 重推理</td>
+                </tr>
+                <tr>
+                    <td>问题解决</td>
+                    <td>整体解决</td>
+                    <td>分解解决</td>
+                    <td>整体性 vs 分析性</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🔬 研究方法</h2>
+            
+            <div class="framework-box">
+                <h4>研究方法体系</h4>
+                <div class="framework-item">
+                    <span class="framework-label">实验研究</span>
+                    <span class="framework-content">跨文化实验设计</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">问卷调研</span>
+                    <span class="framework-content">标准化问卷测量</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">观察研究</span>
+                    <span class="framework-content">自然情境观察</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">文化分析</span>
+                    <span class="framework-content">文化文本分析</span>
+                </div>
+            </div>
+
+            <div class="flow-chart">
+                <div class="flow-step">假设提出</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">实验设计</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">数据收集</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">数据分析</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">结论验证</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🌐 社会意义</h2>
+            
+            <div class="highlight-box">
+                <h4>跨文化理解</h4>
+                <p>了解思维方式的差异有助于跨文化交流和理解，减少文化冲突，促进国际合作。</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>教育创新</h4>
+                <p>根据思维方式特点改进教育方法，提高教育效果，培养创新人才。</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>管理实践</h4>
+                <p>在管理中考虑思维方式差异，提高管理效率，促进团队协作。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📊 关键数据</h2>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="data-card-value">20+</div>
+                    <div class="data-card-label">研究年数</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">100+</div>
+                    <div class="data-card-label">实验案例</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">15+</div>
+                    <div class="data-card-label">核心概念</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">10+</div>
+                    <div class="data-card-label">研究方法</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📝 经典论述</h2>
+            
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于整体性思维</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>整体性思维是中国人思维的重要特点。中国人倾向于从整体出发，关注事物之间的联系，而不是将事物分解为独立的元素。</p>
+                        <p>这种思维方式的优点是能够看到事物的全貌，缺点是可能忽视细节和逻辑严密性。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于中庸思维</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>中庸思维体现了中国文化的智慧。追求平衡和谐，避免走极端，是中国人思维和行为的重要指导原则。</p>
+                        <p>中庸不是平庸，而是一种高级的智慧，能够在复杂的情况下找到最优的解决方案。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于思维方式的演变</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>思维方式不是一成不变的，而是会随着社会文化的发展而演变。当代中国年轻人的思维方式正在发生变化。</p>
+                        <p>这种变化是自然的，也是必要的。我们需要在保持传统文化优势的同时，吸收其他文化的优秀成果。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🎓 阅读建议</h2>
+            <div class="core-points-grid">
+                <div class="core-point-card">
+                    <h4>适合人群</h4>
+                    <p>心理学研究者、文化学者、教育工作者、跨文化沟通者</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>阅读方法</h4>
+                    <p>结合实验理解理论，对比中西思维差异，思考实践应用</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>延伸阅读</h4>
+                    <p>《中国人的心理与行为》《人情、面子与权力的再生产》《当代中国社会心态研究》</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>实践价值</h4>
+                    <p>提高跨文化沟通能力，改进教学方法，优化管理策略</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(header) {
+            header.classList.toggle('active');
+            const content = header.nextElementSibling;
+            content.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

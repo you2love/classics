@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>潜规则：中国历史中的真实游戏</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #dcdde1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            margin-top: 90px;
+        }
+
+        /* 顶部导航 */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .navbar h1 {
+            font-size: 1.3rem;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .book-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .book-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .book-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .book-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .book-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-impact {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .book-impact strong {
+            color: var(--primary-color);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+
+        .data-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .data-table tr:hover {
+            background-color: #e3f2fd;
+        }
+
+        .core-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .core-point-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .core-point-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .core-point-card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .point-number {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 26px;
+            font-weight: bold;
+            font-size: 0.75rem;
+            margin-bottom: 8px;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #fef9e7, #fcf3cf);
+            padding: 20px 25px;
+            border-radius: 10px;
+            border-left: 4px solid #f1c40f;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .chapter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .chapter-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .chapter-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        .chapter-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .framework-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid var(--success-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .framework-box h4 {
+            color: var(--success-color);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .framework-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .framework-label {
+            background: var(--success-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            min-width: 80px;
+            text-align: center;
+            margin-right: 12px;
+        }
+
+        .framework-content {
+            color: var(--text-primary);
+        }
+
+        .flow-chart {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+
+        .flow-step {
+            background: var(--secondary-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        .data-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .data-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .data-card-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .data-card-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-right: 5px;
+        }
+
+        .badge-primary { background: #e3f2fd; color: #1976d2; }
+        .badge-success { background: #e8f5e9; color: #388e3c; }
+        .badge-warning { background: #fff3e0; color: #f57c00; }
+        .badge-danger { background: #ffebee; color: #d32f2f; }
+
+        .accordion {
+            margin: 10px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .accordion-header {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #e9ecef, #dee2e6);
+        }
+
+        .accordion-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .accordion-header.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+            background: var(--card-bg);
+        }
+
+        .accordion-content.active {
+            max-height: 5000px;
+        }
+
+        .accordion-inner {
+            padding: 15px 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            border-left: 4px solid var(--warning-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .highlight-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .example-box h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .example-box p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .book-title { font-size: 1.4rem; }
+            .core-points-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <nav class="navbar">
+        <a href="../index.html" style="color: white; text-decoration: none; font-size: 1.3rem;">← 返回书单</a>
+    </nav>
+
+    <div class="container">
+
+        <div class="book-header">
+            <h1 class="book-title">潜规则：中国历史中的真实游戏</h1>
+            <p class="book-subtitle">中国历史中的真实游戏</p>
+            <div class="book-meta">
+                <span>👤 作者：吴思</span>
+                <span>📅 2001年</span>
+                <span>📚 云南人民出版社</span>
+                <span>🌍 中国</span>
+            </div>
+            <p class="book-description">吴思通过大量历史案例，揭示了中国社会中存在的一套隐形的、不成文的规则体系——"潜规则"。这些规则虽然不符合官方制度，却深刻影响着历史的走向和社会的运行。</p>
+            <div class="book-impact"><strong>本书影响：</strong>开创性地提出"潜规则"概念，成为理解中国社会运作的重要理论工具，影响了无数读者对历史和现实的认知。</div>
+            <div class="tags"><span class="tag">历史</span><span class="tag">政治</span><span class="tag">社会学</span><span class="tag">制度分析</span></div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📚 全书章节结构</h2>
+            <table class="chapter-table">
+                <tr><th>章节</th><th>主要内容</th></tr>
+                <tr><td>序言</td><td>潜规则的提出与意义</td></tr>
+                <tr><td>第一编</td><td>潜规则的定义与特征</td></tr>
+                <tr><td>第二编</td><td>历史上的潜规则案例</td></tr>
+                <tr><td>第三编</td><td>潜规则的运作机制</td></tr>
+                <tr><td>第四编</td><td>潜规则与现代中国</td></tr>
+                <tr><td>附录</td><td>相关历史资料</td></tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🎯 核心观点</h2>
+            <div class="core-points-grid">
+                <div class="core-point-card">
+                    <span class="point-number">1</span>
+                    <h4>潜规则的界定</h4>
+                    <p>潜规则是指在正式制度之外，实际支配人们行为的、不成文的、隐形的规则。它们与明文规则并存，往往更能反映社会的真实运行逻辑。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">2</span>
+                    <h4>潜规则的来源</h4>
+                    <p>潜规则产生于制度的不完善和权力的不对等。当正式制度无法有效约束权力时，人们会寻求替代性的行为规范。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">3</span>
+                    <h4>潜规则的稳定性</h4>
+                    <p>潜规则具有强大的自我维持能力，因为它符合各方的实际利益，即使违背道德，也能长期存在。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">4</span>
+                    <h4>潜规则的历史性</h4>
+                    <p>潜规则在中国历史上长期存在，形成了深厚的传统，影响着历代政治和社会的运作。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">5</span>
+                    <h4>潜规则的危害</h4>
+                    <p>潜规则侵蚀正式制度的权威，损害社会公平，降低治理效率，是现代化建设必须克服的障碍。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">6</span>
+                    <h4>潜规则的演变</h4>
+                    <p>随着制度环境的改变，潜规则也会发生演变，但只要制度不完善，新的潜规则就会产生。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">💡 核心概念解析</h2>
+            
+            <div class="example-box">
+                <h4>潜规则的定义</h4>
+                <p>潜规则是指在社会中实际起作用的、不成文的行为规范，它们往往与正式的制度规定相悖，但却能更好地解释人们的实际行为。</p>
+            </div>
+
+            <div class="example-box">
+                <h4>潜规则的特征</h4>
+                <p><strong>1. 隐蔽性：</strong>不被公开承认，只能通过实际观察发现</p>
+                <p><strong>2. 稳定性：</strong>一旦形成，能够长期存在</p>
+                <p><strong>3. 实用性：</strong>能够解决实际问题，满足各方利益</p>
+                <p><strong>4. 普遍性：</strong>在各个领域都存在</p>
+            </div>
+
+            <div class="example-box">
+                <h4>潜规则的类型</h4>
+                <p><strong>1. 权力寻租型：</strong>利用权力获取不正当利益</p>
+                <p><strong>2. 利益交换型：</strong>各方利益交换形成的默契</p>
+                <p><strong>3. 关系运作型：</strong>依靠人情关系解决问题</p>
+                <p><strong>4. 制度规避型：</strong>绕过正式制度的捷径</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📖 历史案例</h2>
+            
+            <div class="quote-box">
+                "在明朝，地方官员的俸禄很低，但实际上他们通过各种方式获得的收入远远超过官方规定。这就是典型的潜规则在起作用。"
+            </div>
+
+            <table class="data-table">
+                <tr>
+                    <th>历史时期</th>
+                    <th>潜规则现象</th>
+                    <th>影响</th>
+                </tr>
+                <tr>
+                    <td>明朝</td>
+                    <td>官员额外收入、地方豪强把持</td>
+                    <td>财政负担加重、治理效率下降</td>
+                </tr>
+                <tr>
+                    <td>清朝</td>
+                    <td>捐纳制度、权力世袭</td>
+                    <td>社会阶层固化、腐败蔓延</td>
+                </tr>
+                <tr>
+                    <td>民国</td>
+                    <td>军阀割据、派系斗争</td>
+                    <td>国家分裂、战乱不断</td>
+                </tr>
+                <tr>
+                    <td>改革开放后</td>
+                    <td>权力寻租、利益输送</td>
+                    <td>社会不公、制度扭曲</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🔬 潜规则的运作机制</h2>
+            
+            <div class="framework-box">
+                <h4>潜规则形成机制</h4>
+                <div class="framework-item">
+                    <span class="framework-label">制度缺陷</span>
+                    <span class="framework-content">正式制度不完善，存在漏洞和空白</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">权力集中</span>
+                    <span class="framework-content">权力不受有效约束，存在寻租空间</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">利益驱动</span>
+                    <span class="framework-content">各方为追求自身利益形成默契</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">传统惯性</span>
+                    <span class="framework-content">历史文化传统为潜规则提供土壤</span>
+                </div>
+            </div>
+
+            <div class="flow-chart">
+                <div class="flow-step">制度不完善</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">权力寻租</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">利益交换</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">形成潜规则</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">自我强化</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">⚖️ 潜规则与明规则</h2>
+            
+            <table class="data-table">
+                <tr>
+                    <th>对比维度</th>
+                    <th>明规则</th>
+                    <th>潜规则</th>
+                </tr>
+                <tr>
+                    <td>形式</td>
+                    <td>公开、成文</td>
+                    <td>隐蔽、不成文</td>
+                </tr>
+                <tr>
+                    <td>权威来源</td>
+                    <td>官方制度</td>
+                    <td>实际利益</td>
+                </tr>
+                <tr>
+                    <td>执行力</td>
+                    <td>较弱</td>
+                    <td>较强</td>
+                </tr>
+                <tr>
+                    <td>社会评价</td>
+                    <td>正面</td>
+                    <td>负面</td>
+                </tr>
+                <tr>
+                    <td>实际影响</td>
+                    <td>有限</td>
+                    <td>深远</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🌐 潜规则的现代启示</h2>
+            
+            <div class="highlight-box">
+                <h4>制度建设的重要性</h4>
+                <p>要消除潜规则的危害，必须完善正式制度，加强制度执行力，减少制度漏洞。只有制度真正有效，潜规则才能失去生存空间。</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>权力制约的必要性</h4>
+                <p>加强权力监督和制约，让权力在阳光下运行，减少权力寻租的机会，是从源头上遏制潜规则的关键。</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>文化建设的长期性</h4>
+                <p>改变潜规则文化需要长期努力，要培养公民的规则意识和法治精神，建立公平正义的社会氛围。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📊 关键数据</h2>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="data-card-value">2000+</div>
+                    <div class="data-card-label">年历史积累</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">100+</div>
+                    <div class="data-card-label">历史案例</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">50+</div>
+                    <div class="data-card-label">核心概念</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">20+</div>
+                    <div class="data-card-label">分析维度</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📝 经典论述</h2>
+            
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于潜规则的普遍性</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>潜规则不仅仅存在于中国，在世界各国都有不同程度的表现。但由于中国特殊的历史文化背景，潜规则现象更为突出，影响更为深远。</p>
+                        <p>在中国，潜规则几乎渗透到社会生活的各个方面，从政治到经济，从文化到教育，从官场到民间，无处不在。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于潜规则的危害</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>潜规则的最大危害在于它侵蚀了正式制度的权威性，使制度形同虚设。当人们不遵守正式规则而按照潜规则行事时，整个社会的公平正义就会受到严重损害。</p>
+                        <p>此外，潜规则还增加了社会运行成本，降低了治理效率，阻碍了社会进步和现代化进程。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于潜规则的改变</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>改变潜规则是一项长期而艰巨的任务。它需要制度建设的完善，需要权力制约的加强，需要文化观念的转变。</p>
+                        <p>但最重要的是，需要每一个公民的共同努力，从自身做起，遵守规则，维护公平，推动社会向更加文明、法治的方向发展。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🎓 阅读建议</h2>
+            <div class="core-points-grid">
+                <div class="core-point-card">
+                    <h4>适合人群</h4>
+                    <p>历史爱好者、政治学研究者、公务员、企业管理者、所有关心中国社会发展的读者</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>阅读方法</h4>
+                    <p>结合历史案例理解理论，联系现实思考问题，注意作者的批判视角</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>延伸阅读</h4>
+                    <p>《血酬定律》《隐蔽的秩序》《我想重新解释历史》《大国大城》</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>实践价值</h4>
+                    <p>帮助理解社会运作逻辑，提高制度分析能力，增强规则意识</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(header) {
+            header.classList.toggle('active');
+            const content = header.nextElementSibling;
+            content.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

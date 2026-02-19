@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打工男孩：从农村到城市的生存之路</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #dcdde1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* 顶部导航 */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .navbar h1 {
+            font-size: 1.3rem;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            margin-top: 90px;
+        }
+
+        .book-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .book-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .book-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .book-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .book-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-impact {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .book-impact strong {
+            color: var(--primary-color);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+
+        .data-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .data-table tr:hover {
+            background-color: #e3f2fd;
+        }
+
+        .core-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .core-point-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .core-point-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .core-point-card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .point-number {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 26px;
+            font-weight: bold;
+            font-size: 0.75rem;
+            margin-bottom: 8px;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #fef9e7, #fcf3cf);
+            padding: 20px 25px;
+            border-radius: 10px;
+            border-left: 4px solid #f1c40f;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .chapter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .chapter-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .chapter-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        .chapter-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .framework-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid var(--success-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .framework-box h4 {
+            color: var(--success-color);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .framework-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .framework-label {
+            background: var(--success-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            min-width: 80px;
+            text-align: center;
+            margin-right: 12px;
+        }
+
+        .framework-content {
+            color: var(--text-primary);
+        }
+
+        .flow-chart {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+
+        .flow-step {
+            background: var(--secondary-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        .data-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .data-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .data-card-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .data-card-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-right: 5px;
+        }
+
+        .badge-primary { background: #e3f2fd; color: #1976d2; }
+        .badge-success { background: #e8f5e9; color: #388e3c; }
+        .badge-warning { background: #fff3e0; color: #f57c00; }
+        .badge-danger { background: #ffebee; color: #d32f2f; }
+
+        .accordion {
+            margin: 10px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .accordion-header {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #e9ecef, #dee2e6);
+        }
+
+        .accordion-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .accordion-header.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+            background: var(--card-bg);
+        }
+
+        .accordion-content.active {
+            max-height: 5000px;
+        }
+
+        .accordion-inner {
+            padding: 15px 20px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            border-left: 4px solid var(--warning-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .highlight-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .example-box h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .example-box p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .book-title { font-size: 1.4rem; }
+            .core-points-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <nav class="navbar">
+        <a href="../index.html" style="color: white; text-decoration: none; font-size: 1.3rem;">← 返回书单</a>
+    </nav>
+
+    <div class="container">
+        <div class="book-header">
+            <h1 class="book-title">打工男孩：从农村到城市的生存之路</h1>
+            <p class="book-subtitle">从农村到城市的生存之路</p>
+            <div class="book-meta">
+                <span>👤 作者：梁鸿</span>
+                <span>📅 2017年</span>
+                <span>📚 生活·读书·新知三联书店</span>
+                <span>🌍 中国</span>
+            </div>
+            <p class="book-description">本书通过真实的人物故事，记录了农村青年从家乡到城市打工的经历，展现了他们在城市化进程中的生存状态、面临的挑战和对未来的期待。</p>
+            <div class="book-impact"><strong>本书影响：</strong>为理解中国农民工群体提供了生动的视角，揭示了城市化进程中基层劳动者的真实生存状况。</div>
+            <div class="tags"><span class="tag">社会学</span><span class="tag">农民工</span><span class="tag">城市化</span><span class="tag">纪实文学</span></div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📚 全书章节结构</h2>
+            <table class="chapter-table">
+                <tr><th>章节</th><th>主要内容</th></tr>
+                <tr><td>序言</td><td>关于农民工群体的思考</td></tr>
+                <tr><td>第一章</td><td>离开家乡：农村青年的抉择</td></tr>
+                <tr><td>第二章</td><td>初入城市：适应与迷茫</td></tr>
+                <tr><td>第三章</td><td>工作生活：工厂与工地</td></tr>
+                <tr><td>第四章</td><td>情感世界：孤独与思念</td></tr>
+                <tr><td>第五章</td><td>未来展望：梦想与现实</td></tr>
+                <tr><td>后记</td><td>对农民工命运的思考</td></tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🎯 核心观点</h2>
+            <div class="core-points-grid">
+                <div class="core-point-card">
+                    <span class="point-number">1</span>
+                    <h4>城市化进程中的个体命运</h4>
+                    <p>城市化不仅是经济现象，更是无数个体命运的变迁。每个打工者都是这个宏大进程中的参与者，也是承受者。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">2</span>
+                    <h4>城乡二元结构的影响</h4>
+                    <p>城乡二元结构深刻影响着打工者的身份认同和社会地位，使他们在城市中始终处于边缘地位。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">3</span>
+                    <h4>代际差异与身份困境</h4>
+                    <p>新生代农民工与第一代农民工在观念、诉求上存在明显差异，面临着新的身份认同困境。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">4</span>
+                    <h4>社会保障的缺失</h4>
+                    <p>农民工群体在社会保障、医疗、教育等方面面临诸多困难，这些问题的解决需要制度的完善。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">5</span>
+                    <h4>社会融入的挑战</h4>
+                    <p>农民工在城市中的社会融入面临文化、经济、社会关系等多重挑战，需要全社会的关注和支持。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">6</span>
+                    <h4>希望与困境并存</h4>
+                    <p>尽管面临诸多困难，农民工群体依然保持着对美好生活的向往和努力，他们的坚韧值得尊重。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">💡 核心概念解析</h2>
+            
+            <div class="example-box">
+                <h4>农民工的定义</h4>
+                <p>农民工是指户籍在农村，但到城市从事非农产业劳动的人员。他们是中国城市化进程中的特殊群体，承载着城乡双重身份。</p>
+            </div>
+
+            <div class="example-box">
+                <h4>农民工的特点</h4>
+                <p><strong>1. 流动性：</strong>在城市和农村之间频繁流动</p>
+                <p><strong>2. 边缘性：</strong>在城乡结构中处于边缘地位</p>
+                <p><strong>3. 艰辛性：</strong>从事劳动强度大、收入低的工作</p>
+                <p><strong>4. 期望性：</strong>对改善生活有强烈期望</p>
+            </div>
+
+            <div class="example-box">
+                <h4>农民工的类型</h4>
+                <p><strong>1. 第一代农民工：</strong>以赚钱为目的，最终回到农村</p>
+                <p><strong>2. 新生代农民工：</strong>在城市成长，更希望融入城市</p>
+                <p><strong>3. 短期农民工：</strong>季节性或临时性打工</p>
+                <p><strong>4. 长期农民工：</strong>长期在城市生活和工作</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📖 现实案例</h2>
+            
+            <div class="quote-box">
+                "小李来自河南农村，18岁就到深圳的电子厂打工。每天工作12小时，月薪3000元。他最大的愿望是在城市安家，但房价和户籍让他望而却步。"
+            </div>
+
+            <table class="data-table">
+                <tr>
+                    <th>人物</th>
+                    <th>年龄</th>
+                    <th>工作</th>
+                    <th>主要困境</th>
+                </tr>
+                <tr>
+                    <td>小王</td>
+                    <td>22岁</td>
+                    <td>工厂工人</td>
+                    <td>工作时间长、收入低</td>
+                </tr>
+                <tr>
+                    <td>小张</td>
+                    <td>25岁</td>
+                    <td>建筑工人</td>
+                    <td>工作环境差、安全无保障</td>
+                </tr>
+                <tr>
+                    <td>小李</td>
+                    <td>28岁</td>
+                    <td>快递员</td>
+                    <td>没有社保、无法落户</td>
+                </tr>
+                <tr>
+                    <td>小陈</td>
+                    <td>30岁</td>
+                    <td>服务员</td>
+                    <td>子女教育问题</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🔬 农民工面临的问题</h2>
+            
+            <div class="framework-box">
+                <h4>农民工问题体系</h4>
+                <div class="framework-item">
+                    <span class="framework-label">经济问题</span>
+                    <span class="framework-content">工资拖欠、收入低、消费能力弱</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">社会问题</span>
+                    <span class="framework-content">户籍限制、社保缺失、教育困难</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">心理问题</span>
+                    <span class="framework-content">孤独感、身份认同危机、压力</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">权利问题</span>
+                    <span class="framework-content">维权困难、话语权缺失</span>
+                </div>
+            </div>
+
+            <div class="flow-chart">
+                <div class="flow-step">农村出发</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">城市就业</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">面临困境</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">寻求改变</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">未来抉择</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🌐 社会意义</h2>
+            
+            <div class="highlight-box">
+                <h4>城市化进程的见证者</h4>
+                <p>农民工群体是中国城市化进程的见证者和参与者，他们的经历反映了中国社会转型的复杂性和艰巨性。</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>社会公平的关注点</h4>
+                <p>农民工问题的存在提醒我们，在追求经济发展的同时，也要关注社会公平，让发展成果惠及所有群体。</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>制度改革的推动力</h4>
+                <p>农民工群体的诉求推动着户籍制度、社会保障制度等改革的深入，是中国社会进步的重要动力。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📊 关键数据</h2>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="data-card-value">2.9亿+</div>
+                    <div class="data-card-label">农民工总数</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">50%</div>
+                    <div class="data-card-label">新生代比例</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">3000+</div>
+                    <div class="data-card-label">月平均收入</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">10+年</div>
+                    <div class="data-card-label">平均工龄</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📝 经典论述</h2>
+            
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于城市化与个体</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>城市化是一个宏大的历史进程，但这个进程是由无数个体的选择和奋斗构成的。每个农民工都在用自己的方式参与和推动着这个进程。</p>
+                        <p>理解城市化不能只看GDP和建筑，还要看那些在工地上、工厂里、街道上辛勤劳动的普通人。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于城乡关系</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>城乡关系是中国社会的基本结构，农民工群体正是这种结构的产物。他们的困境反映了中国城乡发展不平衡的问题。</p>
+                        <p>解决农民工问题，需要打破城乡二元结构，建立更加平等、包容的社会制度。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于未来展望</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>随着改革的深入和社会的进步，农民工群体的状况正在逐步改善。但要真正实现城乡平等、社会公平，还有很长的路要走。</p>
+                        <p>我们期待一个更加包容、更加公平的社会，让每个人都能享有平等的机会和尊严。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🎓 阅读建议</h2>
+            <div class="core-points-grid">
+                <div class="core-point-card">
+                    <h4>适合人群</h4>
+                    <p>社会工作者、政策研究者、社会学学生、关心社会公平的读者</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>阅读方法</h4>
+                    <p>结合案例理解理论，关注人物命运，思考社会问题</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>延伸阅读</h4>
+                    <p>《出梁庄记》《中国在梁庄》《大地上的亲人》《打工者的呐喊》</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>实践价值</h4>
+                    <p>了解农民工群体，增强社会关怀，推动社会进步</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(header) {
+            header.classList.toggle('active');
+            const content = header.nextElementSibling;
+            content.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

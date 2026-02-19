@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大国之痛：中国男性生育危机调查</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #dcdde1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* 顶部导航 */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .navbar h1 {
+            font-size: 1.3rem;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            margin-top: 90px;
+        }
+
+        .book-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .book-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .book-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .book-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .book-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-impact {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .book-impact strong {
+            color: var(--primary-color);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+
+        .data-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .data-table tr:hover {
+            background-color: #e3f2fd;
+        }
+
+        .core-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .core-point-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .core-point-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .core-point-card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .point-number {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 26px;
+            font-weight: bold;
+            font-size: 0.75rem;
+            margin-bottom: 8px;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #fef9e7, #fcf3cf);
+            padding: 20px 25px;
+            border-radius: 10px;
+            border-left: 4px solid #f1c40f;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .chapter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .chapter-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .chapter-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        .chapter-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .framework-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid var(--success-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .framework-box h4 {
+            color: var(--success-color);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .framework-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .framework-label {
+            background: var(--success-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            min-width: 80px;
+            text-align: center;
+            margin-right: 12px;
+        }
+
+        .framework-content {
+            color: var(--text-primary);
+        }
+
+        .flow-chart {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+
+        .flow-step {
+            background: var(--secondary-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        .data-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .data-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .data-card-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .data-card-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-right: 5px;
+        }
+
+        .badge-primary { background: #e3f2fd; color: #1976d2; }
+        .badge-success { background: #e8f5e9; color: #388e3c; }
+        .badge-warning { background: #fff3e0; color: #f57c00; }
+        .badge-danger { background: #ffebee; color: #d32f2f; }
+
+        .accordion {
+            margin: 10px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .accordion-header {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #e9ecef, #dee2e6);
+        }
+
+        .accordion-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .accordion-header.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+            background: var(--card-bg);
+        }
+
+        .accordion-content.active {
+            max-height: 5000px;
+        }
+
+        .accordion-inner {
+            padding: 15px 20px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            border-left: 4px solid var(--warning-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .highlight-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .example-box h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .example-box p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffebee, #ffcdd2);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .warning-box h4 {
+            color: #c62828;
+            margin-bottom: 10px;
+        }
+
+        .warning-box p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .book-title { font-size: 1.4rem; }
+            .core-points-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <nav class="navbar">
+        <a href="../index.html" style="color: white; text-decoration: none; font-size: 1.3rem;">← 返回书单</a>
+    </nav>
+
+    <div class="container">
+        <div class="book-header">
+            <h1 class="book-title">大国之痛：中国男性生育危机调查</h1>
+            <p class="book-subtitle">中国男性生育危机调查</p>
+            <div class="book-meta">
+                <span>👤 作者：李建新</span>
+                <span>📅 2019年</span>
+                <span>📚 社会科学文献出版社</span>
+                <span>🌍 中国</span>
+            </div>
+            <p class="book-description">本书通过大量调查数据和案例分析，深入探讨了中国男性生育危机的现状、原因和影响，揭示了这一社会问题背后的复杂性和紧迫性。</p>
+            <div class="book-impact"><strong>本书影响：</strong>首次系统性地揭示了中国男性生育危机问题，引发了社会各界的广泛关注和讨论，推动了相关政策的讨论和完善。</div>
+            <div class="tags"><span class="tag">社会学</span><span class="tag">人口研究</span><span class="tag">生育问题</span><span class="tag">社会调查</span></div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📚 全书章节结构</h2>
+            <table class="chapter-table">
+                <tr><th>章节</th><th>主要内容</th></tr>
+                <tr><td>序言</td><td>生育危机的提出</td></tr>
+                <tr><td>第一章</td><td>男性生育危机的现状</td></tr>
+                <tr><td>第二章</td><td>生育危机的原因分析</td></tr>
+                <tr><td>第三章</td><td>生育危机的社会影响</td></tr>
+                <tr><td>第四章</td><td>生育危机的家庭影响</td></tr>
+                <tr><td>第五章</td><td>应对策略与政策建议</td></tr>
+                <tr><td>附录</td><td>调查数据与案例</td></tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🎯 核心观点</h2>
+            <div class="core-points-grid">
+                <div class="core-point-card">
+                    <span class="point-number">1</span>
+                    <h4>生育危机的普遍性</h4>
+                    <p>男性生育危机已经成为一个普遍存在的社会问题，不分城乡、不分年龄、不分职业，影响着越来越多的家庭。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">2</span>
+                    <h4>多因素共同作用</h4>
+                    <p>生育危机不是单一因素造成的，而是环境、生活方式、工作压力、经济因素等多方面共同作用的结果。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">3</span>
+                    <h4>社会压力的影响</h4>
+                    <p>工作压力、经济压力、社会竞争压力等现代社会的压力对男性生育能力产生了深远影响。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">4</span>
+                    <h4>生活方式的负面效应</h4>
+                    <p>不健康的生活方式，如熬夜、吸烟、饮酒、缺乏运动等，是导致生育危机的重要因素。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">5</span>
+                    <h4>环境因素的威胁</h4>
+                    <p>环境污染、食品安全等问题对男性生育能力构成了严重威胁，需要引起高度重视。</p>
+                </div>
+                <div class="core-point-card">
+                    <span class="point-number">6</span>
+                    <h4>政策应对的必要性</h4>
+                    <p>生育危机需要政府、社会、个人共同努力，通过政策引导、社会支持和健康生活方式来应对。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">💡 核心概念解析</h2>
+            
+            <div class="example-box">
+                <h4>男性生育危机的定义</h4>
+                <p>男性生育危机是指男性生育能力下降的现象，包括精子数量减少、精子质量下降、生殖系统疾病增多等多个方面。</p>
+            </div>
+
+            <div class="example-box">
+                <h4>生育危机的表现</h4>
+                <p><strong>1. 精子数量下降：</strong>全球男性精子数量呈下降趋势</p>
+                <p><strong>2. 精子质量降低：</strong>精子活力、形态等指标恶化</p>
+                <p><strong>3. 不孕不育增加：</strong>男性因素导致的不孕不育增多</p>
+                <p><strong>4. 生殖疾病增多：</strong>生殖系统疾病发病率上升</p>
+            </div>
+
+            <div class="example-box">
+                <h4>危机的成因</h4>
+                <p><strong>1. 环境因素：</strong>环境污染、化学品暴露</p>
+                <p><strong>2. 生活方式：</strong>不健康的生活习惯</p>
+                <p><strong>3. 工作压力：</strong>长期高强度工作</p>
+                <p><strong>4. 经济压力：</strong>生育成本高昂</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📊 调查数据</h2>
+            
+            <div class="quote-box">
+                "调查显示，中国男性精子数量在过去40年里下降了约50%，精子活力也显著下降。这一趋势在城市男性中尤为明显。"
+            </div>
+
+            <table class="data-table">
+                <tr>
+                    <th>指标</th>
+                    <th>现状</th>
+                    <th>趋势</th>
+                    <th>影响</th>
+                </tr>
+                <tr>
+                    <td>精子数量</td>
+                    <td>大幅下降</td>
+                    <td>持续下降</td>
+                    <td>生育能力降低</td>
+                </tr>
+                <tr>
+                    <td>精子活力</td>
+                    <td>明显下降</td>
+                    <td>缓慢下降</td>
+                    <td>受孕困难</td>
+                </tr>
+                <tr>
+                    <td>不孕不育率</td>
+                    <td>持续上升</td>
+                    <td>快速上升</td>
+                    <td>家庭压力增大</td>
+                </tr>
+                <tr>
+                    <td>生殖疾病</td>
+                    <td>日益增多</td>
+                    <td>缓慢上升</td>
+                    <td>健康威胁</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🔬 危机成因分析</h2>
+            
+            <div class="framework-box">
+                <h4>生育危机成因体系</h4>
+                <div class="framework-item">
+                    <span class="framework-label">环境因素</span>
+                    <span class="framework-content">空气污染、水污染、土壤污染、化学品暴露</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">生活方式</span>
+                    <span class="framework-content">熬夜、吸烟、饮酒、缺乏运动、饮食不健康</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">工作压力</span>
+                    <span class="framework-content">长时间工作、高强度劳动、夜班、轮班</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">经济压力</span>
+                    <span class="framework-content">房价高、教育贵、医疗费、生育成本</span>
+                </div>
+            </div>
+
+            <div class="flow-chart">
+                <div class="flow-step">环境恶化</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">生活方式改变</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">工作压力增大</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">生育能力下降</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">生育危机</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">⚠️ 社会影响</h2>
+            
+            <div class="warning-box">
+                <h4>人口结构的威胁</h4>
+                <p>生育危机导致人口出生率下降，人口老龄化加剧，劳动力短缺，对社会经济发展构成严重威胁。</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>家庭幸福的挑战</h4>
+                <p>不孕不育给家庭带来巨大的心理压力和经济负担，影响家庭幸福和社会稳定。</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>民族传承的危机</h4>
+                <p>长期的生育危机可能导致人口结构失衡，影响民族的传承和发展。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🌐 应对策略</h2>
+            
+            <div class="highlight-box">
+                <h4>政府层面的措施</h4>
+                <p>政府应加强环境保护，完善生育政策，提供生育支持，加强医疗保障，推动健康生活方式的普及。</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>社会层面的支持</h4>
+                <p>社会应营造良好的生育环境，减轻生育压力，提供心理支持，促进工作与生活平衡。</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>个人层面的努力</h4>
+                <p>个人应养成健康的生活方式，注意饮食营养，加强体育锻炼，避免不良习惯，定期体检。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📊 关键数据</h2>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="data-card-value">-50%</div>
+                    <div class="data-card-label">精子数量下降</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">15%</div>
+                    <div class="data-card-label">不孕不育率</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">40+</div>
+                    <div class="data-card-label">调查城市</div>
+                </div>
+                <div class="data-card">
+                    <div class="data-card-value">10000+</div>
+                    <div class="data-card-label">调查样本</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📝 经典论述</h2>
+            
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于危机的紧迫性</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>男性生育危机不是危言耸听，而是真实存在的严重问题。数据显示，这一危机正在加速发展，需要立即采取行动。</p>
+                        <p>如果不及时应对，生育危机将对人口结构、经济发展、社会稳定产生深远影响。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于应对的责任</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>应对生育危机是全社会的责任。政府需要制定相关政策，社会需要营造良好环境，个人需要养成健康习惯。</p>
+                        <p>只有多方共同努力，才能有效应对生育危机，保障人口的健康可持续发展。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>关于未来的希望</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>尽管形势严峻，但我们仍然有希望。通过环境保护、健康生活、政策支持，我们可以减缓甚至逆转生育危机的趋势。</p>
+                        <p>关键是要有危机意识，采取有效行动，为未来创造更好的生育环境。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🎓 阅读建议</h2>
+            <div class="core-points-grid">
+                <div class="core-point-card">
+                    <h4>适合人群</h4>
+                    <p>政策制定者、医疗工作者、社会学研究者、关注生育问题的读者</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>阅读方法</h4>
+                    <p>关注调查数据，理解成因分析，思考应对策略</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>延伸阅读</h4>
+                    <p>《人口危机》《生育政策研究》《健康生活方式指南》</p>
+                </div>
+                <div class="core-point-card">
+                    <h4>实践价值</h4>
+                    <p>了解生育危机，关注男性健康，采取预防措施</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(header) {
+            header.classList.toggle('active');
+            const content = header.nextElementSibling;
+            content.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
