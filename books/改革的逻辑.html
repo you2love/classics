@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>改革的逻辑 - 经典书籍阅读</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #dcdde1;
+            --shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .book-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .book-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .book-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .book-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-impact {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .book-impact strong {
+            color: var(--primary-color);
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .subsection-title {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin: 20px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .content-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .key-point {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .key-point strong {
+            color: #1565c0;
+        }
+
+        .framework-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .framework-box h4 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .framework-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .framework-label {
+            background: var(--secondary-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            min-width: 100px;
+            text-align: center;
+            margin-right: 12px;
+        }
+
+        .framework-content {
+            color: var(--text-primary);
+        }
+
+        .flow-chart {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+
+        .flow-step {
+            background: var(--secondary-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #fef9e7, #fcf3cf);
+            padding: 20px 25px;
+            border-radius: 10px;
+            border-left: 4px solid #f1c40f;
+            font-style: italic;
+            color: #856404;
+            margin: 15px 0;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .comparison-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .comparison-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .comparison-card li {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 5px 0;
+            border-bottom: 1px dashed rgba(0,0,0,0.1);
+        }
+
+        .comparison-card li:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            .book-title { font-size: 1.5rem; }
+            .book-meta { flex-direction: column; gap: 10px; }
+            .comparison-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回首页</a>
+
+        <div class="book-header">
+            <h1 class="book-title">改革的逻辑</h1>
+            <div class="book-meta">
+                <span>👤 作者：周其仁</span>
+                <span>📚 分类：经济学、改革研究</span>
+                <span>⭐ 推荐：★★★★★</span>
+            </div>
+            <p class="book-description">
+                本书从经济学视角深入分析了中国改革开放的内在逻辑，揭示了中国经济奇迹背后的制度变迁过程，为理解中国改革提供了深刻的理论框架和实践启示。
+            </p>
+            <div class="book-impact">
+                <strong>🎯 核心价值：</strong>以制度经济学视角解读中国改革，解释了渐进式改革的成功逻辑，对理解中国经济发展道路具有重要参考价值。
+            </div>
+            <div class="tags">
+                <span class="tag">改革开放</span>
+                <span class="tag">制度经济学</span>
+                <span class="tag">经济转型</span>
+                <span class="tag">产权改革</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📖 中国改革的独特逻辑</h2>
+            
+            <div class="subsection-title">渐进式改革</div>
+            <p class="content-text">
+                中国改革采取渐进式路径，不同于苏联和东欧的休克疗法。这种改革方式强调在保持政治稳定的前提下，逐步推进经济体制改革，通过试验和试点积累经验，然后逐步推广。
+            </p>
+
+            <div class="flow-chart">
+                <div class="flow-step">摸着石头过河</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">试点先行</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">逐步推广</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">全面深化</div>
+            </div>
+
+            <div class="key-point">
+                <strong>渐进式改革的优势：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li>降低改革风险，避免社会震荡</li>
+                <li>积累改革经验，不断调整完善</li>
+                <li>形成改革共识，减少阻力</li>
+                <li>保持社会稳定，为改革创造良好环境</li>
+            </ul>
+
+            <div class="subsection-title">双轨制改革</div>
+            <p class="content-text">
+                双轨制是中国改革的重要特色。在计划经济体制之外，引入市场机制，形成计划与市场并存的格局。随着市场力量的增强，逐步缩小计划范围，最终实现向市场经济的平稳过渡。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🔍 改革的核心机制</h2>
+            
+            <div class="framework-box">
+                <h4>中国改革的三个核心机制</h4>
+                <div class="framework-item">
+                    <span class="framework-label">增量改革</span>
+                    <span class="framework-content">在旧体制之外发展新体制，通过增量带动存量改革</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">地方竞争</span>
+                    <span class="framework-content">地方政府之间的竞争推动了制度创新和经济发展</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">产权改革</span>
+                    <span class="framework-content">通过产权界定和保护，激励市场主体积极性</span>
+                </div>
+            </div>
+
+            <div class="subsection-title">增量改革的意义</div>
+            <p class="content-text">
+                增量改革是中国改革的智慧所在。通过在旧体制之外发展新体制，既避免了直接冲击既得利益，又为制度变迁创造了空间。随着新体制的不断壮大，旧体制逐渐萎缩，最终实现制度转型。
+            </p>
+
+            <div class="quote-box">
+                "增量改革的本质是承认和保护新产生的利益，通过新利益的成长来改变旧的利益格局，最终实现制度的平滑转型。"
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📊 农村改革：改革的起点</h2>
+            
+            <div class="key-point">
+                <strong>家庭联产承包责任制：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li>废除人民公社制度，实行家庭联产承包</li>
+                <li>农民获得土地使用权和剩余索取权</li>
+                <li>极大激发了农民生产积极性</li>
+                <li>解决了温饱问题，为改革积累了物质基础</li>
+            </ul>
+
+            <div class="subsection-title">农村改革的历史意义</div>
+            <p class="content-text">
+                农村改革是中国改革开放的起点，也是改革的突破口。家庭联产承包责任制的成功，证明了产权改革的重要性，为后续的城市改革和企业改革提供了经验借鉴。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🏭 企业改革与市场化</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h4>改革前的国有企业</h4>
+                    <ul>
+                        <li>政企不分，缺乏自主权</li>
+                        <li>产权模糊，责任不明</li>
+                        <li>效率低下，亏损严重</li>
+                        <li>缺乏激励机制</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h4>改革后的企业制度</h4>
+                    <ul>
+                        <li>政企分开，自主经营</li>
+                        <li>产权清晰，权责明确</li>
+                        <li>效率提升，竞争力增强</li>
+                        <li>建立现代企业制度</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection-title">产权改革的核心</div>
+            <p class="content-text">
+                企业改革的核心是产权改革。通过产权界定和保护，建立现代企业制度，使企业成为真正的市场主体。产权改革不仅提高了企业效率，也为市场经济的建立奠定了基础。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🌍 对外开放与全球化</h2>
+            
+            <div class="key-point">
+                <strong>对外开放的进程：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li>设立经济特区，试点对外开放</li>
+                <li>沿海开放城市，扩大开放范围</li>
+                <li>加入WTO，融入全球经济体系</li>
+                <li>全方位对外开放，构建开放型经济</li>
+            </ul>
+
+            <div class="quote-box">
+                "对外开放不仅带来了资金和技术，更重要的是带来了制度创新的压力和动力，推动了中国体制的不断完善。"
+            </div>
+
+            <div class="subsection-title">开放与改革的互动</div>
+            <p class="content-text">
+                对外开放与国内改革相互促进。开放倒逼改革，改革促进开放。通过开放，中国学习了国际先进经验，引进了现代企业制度和市场规则，推动了国内改革进程。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">💡 改革的经验与启示</h2>
+            
+            <div class="key-point">
+                <strong>中国改革的成功经验：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li>坚持实事求是，从实际出发</li>
+                <li>尊重群众首创精神，鼓励基层探索</li>
+                <li>正确处理改革、发展、稳定的关系</li>
+                <li>坚持渐进式改革，避免激进变革</li>
+                <li>加强顶层设计，统筹推进改革</li>
+            </ul>
+
+            <div class="framework-box">
+                <h4>改革的未来方向</h4>
+                <div class="framework-item">
+                    <span class="framework-label">深化市场化</span>
+                    <span class="framework-content">完善市场体系，发挥市场在资源配置中的决定性作用</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">优化营商环境</span>
+                    <span class="framework-content">简政放权，激发市场主体活力</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">完善法治</span>
+                    <span class="framework-content">建设法治政府，保障公平竞争</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">推动创新</span>
+                    <span class="framework-content">建立创新驱动发展新体制</span>
+                </div>
+            </div>
+
+            <div class="quote-box">
+                "改革没有完成时，只有进行时。在新的历史条件下，我们要继续深化改革，破除体制机制障碍，为中国经济高质量发展提供制度保障。"
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📚 延伸阅读</h2>
+            <p class="content-text">
+                <strong>相关书籍：</strong>《置身事内》《大国大城》《以利为利》《行政发包制：大一统的制度密码》<br>
+                <strong>研究领域：</strong>制度经济学、中国经济、改革研究、产权理论
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资本论 - 经典书籍阅读</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #dcdde1;
+            --shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .book-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .book-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .book-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .book-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-impact {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .book-impact strong {
+            color: var(--primary-color);
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .subsection-title {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin: 20px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .content-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .key-point {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .key-point strong {
+            color: #1565c0;
+        }
+
+        .framework-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .framework-box h4 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .framework-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .framework-label {
+            background: var(--secondary-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            min-width: 120px;
+            text-align: center;
+            margin-right: 12px;
+        }
+
+        .framework-content {
+            color: var(--text-primary);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #fef9e7, #fcf3cf);
+            padding: 20px 25px;
+            border-radius: 10px;
+            border-left: 4px solid #f1c40f;
+            font-style: italic;
+            color: #856404;
+            margin: 15px 0;
+        }
+
+        .volume-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .volume-list li {
+            background: var(--bg-color);
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+            color: var(--text-primary);
+        }
+
+        .volume-list li strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .book-title { font-size: 1.5rem; }
+            .book-meta { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回首页</a>
+
+        <div class="book-header">
+            <h1 class="book-title">资本论</h1>
+            <div class="book-meta">
+                <span>👤 作者：卡尔·马克思</span>
+                <span>📚 分类：政治经济学、马克思主义</span>
+                <span>⭐ 推荐：★★★★★</span>
+            </div>
+            <p class="book-description">
+                《资本论》是德国哲学家卡尔·马克思的代表作，被誉为马克思主义的奠基之作。全书共三卷，深入分析了资本主义生产方式，揭示了剩余价值规律，阐述了资本主义的基本矛盾和发展趋势，为无产阶级革命提供了理论武器。
+            </p>
+            <div class="book-impact">
+                <strong>🎯 核心价值：</strong>系统分析了资本主义经济运行规律，揭示了剥削的本质和资本主义必然灭亡的历史趋势，对世界政治经济格局产生了深远影响。
+            </div>
+            <div class="tags">
+                <span class="tag">政治经济学</span>
+                <span class="tag">剩余价值理论</span>
+                <span class="tag">资本主义分析</span>
+                <span class="tag">马克思主义</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📖 全书结构</h2>
+            
+            <div class="key-point">
+                <strong>三卷内容：</strong>
+            </div>
+            
+            <ul class="volume-list">
+                <li>
+                    <strong>第一卷：资本的生产过程</strong>
+                    分析资本的生产过程，阐述剩余价值的生产。马克思揭示了资本主义剥削的秘密，说明资本家如何通过延长工作日、提高劳动强度等方法增加剩余价值的生产。
+                </li>
+                <li>
+                    <strong>第二卷：资本的流通过程</strong>
+                    分析资本的流通过程，阐述资本循环和周转。马克思探讨了资本如何通过购买、生产、销售三个阶段实现价值的增殖。
+                </li>
+                <li>
+                    <strong>第三卷：资本主义生产的总过程</strong>
+                    分析资本主义生产的总过程，阐述利润、利息、地租等分配形式。马克思揭示了利润率下降趋势规律，分析了资本主义危机的必然性。
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🔍 核心理论解析</h2>
+            
+            <div class="subsection-title">1. 商品与货币</div>
+            <p class="content-text">
+                马克思从商品分析开始，揭示了商品的二重性：使用价值和价值。价值是凝结在商品中的无差别的人类劳动，由社会必要劳动时间决定。货币是商品交换发展到一定阶段的产物，是固定充当一般等价物的特殊商品。
+            </p>
+
+            <div class="framework-box">
+                <h4>商品的二重性</h4>
+                <div class="framework-item">
+                    <span class="framework-label">使用价值</span>
+                    <span class="framework-content">商品满足人们某种需要的属性，由具体劳动创造</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">价值</span>
+                    <span class="framework-content">凝结在商品中的无差别的人类劳动，由抽象劳动形成</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">交换价值</span>
+                    <span class="framework-content">一种商品与另一种商品相交换的量的比例</span>
+                </div>
+            </div>
+
+            <div class="subsection-title">2. 剩余价值理论</div>
+            <p class="content-text">
+                剩余价值理论是《资本论》的核心。马克思揭示了剩余价值的来源：工人创造的价值大于其劳动力价值，差额被资本家无偿占有。剩余价值有两种基本形式：绝对剩余价值和相对剩余价值。
+            </p>
+
+            <div class="key-point">
+                <strong>剩余价值的生产方式：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li><strong>绝对剩余价值：</strong>通过延长工作日、增加劳动强度来增加剩余价值</li>
+                <li><strong>相对剩余价值：</strong>通过提高劳动生产率，缩短必要劳动时间来增加剩余价值</li>
+            </ul>
+
+            <div class="quote-box">
+                "资本来到世间，从头到脚，每个毛孔都滴着血和肮脏的东西。"
+            </div>
+
+            <div class="subsection-title">3. 资本积累与再生产</div>
+            <p class="content-text">
+                资本积累是剩余价值的资本化。资本家将剩余价值的一部分转化为资本，扩大生产规模。资本积累导致资本有机构成提高，相对过剩人口增加，贫富差距扩大。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📊 资本主义基本矛盾</h2>
+            
+            <div class="key-point">
+                <strong>资本主义的基本矛盾：</strong>
+            </div>
+            <p class="content-text">
+                生产的社会化与生产资料的私人占有之间的矛盾是资本主义的基本矛盾。这一矛盾导致周期性的经济危机，是资本主义必然灭亡的根本原因。
+            </p>
+
+            <div class="framework-box">
+                <h4>资本主义危机的必然性</h4>
+                <div class="framework-item">
+                    <span class="framework-label">生产过剩</span>
+                    <span class="framework-content">生产无限扩大的趋势与支付能力相对缩小之间的矛盾</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">利润率下降</span>
+                    <span class="framework-content">资本有机构成提高导致一般利润率呈下降趋势</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">阶级对立</span>
+                    <span class="framework-content">资产阶级与无产阶级之间的矛盾日益尖锐</span>
+                </div>
+            </div>
+
+            <div class="subsection-title">资本主义发展趋势</div>
+            <p class="content-text">
+                马克思预言，资本主义的基本矛盾将导致其最终灭亡，被社会主义和共产主义所取代。这一预言对20世纪的世界历史产生了深远影响。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">💡 理论贡献与历史影响</h2>
+            
+            <div class="key-point">
+                <strong>理论贡献：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li>创立了剩余价值理论，揭示了剥削的秘密</li>
+                <li>阐明了资本主义的基本矛盾和发展规律</li>
+                <li>为无产阶级革命提供了理论武器</li>
+                <li>对经济学、政治学、社会学等学科产生了深远影响</li>
+            </ul>
+
+            <div class="subsection-title">历史影响</div>
+            <p class="content-text">
+                《资本论》的思想影响了世界历史进程。1917年俄国十月革命、1949年中国革命等，都以马克思主义为指导。即使在当代，马克思对资本主义的批判仍然具有重要的现实意义。
+            </p>
+
+            <div class="quote-box">
+                "哲学家们只是用不同的方式解释世界，而问题在于改变世界。"
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📚 延伸阅读</h2>
+            <p class="content-text">
+                <strong>相关书籍：</strong>《国富论》《就业、利息和货币通论》《经济学原理》《共产党宣言》<br>
+                <strong>研究领域：</strong>政治经济学、马克思主义、资本主义研究、劳动经济学
+            </p>
+        </div>
+    </div>
+</body>
+</html>

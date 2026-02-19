@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>就业、利息和货币通论 - 经典书籍阅读</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #dcdde1;
+            --shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .book-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .book-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .book-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .book-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-impact {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .book-impact strong {
+            color: var(--primary-color);
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .subsection-title {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin: 20px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .content-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .key-point {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .key-point strong {
+            color: #1565c0;
+        }
+
+        .framework-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .framework-box h4 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .framework-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .framework-label {
+            background: var(--secondary-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            min-width: 120px;
+            text-align: center;
+            margin-right: 12px;
+        }
+
+        .framework-content {
+            color: var(--text-primary);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #fef9e7, #fcf3cf);
+            padding: 20px 25px;
+            border-radius: 10px;
+            border-left: 4px solid #f1c40f;
+            font-style: italic;
+            color: #856404;
+            margin: 15px 0;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .comparison-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .comparison-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .comparison-card li {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 5px 0;
+            border-bottom: 1px dashed rgba(0,0,0,0.1);
+        }
+
+        .comparison-card li:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            .book-title { font-size: 1.5rem; }
+            .book-meta { flex-direction: column; gap: 10px; }
+            .comparison-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回首页</a>
+
+        <div class="book-header">
+            <h1 class="book-title">就业、利息和货币通论</h1>
+            <div class="book-meta">
+                <span>👤 作者：约翰·梅纳德·凯恩斯</span>
+                <span>📚 分类：宏观经济学、凯恩斯主义</span>
+                <span>⭐ 推荐：★★★★★</span>
+            </div>
+            <p class="book-description">
+                《就业、利息和货币通论》（简称《通论》）是英国经济学家凯恩斯于1936年出版的著作，被誉为20世纪最重要的经济学著作之一。本书开创了宏观经济学，提出了总需求理论、流动性偏好理论和乘数效应等核心概念，对经济政策制定产生了深远影响。
+            </p>
+            <div class="book-impact">
+                <strong>🎯 核心价值：</strong>颠覆了古典经济学的充分就业假设，提出政府干预经济的理论依据，为应对经济危机和制定宏观经济政策提供了理论指导。
+            </div>
+            <div class="tags">
+                <span class="tag">宏观经济学</span>
+                <span class="tag">凯恩斯主义</span>
+                <span class="tag">总需求理论</span>
+                <span class="tag">经济政策</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📖 历史背景与写作动机</h2>
+            
+            <div class="subsection-title">大萧条的冲击</div>
+            <p class="content-text">
+                1929-1933年的大萧条对古典经济学提出了严峻挑战。古典经济学认为市场机制能够自动实现充分就业，但大萧条期间出现了大规模失业和经济危机，市场机制似乎失效了。凯恩斯试图解释这一现象，并提出解决方案。
+            </p>
+
+            <div class="key-point">
+                <strong>凯恩斯的革命性贡献：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li>否定了萨伊定律（供给创造需求）</li>
+                <li>提出有效需求不足导致失业</li>
+                <li>主张政府干预经济以刺激需求</li>
+                <li>开创了宏观经济学作为独立学科</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🔍 核心理论解析</h2>
+            
+            <div class="subsection-title">1. 有效需求理论</div>
+            <p class="content-text">
+                凯恩斯认为，就业水平取决于有效需求，即社会总需求。有效需求由消费、投资、政府支出和净出口构成。当有效需求不足时，就会出现非自愿失业。
+            </p>
+
+            <div class="framework-box">
+                <h4>有效需求的构成</h4>
+                <div class="framework-item">
+                    <span class="framework-label">消费需求</span>
+                    <span class="framework-content">居民消费支出，受收入水平和消费倾向影响</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">投资需求</span>
+                    <span class="framework-content">企业投资支出，受利率和预期收益率影响</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">政府支出</span>
+                    <span class="framework-content">政府购买支出，可由政府主动调节</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">净出口</span>
+                    <span class="framework-content">出口减进口，受汇率和国外收入影响</span>
+                </div>
+            </div>
+
+            <div class="subsection-title">2. 消费函数与边际消费倾向</div>
+            <p class="content-text">
+                凯恩斯提出消费函数理论，认为消费随收入增加而增加，但增加的幅度小于收入增加的幅度。边际消费倾向（MPC）表示新增收入中用于消费的比例，通常小于1。
+            </p>
+
+            <div class="quote-box">
+                "消费是收入的稳定函数，当收入增加时，消费也会增加，但增加的数量小于收入增加的数量。"
+            </div>
+
+            <div class="subsection-title">3. 乘数效应</div>
+            <p class="content-text">
+                乘数效应是指投资或政府支出的增加会导致国民收入成倍增加。这是凯恩斯经济学的重要概念，为政府通过财政政策刺激经济提供了理论依据。
+            </p>
+
+            <div class="key-point">
+                <strong>乘数公式：</strong> K = 1 / (1 - MPC)
+            </div>
+            <p class="content-text">
+                其中，K为乘数，MPC为边际消费倾向。边际消费倾向越高，乘数效应越明显。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">💰 利率与货币理论</h2>
+            
+            <div class="subsection-title">流动性偏好理论</div>
+            <p class="content-text">
+                凯恩斯提出了流动性偏好理论来解释利率的决定。利率不是由储蓄和投资决定的，而是由货币供给和流动性偏好决定的。流动性偏好是指人们持有货币的意愿。
+            </p>
+
+            <div class="framework-box">
+                <h4>货币需求的动机</h4>
+                <div class="framework-item">
+                    <span class="framework-label">交易动机</span>
+                    <span class="framework-content">为日常交易而持有货币</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">预防动机</span>
+                    <span class="framework-content">为应对不确定事件而持有货币</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">投机动机</span>
+                    <span class="framework-content">为等待更好的投资机会而持有货币</span>
+                </div>
+            </div>
+
+            <div class="subsection-title">利率的传导机制</div>
+            <p class="content-text">
+                在凯恩斯的理论中，利率是货币市场的价格。货币供给增加会降低利率，利率下降会刺激投资，投资增加会通过乘数效应增加国民收入和就业。这是货币政策传导机制的基础。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🏛️ 经济政策主张</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h4>古典经济学主张</h4>
+                    <ul>
+                        <li>市场自动实现均衡</li>
+                        <li>政府不干预经济</li>
+                        <li>货币中性论</li>
+                        <li>供给决定需求</li>
+                        <li>充分就业是常态</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h4>凯恩斯主义主张</h4>
+                    <ul>
+                        <li>市场可能失灵</li>
+                        <li>政府积极干预经济</li>
+                        <li>货币政策非中性</li>
+                        <li>需求决定供给</li>
+                        <li>失业可能持续存在</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="key-point">
+                <strong>凯恩斯的政策建议：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li><strong>财政政策：</strong>在经济衰退时，政府应增加支出、减税，刺激有效需求</li>
+                <li><strong>货币政策：</strong>中央银行应调节货币供给，影响利率，调节投资和消费</li>
+                <li><strong>相机抉择：</strong>根据经济形势灵活调整政策，实现宏观经济稳定</li>
+                <li><strong>赤字财政：</strong>在经济衰退时可以实行赤字财政，刺激经济复苏</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📊 理论影响与现实意义</h2>
+            
+            <div class="key-point">
+                <strong>理论影响：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li>开创了宏观经济学作为独立学科</li>
+                <li>为罗斯福新政提供了理论依据</li>
+                <li>影响了二战后各国经济政策</li>
+                <li>奠定了现代宏观经济学的基础</li>
+            </ul>
+
+            <div class="subsection-title">现实意义</div>
+            <p class="content-text">
+                凯恩斯主义理论在应对2008年金融危机和2020年新冠疫情危机中再次发挥作用。各国政府纷纷实施大规模财政刺激和宽松货币政策，体现了凯恩斯主义的持久影响力。
+            </p>
+
+            <div class="quote-box">
+                "《通论》不仅是一部经济学著作，更是一份拯救经济的方案。它告诉我们，在市场失灵时，政府应当挺身而出，通过财政政策和货币政策稳定经济，保障就业。"
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📚 延伸阅读</h2>
+            <p class="content-text">
+                <strong>相关书籍：</strong>《国富论》《资本论》《经济学原理》《宏观经济学史：从凯恩斯到卢卡斯及其后》<br>
+                <strong>研究领域：</strong>宏观经济学、凯恩斯主义、经济政策、货币理论
+            </p>
+        </div>
+    </div>
+</body>
+</html>

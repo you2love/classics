@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利息与价格 - 经典书籍阅读</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #dcdde1;
+            --shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .book-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .book-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .book-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .book-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-impact {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .book-impact strong {
+            color: var(--primary-color);
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .subsection-title {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin: 20px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .content-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .key-point {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .key-point strong {
+            color: #1565c0;
+        }
+
+        .framework-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .framework-box h4 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .framework-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .framework-label {
+            background: var(--secondary-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            min-width: 120px;
+            text-align: center;
+            margin-right: 12px;
+        }
+
+        .framework-content {
+            color: var(--text-primary);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #fef9e7, #fcf3cf);
+            padding: 20px 25px;
+            border-radius: 10px;
+            border-left: 4px solid #f1c40f;
+            font-style: italic;
+            color: #856404;
+            margin: 15px 0;
+        }
+
+        .formula-box {
+            background: var(--bg-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+            margin: 15px 0;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .book-title { font-size: 1.5rem; }
+            .book-meta { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回首页</a>
+
+        <div class="book-header">
+            <h1 class="book-title">利息与价格</h1>
+            <div class="book-meta">
+                <span>👤 作者：克努特·维克塞尔</span>
+                <span>📚 分类：货币理论、宏观经济学</span>
+                <span>⭐ 推荐：★★★★★</span>
+            </div>
+            <p class="book-description">
+                《利息与价格》是瑞典经济学家克努特·维克塞尔于1898年出版的著作，被誉为货币经济学的经典之作。本书系统阐述了货币、利息与价格之间的关系，提出了自然利率理论，为现代宏观经济学和货币政策理论奠定了基础。
+            </p>
+            <div class="book-impact">
+                <strong>🎯 核心价值：</strong>开创了货币经济学的研究范式，提出了自然利率和累积过程理论，对凯恩斯主义和现代货币政策产生了深远影响。
+            </div>
+            <div class="tags">
+                <span class="tag">货币理论</span>
+                <span class="tag">利息理论</span>
+                <span class="tag">通货膨胀</span>
+                <span class="tag">宏观经济学</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📖 历史背景与写作动机</h2>
+            
+            <div class="subsection-title">对货币数量论的质疑</div>
+            <p class="content-text">
+                维克塞尔写作《利息与价格》时，货币数量论是主流的货币理论。该理论认为货币供给的增加会直接导致价格水平的同比例上升。维克塞尔质疑这一观点，认为货币供给的变化首先影响利率，利率变化再影响投资和消费，最终影响价格水平。
+            </p>
+
+            <div class="key-point">
+                <strong>维克塞尔的创新：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li>将货币分析与实体经济分析相结合</li>
+                <li>提出自然利率概念</li>
+                <li>阐述累积过程理论</li>
+                <li>为货币政策提供理论基础</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🔍 核心理论解析</h2>
+            
+            <div class="subsection-title">1. 自然利率</div>
+            <p class="content-text">
+                自然利率是维克塞尔理论的核心概念。自然利率是指使储蓄等于投资的利率，即实物资本市场的均衡利率。自然利率由实物资本的边际生产率决定，反映了实体经济的真实状况。
+            </p>
+
+            <div class="formula-box">
+                自然利率 = 储蓄 = 投资
+            </div>
+
+            <div class="framework-box">
+                <h4>自然利率的特征</h4>
+                <div class="framework-item">
+                    <span class="framework-label">决定因素</span>
+                    <span class="framework-content">由实物资本的边际生产率决定</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">经济含义</span>
+                    <span class="framework-content">使储蓄等于投资，实现实物市场均衡</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">政策意义</span>
+                    <span class="framework-content">货币政策的参考标准</span>
+                </div>
+            </div>
+
+            <div class="subsection-title">2. 市场利率</div>
+            <p class="content-text">
+                市场利率是货币市场上的实际利率，由货币供求决定。市场利率可以偏离自然利率，这种偏离会导致经济波动。
+            </p>
+
+            <div class="subsection-title">3. 累积过程理论</div>
+            <p class="content-text">
+                当市场利率低于自然利率时，投资收益大于资金成本，刺激投资增加。投资增加导致总需求上升，价格上涨。价格上涨又降低实际利率，进一步刺激投资，形成累积性扩张。相反，当市场利率高于自然利率时，会出现累积性收缩。
+            </p>
+
+            <div class="key-point">
+                <strong>累积过程的机制：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li><strong>扩张性累积：</strong>市场利率 < 自然利率 → 投资增加 → 需求上升 → 价格上涨</li>
+                <li><strong>收缩性累积：</strong>市场利率 > 自然利率 → 投资减少 → 需求下降 → 价格下跌</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">💰 货币与价格的关系</h2>
+            
+            <div class="key-point">
+                <strong>维克塞尔的货币理论：</strong>
+            </div>
+            <p class="content-text">
+                维克塞尔认为，货币供给的变化不是直接导致价格变化，而是通过利率间接影响价格。货币供给增加导致市场利率下降，如果市场利率低于自然利率，会引发累积性扩张，导致价格上涨。这一观点比货币数量论更加细致和准确。
+            </p>
+
+            <div class="framework-box">
+                <h4>货币影响价格的传导机制</h4>
+                <div class="framework-item">
+                    <span class="framework-label">第一步</span>
+                    <span class="framework-content">货币供给变化</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">第二步</span>
+                    <span class="framework-content">市场利率变化</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">第三步</span>
+                    <span class="framework-content">投资和消费变化</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">第四步</span>
+                    <span class="framework-content">总需求变化</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">第五步</span>
+                    <span class="framework-content">价格水平变化</span>
+                </div>
+            </div>
+
+            <div class="quote-box">
+                "货币对经济的影响不是直接的，而是通过利率这个中间变量实现的。理解这一传导机制是制定有效货币政策的关键。"
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🏛️ 货币政策启示</h2>
+            
+            <div class="key-point">
+                <strong>维克塞尔的政策主张：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li><strong>利率中性：</strong>中央银行应该使市场利率与自然利率保持一致</li>
+                <li><strong>稳定价格：</strong>通过调节货币供给，保持价格水平稳定</li>
+                <li><strong>逆周期调节：</strong>在经济过热时提高利率，在经济衰退时降低利率</li>
+            </ul>
+
+            <div class="subsection-title">现代中央银行的实践</div>
+            <p class="content-text">
+                维克塞尔的理论为现代中央银行的货币政策提供了理论基础。各国中央银行普遍将利率作为主要的货币政策工具，通过调整政策利率来影响市场利率，调节经济活动和价格水平。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📊 理论影响与现实意义</h2>
+            
+            <div class="key-point">
+                <strong>理论影响：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li>开创了货币经济学的研究范式</li>
+                <li>为凯恩斯的流动性偏好理论提供了基础</li>
+                <li>影响了瑞典学派的货币理论</li>
+                <li>为现代货币政策奠定了理论基础</li>
+            </ul>
+
+            <div class="subsection-title">现实意义</div>
+            <p class="content-text">
+                维克塞尔的理论在当代仍然具有重要价值。中央银行在制定货币政策时，仍然参考自然利率的概念。理解货币、利率与价格之间的关系，有助于我们理解货币政策的效果和通货膨胀的形成机制。
+            </p>
+
+            <div class="quote-box">
+                "《利息与价格》虽然写于一个多世纪之前，但其思想仍然充满活力。在金融全球化和货币政策日益重要的今天，维克塞尔的洞见比以往任何时候都更加珍贵。"
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📚 延伸阅读</h2>
+            <p class="content-text">
+                <strong>相关书籍：</strong>《就业、利息和货币通论》《资本论》《经济学原理》《宏观经济学史：从凯恩斯到卢卡斯及其后》<br>
+                <strong>研究领域：</strong>货币经济学、货币政策、利息理论、宏观经济学
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行政发包制：大一统的制度密码 - 经典书籍阅读</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #dcdde1;
+            --shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .book-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .book-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .book-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .book-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-impact {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .book-impact strong {
+            color: var(--primary-color);
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .subsection-title {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin: 20px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .content-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .key-point {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .key-point strong {
+            color: #1565c0;
+        }
+
+        .framework-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .framework-box h4 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .framework-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .framework-label {
+            background: var(--secondary-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            min-width: 100px;
+            text-align: center;
+            margin-right: 12px;
+        }
+
+        .framework-content {
+            color: var(--text-primary);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #fef9e7, #fcf3cf);
+            padding: 20px 25px;
+            border-radius: 10px;
+            border-left: 4px solid #f1c40f;
+            font-style: italic;
+            color: #856404;
+            margin: 15px 0;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .data-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .data-table tr:hover {
+            background-color: #e3f2fd;
+        }
+
+        @media (max-width: 768px) {
+            .book-title { font-size: 1.5rem; }
+            .book-meta { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回首页</a>
+
+        <div class="book-header">
+            <h1 class="book-title">行政发包制：大一统的制度密码</h1>
+            <div class="book-meta">
+                <span>👤 作者：周黎安</span>
+                <span>📚 分类：政治学、制度经济学</span>
+                <span>⭐ 推荐：★★★★★</span>
+            </div>
+            <p class="book-description">
+                本书深入剖析了中国大一统体制下央地关系的运作机制，提出了"行政发包制"这一核心理论框架，解释了中国经济奇迹背后的制度逻辑，为理解中国政治经济运行提供了全新的分析视角。
+            </p>
+            <div class="book-impact">
+                <strong>🎯 核心价值：</strong>揭示了中央与地方之间独特的激励与控制机制，解释了中国治理的深层制度密码，对理解中国发展道路具有重要意义。
+            </div>
+            <div class="tags">
+                <span class="tag">制度分析</span>
+                <span class="tag">央地关系</span>
+                <span class="tag">政府行为</span>
+                <span class="tag">经济转型</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📖 书籍核心观点</h2>
+            
+            <div class="subsection-title">行政发包制的定义</div>
+            <p class="content-text">
+                行政发包制是指中央政府将公共事务和政策执行权"发包"给地方政府，同时保留最终决策权和问责权的一种制度安排。这种制度介于科层制和市场契约之间，形成了中国独特的央地关系模式。
+            </p>
+
+            <div class="key-point">
+                <strong>三个核心特征：</strong>
+            </div>
+            <div class="framework-box">
+                <div class="framework-item">
+                    <span class="framework-label">权力分配</span>
+                    <span class="framework-content">中央掌握决策权和监督权，地方获得执行权和剩余索取权</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">激励结构</span>
+                    <span class="framework-content">政治激励与经济激励相结合，形成"锦标赛"竞争机制</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">约束机制</span>
+                    <span class="framework-content">行政控制与绩效考核双重约束，确保地方行为符合中央目标</span>
+                </div>
+            </div>
+
+            <div class="subsection-title">制度逻辑与运作机制</div>
+            <p class="content-text">
+                行政发包制通过权力下放与责任承包相结合的方式，在保持中央权威的同时，充分调动地方积极性。这种制度安排既维护了大一统的政治稳定，又创造了地方竞争的经济活力，成为中国经济发展的重要制度基础。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🔍 关键概念解析</h2>
+            
+            <div class="subsection-title">1. 发包制与科层制的区别</div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>特征</th>
+                            <th>科层制</th>
+                            <th>行政发包制</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>权力分配</td>
+                            <td>严格控制，逐级授权</td>
+                            <td>权力下放，保留控制权</td>
+                        </tr>
+                        <tr>
+                            <td>激励机制</td>
+                            <td>职位晋升，行政命令</td>
+                            <td>政治晋升+经济利益</td>
+                        </tr>
+                        <tr>
+                            <td>责任承担</td>
+                            <td>上级负最终责任</td>
+                            <td>承包方承担连带责任</td>
+                        </tr>
+                        <tr>
+                            <td>信息传递</td>
+                            <td>纵向指令，层级传递</td>
+                            <td>横向竞争，信息共享</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="subsection-title">2. 晋升锦标赛</div>
+            <p class="content-text">
+                晋升锦标赛是行政发包制的重要配套机制。中央政府通过设置经济增长、社会稳定等关键指标，对地方政府进行考核，表现优秀的地方官员获得晋升机会。这种竞争机制有效激发了地方政府的积极性，但也带来了过度竞争等问题。
+            </p>
+
+            <div class="quote-box">
+                "行政发包制是中国大一统体制下央地关系的独特制度安排，它既保持了中央的权威和控制，又赋予了地方足够的自主权和激励空间。"
+            </div>
+
+            <div class="subsection-title">3. 双重约束机制</div>
+            <p class="content-text">
+                行政发包制通过行政控制和绩效考核双重约束地方政府行为。行政控制体现为人事任免、政策指导等正式权力；绩效考核则通过量化指标对地方进行评价，形成软约束。两者共同作用，确保地方行为符合中央目标。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📊 行政发包制的应用领域</h2>
+            
+            <div class="key-point">
+                <strong>主要应用场景：</strong>
+            </div>
+            
+            <div class="framework-box">
+                <div class="framework-item">
+                    <span class="framework-label">经济发展</span>
+                    <span class="framework-content">地方政府竞争招商引资，推动经济增长</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">环境保护</span>
+                    <span class="framework-content">中央下达环保指标，地方执行环保政策</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">社会稳定</span>
+                    <span class="framework-content">地方维护社会秩序，承担维稳责任</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">公共服务</span>
+                    <span class="framework-content">地方提供教育医疗等公共服务</span>
+                </div>
+            </div>
+
+            <div class="subsection-title">制度优势与挑战</div>
+            <p class="content-text">
+                <strong>优势：</strong>激发地方积极性、促进经济增长、保持政治稳定、适应大国治理需求<br>
+                <strong>挑战：</strong>过度竞争、地方保护主义、环境成本外溢、公共服务不均等化
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">💡 理论贡献与现实意义</h2>
+            
+            <div class="key-point">
+                <strong>理论贡献：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px;">
+                <li>提出"行政发包制"核心概念，丰富了中国政治经济学的理论体系</li>
+                <li>解释了中国经济发展奇迹的制度根源</li>
+                <li>为理解央地关系提供了新的分析框架</li>
+                <li>推动了比较政治经济学和中国研究的发展</li>
+            </ul>
+
+            <div class="subsection-title">现实意义</div>
+            <p class="content-text">
+                行政发包制理论为理解中国治理实践提供了重要视角。它帮助我们认识中国政治经济运行的内在逻辑，预测政策实施效果，并为制度创新和改革提供理论指导。在新时代背景下，如何完善行政发包制，平衡激励与约束，是值得深入思考的问题。
+            </p>
+
+            <div class="quote-box">
+                "行政发包制不仅是一个理论框架，更是一把钥匙，帮助我们打开理解中国政治经济运行的深层密码。"
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📚 延伸阅读</h2>
+            <p class="content-text">
+                <strong>相关书籍：</strong>《置身事内》《大国大城》《以利为利》《中国国家治理的制度逻辑》<br>
+                <strong>研究领域：</strong>中国政府与政治、政治经济学、制度分析、央地关系
+            </p>
+        </div>
+    </div>
+</body>
+</html>

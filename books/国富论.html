@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>国富论 - 经典书籍阅读</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #dcdde1;
+            --shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .book-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .book-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .book-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .book-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-impact {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .book-impact strong {
+            color: var(--primary-color);
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .subsection-title {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin: 20px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .content-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .key-point {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .key-point strong {
+            color: #1565c0;
+        }
+
+        .framework-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .framework-box h4 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .framework-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .framework-label {
+            background: var(--secondary-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            min-width: 120px;
+            text-align: center;
+            margin-right: 12px;
+        }
+
+        .framework-content {
+            color: var(--text-primary);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #fef9e7, #fcf3cf);
+            padding: 20px 25px;
+            border-radius: 10px;
+            border-left: 4px solid #f1c40f;
+            font-style: italic;
+            color: #856404;
+            margin: 15px 0;
+        }
+
+        .pin-example {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+            margin: 15px 0;
+        }
+
+        .pin-example h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .pin-example p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .book-title { font-size: 1.5rem; }
+            .book-meta { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回首页</a>
+
+        <div class="book-header">
+            <h1 class="book-title">国富论</h1>
+            <div class="book-meta">
+                <span>👤 作者：亚当·斯密</span>
+                <span>📚 分类：经济学、古典经济学</span>
+                <span>⭐ 推荐：★★★★★</span>
+            </div>
+            <p class="book-description">
+                《国富论》（全称《国民财富的性质和原因的研究》）是英国经济学家亚当·斯密于1776年出版的经典著作，被誉为现代经济学的奠基之作。本书系统阐述了自由市场经济的理论，提出了"看不见的手"这一著名概念，对后世经济学发展产生了深远影响。
+            </p>
+            <div class="book-impact">
+                <strong>🎯 核心价值：</strong>奠定了古典经济学的基础，阐述了市场经济的基本原理，提出了分工理论、自由贸易理论和"看不见的手"理论，是经济学思想的源头。
+            </div>
+            <div class="tags">
+                <span class="tag">古典经济学</span>
+                <span class="tag">自由市场</span>
+                <span class="tag">分工理论</span>
+                <span class="tag">看不见的手</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📖 全书结构</h2>
+            
+            <div class="key-point">
+                <strong>五卷内容：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li><strong>第一卷：</strong>论劳动生产力改良的原因，以及劳动产品在不同社会阶层之间的分配</li>
+                <li><strong>第二卷：</strong>论资本的性质、积累和使用</li>
+                <li><strong>第三卷：</strong>论各国财富增长的不同进程</li>
+                <li><strong>第四卷：</strong>论政治经济学体系</li>
+                <li><strong>第五卷：</strong>论君主或国家的收入</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🔍 核心理论解析</h2>
+            
+            <div class="subsection-title">1. 分工理论</div>
+            <p class="content-text">
+                斯密开篇就讨论了分工对生产力的巨大提升作用。他以制针厂为例，说明分工可以使劳动生产率提高几百倍。分工的好处在于：提高工人熟练度、节省工作时间、促进机械发明。
+            </p>
+
+            <div class="pin-example">
+                <h4>制针厂的经典案例</h4>
+                <p>斯密描述了一个制针厂，一个工人独立工作，一天只能制作20枚针；但通过分工，10个工人每天可以制作48000枚针，人均4800枚，效率提高了240倍。</p>
+            </div>
+
+            <div class="subsection-title">2. 看不见的手</div>
+            <p class="content-text">
+                "看不见的手"是斯密最著名的概念之一。它指在自由市场中，个人在追求自身利益的同时，会无意中促进社会整体利益。市场价格机制就像一只看不见的手，引导资源配置到最有效的地方。
+            </p>
+
+            <div class="quote-box">
+                "每个人都在力图应用他的资本，来使其生产品能得到最大的价值。一般来说，他并不企图增进公共福利，也不知道他实际上所增进的公共福利是多少。他受一只看不见的手的指导，去尽力达到一个并非他本意想要达到的目的。"
+            </div>
+
+            <div class="subsection-title">3. 自由贸易理论</div>
+            <p class="content-text">
+                斯密反对重商主义的贸易保护政策，主张自由贸易。他认为，各国应该根据各自的比较优势进行贸易，通过专业化分工和国际贸易，所有国家都能从中受益。
+            </p>
+
+            <div class="framework-box">
+                <h4>市场经济的基本原理</h4>
+                <div class="framework-item">
+                    <span class="framework-label">自利原则</span>
+                    <span class="framework-content">个人追求自身利益是市场经济的基本动力</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">价格机制</span>
+                    <span class="framework-content">价格信号引导资源配置，实现供需平衡</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">竞争机制</span>
+                    <span class="framework-content">竞争促进效率提升，推动创新和进步</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">分工深化</span>
+                    <span class="framework-content">分工提高生产效率，促进经济发展</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">💰 价值理论</h2>
+            
+            <div class="key-point">
+                <strong>劳动价值论：</strong>
+            </div>
+            <p class="content-text">
+                斯密提出了劳动价值论，认为商品的价值由生产该商品所耗费的劳动量决定。他将价值分为使用价值和交换价值，并探讨了价格与价值的关系。
+            </p>
+
+            <div class="subsection-title">价格构成</div>
+            <p class="content-text">
+                斯密分析了商品价格的构成，认为价格由工资、利润和地租三部分组成。这一分析为后来的收入分配理论奠定了基础。
+            </p>
+
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li><strong>工资：</strong>劳动的报酬，受劳动供求关系影响</li>
+                <li><strong>利润：</strong>资本的报酬，受资本供求关系影响</li>
+                <li><strong>地租：</strong>土地的报酬，受土地供求关系影响</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🏛️ 政府职能</h2>
+            
+            <div class="key-point">
+                <strong>有限政府理论：</strong>
+            </div>
+            <p class="content-text">
+                斯密主张政府应该扮演有限的角色，反对政府过度干预经济。他认为政府应该只承担以下三项基本职能：
+            </p>
+
+            <div class="framework-box">
+                <div class="framework-item">
+                    <span class="framework-label">国防安全</span>
+                    <span class="framework-content">保护社会免受外来侵犯</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">司法公正</span>
+                    <span class="framework-content">维护社会秩序，保护公民权利</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">公共工程</span>
+                    <span class="framework-content">建设私人无力承担的公共设施和机构</span>
+                </div>
+            </div>
+
+            <div class="quote-box">
+                "每个人都尽其所能地利用其资本来支持国内产业，并使该产业的产品尽可能具有最大的价值，通常是既不打算促进公共利益，也不知道自己在多大程度上促进公共利益。"
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📊 理论影响与现实意义</h2>
+            
+            <div class="key-point">
+                <strong>理论贡献：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li>奠定了古典经济学的基础</li>
+                <li>提出了市场经济的基本原理</li>
+                <li>阐述了自由贸易的重要性</li>
+                <li>为后来的经济学发展提供了理论基础</li>
+            </ul>
+
+            <div class="subsection-title">现实意义</div>
+            <p class="content-text">
+                《国富论》的理论对现代经济政策和经济理论仍有重要影响。市场经济、自由贸易、有限政府等理念已成为现代经济体系的基石。在全球化的今天，斯密的理论帮助我们理解国际贸易、经济发展和市场运作的内在逻辑。
+            </p>
+
+            <div class="quote-box">
+                "《国富论》不仅是一部经济学著作，更是一部关于人类社会如何组织生产和分配的伟大思考。它告诉我们，通过自由市场和分工合作，人类可以实现财富的增长和社会的繁荣。"
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📚 延伸阅读</h2>
+            <p class="content-text">
+                <strong>相关书籍：</strong>《就业、利息和货币通论》《资本论》《经济学原理》《利息与价格》<br>
+                <strong>研究领域：</strong>古典经济学、自由市场理论、国际贸易、经济史
+            </p>
+        </div>
+    </div>
+</body>
+</html>

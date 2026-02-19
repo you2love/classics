@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>经济学原理 - 经典书籍阅读</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #dcdde1;
+            --shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .book-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .book-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .book-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .book-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-impact {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .book-impact strong {
+            color: var(--primary-color);
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .subsection-title {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin: 20px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .content-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .key-point {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .key-point strong {
+            color: #1565c0;
+        }
+
+        .framework-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .framework-box h4 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .framework-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .framework-label {
+            background: var(--secondary-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            min-width: 100px;
+            text-align: center;
+            margin-right: 12px;
+        }
+
+        .framework-content {
+            color: var(--text-primary);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #fef9e7, #fcf3cf);
+            padding: 20px 25px;
+            border-radius: 10px;
+            border-left: 4px solid #f1c40f;
+            font-style: italic;
+            color: #856404;
+            margin: 15px 0;
+        }
+
+        .ten-principles-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ten-principles-list li {
+            background: var(--bg-color);
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .ten-principles-list li strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .book-title { font-size: 1.5rem; }
+            .book-meta { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回首页</a>
+
+        <div class="book-header">
+            <h1 class="book-title">经济学原理</h1>
+            <div class="book-meta">
+                <span>👤 作者：N. 格里高利·曼昆</span>
+                <span>📚 分类：经济学、教科书</span>
+                <span>⭐ 推荐：★★★★★</span>
+            </div>
+            <p class="book-description">
+                《经济学原理》是美国经济学家N.格里高利·曼昆的经典教科书，被誉为全球最受欢迎的经济学入门教材。本书以通俗易懂的语言和生动的案例，系统阐述了经济学的基本原理和分析方法，帮助读者建立经济学的思维方式。
+            </p>
+            <div class="book-impact">
+                <strong>🎯 核心价值：</strong>提供系统的经济学知识框架，培养经济学思维，帮助读者理解经济现象背后的逻辑，是学习经济学的最佳入门读物。
+            </div>
+            <div class="tags">
+                <span class="tag">经济学入门</span>
+                <span class="tag">微观经济学</span>
+                <span class="tag">宏观经济学</span>
+                <span class="tag">经济学思维</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📖 经济学十大原理</h2>
+            
+            <div class="key-point">
+                <strong>曼昆提出的经济学十大原理：</strong>
+            </div>
+            
+            <ul class="ten-principles-list">
+                <li>
+                    <strong>1. 人们面临权衡取舍</strong>
+                    "天下没有免费的午餐"。为了得到一样东西，我们通常不得不放弃另一样东西。效率与公平、消费与储蓄、工作与休闲等都是常见的权衡。
+                </li>
+                <li>
+                    <strong>2. 某种东西的成本是为了得到它所放弃的东西</strong>
+                    机会成本是做出选择时必须考虑的因素。上大学的成本不仅是学费，还包括放弃工作所损失的工资收入。
+                </li>
+                <li>
+                    <strong>3. 理性人考虑边际量</strong>
+                    理性人通过比较边际收益与边际成本来做出决策。只有当边际收益大于边际成本时，才会采取行动。
+                </li>
+                <li>
+                    <strong>4. 人们会对激励做出反应</strong>
+                    激励是影响人们行为的重要因素。公共政策会改变激励，从而影响人们的行为。
+                </li>
+                <li>
+                    <strong>5. 贸易可以使每个人状况都变得更好</strong>
+                    贸易使每个人都可以专门从事自己最擅长的活动，从而提高生产效率，使参与贸易的各方都受益。
+                </li>
+                <li>
+                    <strong>6. 市场通常是组织经济活动的一种好方法</strong>
+                    看不见的手引导市场参与者实现互利，促进资源的有效配置。
+                </li>
+                <li>
+                    <strong>7. 政府有时可以改善市场结果</strong>
+                    市场有时会失灵，如外部性、垄断等问题，需要政府干预来改善市场结果。
+                </li>
+                <li>
+                    <strong>8. 一国的生活水平取决于其生产物品与劳务的能力</strong>
+                    生产率是生活水平的关键决定因素。提高生产率是实现经济增长的根本途径。
+                </li>
+                <li>
+                    <strong>9. 当政府发行了过多货币时，物价上升</strong>
+                    通货膨胀是经济中物价总水平的持续上升，其主要原因是货币增长过快。
+                </li>
+                <li>
+                    <strong>10. 社会面临通货膨胀与失业之间的短期权衡取舍</strong>
+                    在短期内，通货膨胀与失业之间存在负相关关系，即菲利普斯曲线。
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🔍 微观经济学核心内容</h2>
+            
+            <div class="subsection-title">供需理论</div>
+            <p class="content-text">
+                供给和需求是市场经济的基本工具。价格由供给和需求的相互作用决定，市场通过价格机制调节资源配置。理解供需关系是分析市场行为的基础。
+            </p>
+
+            <div class="framework-box">
+                <h4>供需关系的关键概念</h4>
+                <div class="framework-item">
+                    <span class="framework-label">需求定律</span>
+                    <span class="framework-content">价格上升，需求量下降；价格下降，需求量上升</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">供给定律</span>
+                    <span class="framework-content">价格上升，供给量增加；价格下降，供给量减少</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">均衡价格</span>
+                    <span class="framework-content">供给等于需求时的价格，市场出清</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">弹性</span>
+                    <span class="framework-content">衡量需求或供给对价格变化的敏感程度</span>
+                </div>
+            </div>
+
+            <div class="subsection-title">消费者选择理论</div>
+            <p class="content-text">
+                消费者在预算约束下追求效用最大化。效用理论、无差异曲线和预算约束线是分析消费者选择的基本工具。
+            </p>
+
+            <div class="subsection-title">生产者理论</div>
+            <p class="content-text">
+                企业在成本约束下追求利润最大化。生产函数、成本曲线和市场结构（完全竞争、垄断、寡头、垄断竞争）是分析生产者行为的重要内容。
+            </p>
+
+            <div class="quote-box">
+                "经济学的魅力在于它用简单的原理解释复杂的世界。供需关系、边际分析、机会成本等概念，帮助我们理解日常生活和商业决策中的经济逻辑。"
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🌍 宏观经济学核心内容</h2>
+            
+            <div class="key-point">
+                <strong>宏观经济的主要指标：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li><strong>国内生产总值（GDP）：</strong>衡量一国经济活动的总量</li>
+                <li><strong>通货膨胀率：</strong>衡量物价水平的变化</li>
+                <li><strong>失业率：</strong>衡量劳动力市场状况</li>
+                <li><strong>利率：</strong>资金的价格，影响投资和消费</li>
+            </ul>
+
+            <div class="subsection-title">经济增长理论</div>
+            <p class="content-text">
+                经济增长是长期经济表现的关键。生产率提高、资本积累、技术进步和制度环境是影响经济增长的重要因素。索洛增长模型是分析经济增长的基本框架。
+            </p>
+
+            <div class="subsection-title">经济波动理论</div>
+            <p class="content-text">
+                经济会出现周期性波动，包括繁荣和衰退。总需求和总供给模型是分析经济波动的基本工具。财政政策和货币政策可以用来稳定经济。
+            </p>
+
+            <div class="framework-box">
+                <h4>宏观经济政策工具</h4>
+                <div class="framework-item">
+                    <span class="framework-label">财政政策</span>
+                    <span class="framework-content">政府通过税收和支出影响经济</span>
+                </div>
+                <div class="framework-item">
+                    <span class="framework-label">货币政策</span>
+                    <span class="framework-content">中央银行通过调节货币供给影响经济</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">💡 经济学思维方式</h2>
+            
+            <div class="key-point">
+                <strong>经济学思维的核心特征：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li><strong>边际思维：</strong>关注边际收益和边际成本</li>
+                <li><strong>机会成本：</strong>考虑选择的真实成本</li>
+                <li><strong>激励分析：</strong>理解激励如何影响行为</li>
+                <li><strong>均衡分析：</strong>寻找稳定的市场状态</li>
+                <li><strong>效率观念：</strong>追求资源配置的有效性</li>
+            </ul>
+
+            <div class="quote-box">
+                "经济学不仅是一门学科，更是一种思维方式。它帮助我们理性地分析问题，做出更好的决策，理解复杂的经济现象。"
+            </div>
+
+            <div class="subsection-title">经济学在生活中的应用</div>
+            <p class="content-text">
+                经济学原理不仅适用于经济政策分析，也适用于日常生活中的各种决策。无论是个人理财、职业选择，还是企业决策、公共政策，经济学思维都能提供有价值的分析框架。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📚 学习建议与延伸阅读</h2>
+            
+            <div class="key-point">
+                <strong>学习建议：</strong>
+            </div>
+            <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                <li>理解经济学十大原理，建立经济学思维</li>
+                <li>掌握供需分析的基本方法</li>
+                <li>关注现实经济问题，理论联系实际</li>
+                <li>多做练习题，加深对概念的理解</li>
+                <li>阅读经济学新闻和评论，拓展视野</li>
+            </ul>
+
+            <div class="subsection-title">延伸阅读</div>
+            <p class="content-text">
+                <strong>相关书籍：</strong>《国富论》《就业、利息和货币通论》《资本论》《经济学》<br>
+                <strong>研究领域：</strong>微观经济学、宏观经济学、经济政策、金融学
+            </p>
+        </div>
+    </div>
+</body>
+</html>
