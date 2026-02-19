@@ -125,25 +125,6 @@
             min-height: calc(100vh - 60px);
         }
 
-        /* 欢迎区域 */
-        .welcome-section {
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .welcome-section h2 {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .welcome-section p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
         /* 书籍详情 */
         .book-detail {
             display: none;
@@ -674,137 +655,132 @@
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-section">
             <div class="sidebar-title">当下</div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('人生各阶段的分析')"><span class="tree-icon">📖</span><span class="tree-text">人生各阶段的分析</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('政策与人生规划')"><span class="tree-icon">📖</span><span class="tree-text">政策与人生规划</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('国内财富分布')"><span class="tree-icon">🗺️</span><span class="tree-text">国内财富分布</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('底层翻身')"><span class="tree-icon">🚀</span><span class="tree-text">底层翻身</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('教育指南')"><span class="tree-icon">🎓</span><span class="tree-text">教育指南</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('人生各阶段的分析', null, event)"><span class="tree-icon">📖</span><span class="tree-text">人生各阶段的分析</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('政策与人生规划', null, event)"><span class="tree-icon">📖</span><span class="tree-text">政策与人生规划</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('国内财富分布', null, event)"><span class="tree-icon">🗺️</span><span class="tree-text">国内财富分布</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('底层翻身', null, event)"><span class="tree-icon">🚀</span><span class="tree-text">底层翻身</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('教育指南', null, event)"><span class="tree-icon">🎓</span><span class="tree-text">教育指南</span></a></div>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-title">政治学</div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国社会各阶级的分析')"><span class="tree-icon">📖</span><span class="tree-text">中国社会各阶级的分析</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('治理中国')"><span class="tree-icon">📖</span><span class="tree-text">治理中国</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('政治学基础')"><span class="tree-icon">📖</span><span class="tree-text">政治学基础</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中县干部')"><span class="tree-icon">📖</span><span class="tree-text">中县干部</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('当代中国政府与政治')"><span class="tree-icon">🏛️</span><span class="tree-text">当代中国政府与政治</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国国家治理的制度逻辑')"><span class="tree-icon">🏛️</span><span class="tree-text">中国国家治理的制度逻辑</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国社会各阶级的分析', null, event)"><span class="tree-icon">📖</span><span class="tree-text">中国社会各阶级的分析</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('治理中国', null, event)"><span class="tree-icon">📖</span><span class="tree-text">治理中国</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('政治学基础', null, event)"><span class="tree-icon">📖</span><span class="tree-text">政治学基础</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中县干部', null, event)"><span class="tree-icon">📖</span><span class="tree-text">中县干部</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('当代中国政府与政治', null, event)"><span class="tree-icon">🏛️</span><span class="tree-text">当代中国政府与政治</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国国家治理的制度逻辑', null, event)"><span class="tree-icon">🏛️</span><span class="tree-text">中国国家治理的制度逻辑</span></a></div>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-title">政治经济</div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('置身事内')"><span class="tree-icon">📖</span><span class="tree-text">置身事内</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('大国大城')"><span class="tree-icon">📖</span><span class="tree-text">大国大城</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('以利为利')"><span class="tree-icon">📖</span><span class="tree-text">以利为利</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('权力结构政治激励和经济增长')"><span class="tree-icon">📊</span><span class="tree-text">权力结构、政治激励和经济增长</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('行政发包制：大一统的制度密码', this)"><span class="tree-icon">🔐</span><span class="tree-text">行政发包制：大一统的制度密码</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('筚路维艰：中国社会主义路径的五次选择', this)"><span class="tree-icon">🛤️</span><span class="tree-text">筚路维艰：中国社会主义路径的五次选择</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('改革的逻辑', this)"><span class="tree-icon">🔄</span><span class="tree-text">改革的逻辑</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('置身事内', null, event)"><span class="tree-icon">📖</span><span class="tree-text">置身事内</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('大国大城', null, event)"><span class="tree-icon">📖</span><span class="tree-text">大国大城</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('以利为利', null, event)"><span class="tree-icon">📖</span><span class="tree-text">以利为利</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('权力结构政治激励和经济增长', null, event)"><span class="tree-icon">📊</span><span class="tree-text">权力结构、政治激励和经济增长</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('行政发包制：大一统的制度密码', this, event)"><span class="tree-icon">🔐</span><span class="tree-text">行政发包制：大一统的制度密码</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('筚路维艰：中国社会主义路径的五次选择', this, event)"><span class="tree-icon">🛤️</span><span class="tree-text">筚路维艰：中国社会主义路径的五次选择</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('改革的逻辑', this, event)"><span class="tree-icon">🔄</span><span class="tree-text">改革的逻辑</span></a></div>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-title">医学</div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('传奇医学：改变人类命运的医学成就', this)"><span class="tree-icon">⚕️</span><span class="tree-text">传奇医学：改变人类命运的医学成就</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('传奇医学：改变人类命运的医学成就', this, event)"><span class="tree-icon">⚕️</span><span class="tree-text">传奇医学：改变人类命运的医学成就</span></a></div>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-title">经济学</div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('国富论', this)"><span class="tree-icon">💰</span><span class="tree-text">国富论</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('就业、利息和货币通论', this)"><span class="tree-icon">📈</span><span class="tree-text">就业、利息和货币通论</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('经济学原理', this)"><span class="tree-icon">📊</span><span class="tree-text">经济学原理</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('资本论', this)"><span class="tree-icon">📚</span><span class="tree-text">资本论</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('利息与价格', this)"><span class="tree-icon">💹</span><span class="tree-text">利息与价格</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('宏观经济学史：从凯恩斯到卢卡斯及其后', this)"><span class="tree-icon">📜</span><span class="tree-text">宏观经济学史：从凯恩斯到卢卡斯及其后</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('国富论', this, event)"><span class="tree-icon">💰</span><span class="tree-text">国富论</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('就业、利息和货币通论', this, event)"><span class="tree-icon">📈</span><span class="tree-text">就业、利息和货币通论</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('经济学原理', this, event)"><span class="tree-icon">📊</span><span class="tree-text">经济学原理</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('资本论', this, event)"><span class="tree-icon">📚</span><span class="tree-text">资本论</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('利息与价格', this, event)"><span class="tree-icon">💹</span><span class="tree-text">利息与价格</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('宏观经济学史：从凯恩斯到卢卡斯及其后', this, event)"><span class="tree-icon">📜</span><span class="tree-text">宏观经济学史：从凯恩斯到卢卡斯及其后</span></a></div>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-title">财富研究</div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国家庭财富调查报告')"><span class="tree-icon">📊</span><span class="tree-text">中国家庭财富调查报告</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国财富分配模式')"><span class="tree-icon">📊</span><span class="tree-text">中国财富分配模式</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('做多中国')"><span class="tree-icon">📈</span><span class="tree-text">做多中国</span></a></div>
-            <div class="tree-item"><a href="#" onclick="showBook('财富自由之路')" class="tree-item-content" ><span class="tree-icon">💰</span><span class="tree-text">财富自由之路</span></a></div>
-            <div class="tree-item"><a href="#" onclick="showBook('管好你的钱')" class="tree-item-content" ><span class="tree-icon">💵</span><span class="tree-text">管好你的钱</span></a></div>
-            <div class="tree-item"><a href="#" onclick="showBook('通往幸福的理财课')" class="tree-item-content" ><span class="tree-icon">😊</span><span class="tree-text">通往幸福的理财课</span></a></div>
-            <div class="tree-item"><a href="#" onclick="showBook('家庭理财')" class="tree-item-content" ><span class="tree-icon">🏠</span><span class="tree-text">家庭理财</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('激荡三十年')"><span class="tree-icon">🌊</span><span class="tree-text">激荡三十年</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('新能源革命')"><span class="tree-icon">⚡</span><span class="tree-text">新能源革命：中国双碳时代的造富运动</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('新消费时代')"><span class="tree-icon">🛒</span><span class="tree-text">新消费时代：中国年轻人的财富密码</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国富人的财富管理')"><span class="tree-icon">💼</span><span class="tree-text">中国富人的财富管理：从积累到传承</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('房地产江湖')"><span class="tree-icon">🏢</span><span class="tree-text">房地产江湖：中国房地产富豪的兴衰史</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国家庭财富调查报告', null, event)"><span class="tree-icon">📊</span><span class="tree-text">中国家庭财富调查报告</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国财富分配模式', null, event)"><span class="tree-icon">📊</span><span class="tree-text">中国财富分配模式</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('做多中国', null, event)"><span class="tree-icon">📈</span><span class="tree-text">做多中国</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('财富自由之路', null, event)" class="tree-item-content" ><span class="tree-icon">💰</span><span class="tree-text">财富自由之路</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('管好你的钱', null, event)" class="tree-item-content" ><span class="tree-icon">💵</span><span class="tree-text">管好你的钱</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('通往幸福的理财课', null, event)" class="tree-item-content" ><span class="tree-icon">😊</span><span class="tree-text">通往幸福的理财课</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('家庭理财', null, event)" class="tree-item-content" ><span class="tree-icon">🏠</span><span class="tree-text">家庭理财</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('激荡三十年', null, event)"><span class="tree-icon">🌊</span><span class="tree-text">激荡三十年</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('新能源革命', null, event)"><span class="tree-icon">⚡</span><span class="tree-text">新能源革命：中国双碳时代的造富运动</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('新消费时代', null, event)"><span class="tree-icon">🛒</span><span class="tree-text">新消费时代：中国年轻人的财富密码</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国富人的财富管理', null, event)"><span class="tree-icon">💼</span><span class="tree-text">中国富人的财富管理：从积累到传承</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('房地产江湖', null, event)"><span class="tree-icon">🏢</span><span class="tree-text">房地产江湖：中国房地产富豪的兴衰史</span></a></div>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-title">财政金融史</div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('财富分布与历史轮回')"><span class="tree-icon">📜</span><span class="tree-text">财富分布与历史轮回</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('财税史话')"><span class="tree-icon">📜</span><span class="tree-text">财税史话</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国是部金融史')"><span class="tree-icon">📜</span><span class="tree-text">中国是部金融史</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('何以中国何以帝国')"><span class="tree-icon">📜</span><span class="tree-text">何以中国·何以帝国</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('粮食运河与白银')"><span class="tree-icon">📜</span><span class="tree-text">粮食、运河与白银</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('财富分布与历史轮回', null, event)"><span class="tree-icon">📜</span><span class="tree-text">财富分布与历史轮回</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('财税史话', null, event)"><span class="tree-icon">📜</span><span class="tree-text">财税史话</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国是部金融史', null, event)"><span class="tree-icon">📜</span><span class="tree-text">中国是部金融史</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('何以中国何以帝国', null, event)"><span class="tree-icon">📜</span><span class="tree-text">何以中国·何以帝国</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('粮食运河与白银', null, event)"><span class="tree-icon">📜</span><span class="tree-text">粮食、运河与白银</span></a></div>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-title">金融实务</div>
-            <div class="tree-item"><a href="#" onclick="showBook('中国货币资金分析精要')" class="tree-item-content" ><span class="tree-icon">💴</span><span class="tree-text">中国货币资金分析精要</span></a></div>
-            <div class="tree-item"><a href="#" onclick="showBook('读懂乡村振兴与乡村金融')" class="tree-item-content" ><span class="tree-icon">🌾</span><span class="tree-text">读懂乡村振兴与乡村金融</span></a></div>
-            <div class="tree-item"><a href="#" onclick="showBook('商业银行运作的底层逻辑')" class="tree-item-content" ><span class="tree-icon">🏦</span><span class="tree-text">商业银行运作的底层逻辑</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('中国货币资金分析精要', null, event)" class="tree-item-content" ><span class="tree-icon">💴</span><span class="tree-text">中国货币资金分析精要</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('读懂乡村振兴与乡村金融', null, event)" class="tree-item-content" ><span class="tree-icon">🌾</span><span class="tree-text">读懂乡村振兴与乡村金融</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('商业银行运作的底层逻辑', null, event)" class="tree-item-content" ><span class="tree-icon">🏦</span><span class="tree-text">商业银行运作的底层逻辑</span></a></div>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-title">社会学</div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('乡土中国')"><span class="tree-icon">📖</span><span class="tree-text">乡土中国</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('乌合之众')"><span class="tree-icon">📖</span><span class="tree-text">乌合之众</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('社会学概论新修')"><span class="tree-icon">📖</span><span class="tree-text">社会学概论新修</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('当代中国社会阶层研究报告')"><span class="tree-icon">📖</span><span class="tree-text">当代中国社会阶层研究报告</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('当代中国社会分层')"><span class="tree-icon">📖</span><span class="tree-text">当代中国社会分层</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('大地上的亲人')"><span class="tree-icon">📖</span><span class="tree-text">大地上的亲人</span></a></div>
-            <div class="tree-item"><a href="#" onclick="showBook('打工男孩')" class="tree-item-content" ><span class="tree-icon">👷</span><span class="tree-text">打工男孩</span></a></div>
-            <div class="tree-item"><a href="#" onclick="showBook('出梁庄记')" class="tree-item-content" ><span class="tree-icon">🏠</span><span class="tree-text">出梁庄记</span></a></div>
-            <div class="tree-item"><a href="#" onclick="showBook('大国之痛')" class="tree-item-content" ><span class="tree-icon">👶</span><span class="tree-text">大国之痛</span></a></div>
-            <div class="tree-item"><a href="#" onclick="showBook('打工者的呐喊')" class="tree-item-content" ><span class="tree-icon">📢</span><span class="tree-text">打工者的呐喊</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('生育制度')"><span class="tree-icon">👨‍👩‍👧</span><span class="tree-text">生育制度</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('礼物的流动')"><span class="tree-icon">🎁</span><span class="tree-text">礼物的流动</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国人的人性与人生')"><span class="tree-icon">👤</span><span class="tree-text">中国人的人性与人生</span></a></div>
-            <div class="tree-item"><a href="#" onclick="showBook('中国人的心理与行为')" class="tree-item-content" ><span class="tree-icon">🧠</span><span class="tree-text">中国人的心理与行为</span></a></div>
-            <div class="tree-item"><a href="#" onclick="showBook('当代中国社会心态研究')" class="tree-item-content" ><span class="tree-icon">😊</span><span class="tree-text">当代中国社会心态研究</span></a></div>
-            <div class="tree-item"><a href="#" onclick="showBook('中国人的思维方式')" class="tree-item-content" ><span class="tree-icon">💭</span><span class="tree-text">中国人的思维方式</span></a></div>
-            <div class="tree-item"><a href="#" onclick="showBook('人情面子与权力')" class="tree-item-content" ><span class="tree-icon">🎭</span><span class="tree-text">人情、面子与权力的再生产</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('乡土中国', null, event)"><span class="tree-icon">📖</span><span class="tree-text">乡土中国</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('乌合之众', null, event)"><span class="tree-icon">📖</span><span class="tree-text">乌合之众</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('社会学概论新修', null, event)"><span class="tree-icon">📖</span><span class="tree-text">社会学概论新修</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('当代中国社会阶层研究报告', null, event)"><span class="tree-icon">📖</span><span class="tree-text">当代中国社会阶层研究报告</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('当代中国社会分层', null, event)"><span class="tree-icon">📖</span><span class="tree-text">当代中国社会分层</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('大地上的亲人', null, event)"><span class="tree-icon">📖</span><span class="tree-text">大地上的亲人</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('打工男孩', null, event)" class="tree-item-content" ><span class="tree-icon">👷</span><span class="tree-text">打工男孩</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('出梁庄记', null, event)" class="tree-item-content" ><span class="tree-icon">🏠</span><span class="tree-text">出梁庄记</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('大国之痛', null, event)" class="tree-item-content" ><span class="tree-icon">👶</span><span class="tree-text">大国之痛</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('打工者的呐喊', null, event)" class="tree-item-content" ><span class="tree-icon">📢</span><span class="tree-text">打工者的呐喊</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('生育制度', null, event)"><span class="tree-icon">👨‍👩‍👧</span><span class="tree-text">生育制度</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('礼物的流动', null, event)"><span class="tree-icon">🎁</span><span class="tree-text">礼物的流动</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国人的人性与人生', null, event)"><span class="tree-icon">👤</span><span class="tree-text">中国人的人性与人生</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('中国人的心理与行为', null, event)" class="tree-item-content" ><span class="tree-icon">🧠</span><span class="tree-text">中国人的心理与行为</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('当代中国社会心态研究', null, event)" class="tree-item-content" ><span class="tree-icon">😊</span><span class="tree-text">当代中国社会心态研究</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('中国人的思维方式', null, event)" class="tree-item-content" ><span class="tree-icon">💭</span><span class="tree-text">中国人的思维方式</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('人情面子与权力', null, event)" class="tree-item-content" ><span class="tree-icon">🎭</span><span class="tree-text">人情、面子与权力的再生产</span></a></div>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-title">教育研究</div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('我的二本学生')"><span class="tree-icon">📖</span><span class="tree-text">我的二本学生</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('县中的孩子')"><span class="tree-icon">📖</span><span class="tree-text">县中的孩子</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('读书的料')"><span class="tree-icon">📖</span><span class="tree-text">读书的料</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('代课教师')"><span class="tree-icon">📖</span><span class="tree-text">代课教师</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('谁在看我们的日子')"><span class="tree-icon">📖</span><span class="tree-text">谁在看我们的日子</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('金榜题名之后')"><span class="tree-icon">📖</span><span class="tree-text">金榜题名之后</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('社会结构与高等教育分流')"><span class="tree-icon">📖</span><span class="tree-text">社会结构与高等教育分流</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('分层与流动')"><span class="tree-icon">📖</span><span class="tree-text">分层与流动</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('我的二本学生', null, event)"><span class="tree-icon">📖</span><span class="tree-text">我的二本学生</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('县中的孩子', null, event)"><span class="tree-icon">📖</span><span class="tree-text">县中的孩子</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('读书的料', null, event)"><span class="tree-icon">📖</span><span class="tree-text">读书的料</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('代课教师', null, event)"><span class="tree-icon">📖</span><span class="tree-text">代课教师</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('谁在看我们的日子', null, event)"><span class="tree-icon">📖</span><span class="tree-text">谁在看我们的日子</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('金榜题名之后', null, event)"><span class="tree-icon">📖</span><span class="tree-text">金榜题名之后</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('社会结构与高等教育分流', null, event)"><span class="tree-icon">📖</span><span class="tree-text">社会结构与高等教育分流</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('分层与流动', null, event)"><span class="tree-icon">📖</span><span class="tree-text">分层与流动</span></a></div>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-title">方法论</div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('如何阅读一本书')"><span class="tree-icon">📖</span><span class="tree-text">如何阅读一本书</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('如何阅读一本书', null, event)"><span class="tree-icon">📖</span><span class="tree-text">如何阅读一本书</span></a></div>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-title">历史文化</div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('简读中国史')"><span class="tree-icon">📜</span><span class="tree-text">简读中国史</span></a></div>
-            <div class="tree-item"><a href="#" onclick="showBook('潜规则')" class="tree-item-content" ><span class="tree-icon">🎭</span><span class="tree-text">潜规则</span></a></div>
-            <div class="tree-item"><a href="#" onclick="showBook('血酬定律')" class="tree-item-content" ><span class="tree-icon">⚔️</span><span class="tree-text">血酬定律</span></a></div>
-            <div class="tree-item"><a href="#" onclick="showBook('隐蔽的秩序')" class="tree-item-content" ><span class="tree-icon">🔮</span><span class="tree-text">隐蔽的秩序</span></a></div>
-            <div class="tree-item"><a href="#" onclick="showBook('我想重新解释历史')" class="tree-item-content" ><span class="tree-icon">💡</span><span class="tree-text">我想重新解释历史</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('简读中国史', null, event)"><span class="tree-icon">📜</span><span class="tree-text">简读中国史</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('潜规则', null, event)" class="tree-item-content" ><span class="tree-icon">🎭</span><span class="tree-text">潜规则</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('血酬定律', null, event)" class="tree-item-content" ><span class="tree-icon">⚔️</span><span class="tree-text">血酬定律</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('隐蔽的秩序', null, event)" class="tree-item-content" ><span class="tree-icon">🔮</span><span class="tree-text">隐蔽的秩序</span></a></div>
+            <div class="tree-item"><a href="#" onclick="showBook('我想重新解释历史', null, event)" class="tree-item-content" ><span class="tree-icon">💡</span><span class="tree-text">我想重新解释历史</span></a></div>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-title">公共管理</div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('小镇喧嚣')"><span class="tree-icon">📖</span><span class="tree-text">小镇喧嚣</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('县乡中国')"><span class="tree-icon">📖</span><span class="tree-text">县乡中国</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('乡镇治理与政府制度化')"><span class="tree-icon">📖</span><span class="tree-text">乡镇治理与政府制度化</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('公共管理学')"><span class="tree-icon">📖</span><span class="tree-text">公共管理学</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('行政法与行政诉讼法')"><span class="tree-icon">📖</span><span class="tree-text">行政法与行政诉讼法</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国社会治理')"><span class="tree-icon">🏘️</span><span class="tree-text">中国社会治理</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('转型中的地方政府')"><span class="tree-icon">🏛️</span><span class="tree-text">转型中的地方政府</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('基层治理')"><span class="tree-icon">🏘️</span><span class="tree-text">基层治理</span></a></div>
-            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('从压力型体制到合作型体制')"><span class="tree-icon">🔄</span><span class="tree-text">从压力型体制到合作型体制</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('小镇喧嚣', null, event)"><span class="tree-icon">📖</span><span class="tree-text">小镇喧嚣</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('县乡中国', null, event)"><span class="tree-icon">📖</span><span class="tree-text">县乡中国</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('乡镇治理与政府制度化', null, event)"><span class="tree-icon">📖</span><span class="tree-text">乡镇治理与政府制度化</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('公共管理学', null, event)"><span class="tree-icon">📖</span><span class="tree-text">公共管理学</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('行政法与行政诉讼法', null, event)"><span class="tree-icon">📖</span><span class="tree-text">行政法与行政诉讼法</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国社会治理', null, event)"><span class="tree-icon">🏘️</span><span class="tree-text">中国社会治理</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('转型中的地方政府', null, event)"><span class="tree-icon">🏛️</span><span class="tree-text">转型中的地方政府</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('基层治理', null, event)"><span class="tree-icon">🏘️</span><span class="tree-text">基层治理</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('从压力型体制到合作型体制', null, event)"><span class="tree-icon">🔄</span><span class="tree-text">从压力型体制到合作型体制</span></a></div>
         </div>
     </aside>
 
     <!-- 右侧主内容区 -->
     <main class="main-content">
-        <div class="welcome-section" id="welcomeSection">
-            <h2>欢迎阅读经典</h2>
-            <p>从左侧导航栏选择一本经典书籍，开始您的阅读之旅。每本书都包含核心要点、章节概览、数据表格和理论框架。</p>
-        </div>
-
         <div id="bookDetail">
             <!-- 置身事内 -->
             <div class="book-detail" id="book-置身事内">
@@ -8984,9 +8960,10 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- 行政发包制：大一统的制度密码 -->
-            <div class="book-detail" id="book-行政发包制：大一统的制度密码">
+        <!-- 行政发包制：大一统的制度密码 -->
+        <div class="book-detail" id="book-行政发包制：大一统的制度密码">
                 <div class="book-header">
                     <h2 class="book-title">行政发包制：大一统的制度密码</h2>
                     <div class="book-meta">
@@ -9235,22 +9212,29 @@
                     <a href="books/宏观经济学史：从凯恩斯到卢卡斯及其后.html" class="back-link" style="display: inline-block; margin-top: 10px;">📖 阅读完整内容 →</a>
                 </div>
             </div>
-        </div>
     </main>
 
     <script>
-        function showBook(bookId, element) {
-            document.getElementById('welcomeSection').style.display = 'none';
+        function showBook(bookId, element, evt) {
+            console.log('showBook 被调用, bookId:', bookId, 'element:', element);
             document.querySelectorAll('.book-detail').forEach(function(el) {
                 el.classList.remove('active');
             });
             var bookElement = document.getElementById('book-' + bookId);
+            console.log('查找书籍元素 ID: book-' + bookId, '结果:', bookElement);
             if (bookElement) {
                 bookElement.classList.add('active');
+                console.log('书籍元素已激活');
+            } else {
+                console.error('未找到书籍元素:', 'book-' + bookId);
             }
             document.querySelectorAll('.tree-item-content').forEach(function(el) {
                 el.classList.remove('active');
             });
+            // 兼容旧的调用方式：如果element未传入，尝试从事件对象获取
+            if (!element && evt && evt.target) {
+                element = evt.target.closest('.tree-item-content');
+            }
             if (element) {
                 element.classList.add('active');
             }
