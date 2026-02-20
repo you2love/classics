@@ -15386,6 +15386,66 @@
                 document.getElementById('sidebar').classList.remove('active');
             }
         });
+
+        // 键盘导航功能
+        document.addEventListener('keydown', function(event) {
+            // 只响应上下键
+            if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') {
+                return;
+            }
+
+            var allItems = document.querySelectorAll('.tree-item-content');
+            if (allItems.length === 0) return;
+
+            var currentIndex = -1;
+            var activeItem = document.querySelector('.tree-item-content.active');
+
+            if (activeItem) {
+                currentIndex = Array.from(allItems).indexOf(activeItem);
+            }
+
+            if (event.key === 'ArrowUp') {
+                // 向上移动
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else if (currentIndex === -1) {
+                    // 如果没有选中项，选中最后一个
+                    currentIndex = allItems.length - 1;
+                } else {
+                    // 已经在第一个，循环到最后一个
+                    currentIndex = allItems.length - 1;
+                }
+            } else if (event.key === 'ArrowDown') {
+                // 向下移动
+                if (currentIndex >= 0 && currentIndex < allItems.length - 1) {
+                    currentIndex++;
+                } else if (currentIndex === -1) {
+                    // 如果没有选中项，选中第一个
+                    currentIndex = 0;
+                } else {
+                    // 已经在最后一个，循环到第一个
+                    currentIndex = 0;
+                }
+            }
+
+            // 移除所有激活状态
+            allItems.forEach(function(item) {
+                item.classList.remove('active');
+            });
+
+            // 激活新选中的项
+            var newItem = allItems[currentIndex];
+            newItem.classList.add('active');
+
+            // 确保该项在侧边栏可视区域内
+            newItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+            // 触发点击事件以显示书籍内容
+            newItem.click();
+
+            // 阻止默认滚动行为
+            event.preventDefault();
+        });
     </script>
 </body>
 </html>
