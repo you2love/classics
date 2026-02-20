@@ -665,6 +665,7 @@
             <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('省份财富分布', null, event)"><span class="tree-icon">🗺️</span><span class="tree-text">省份财富分布</span></a></div>
             <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('底层翻身', null, event)"><span class="tree-icon">🚀</span><span class="tree-text">底层翻身</span></a></div>
             <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('教育指南', null, event)"><span class="tree-icon">🎓</span><span class="tree-text">教育指南</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('人群财富分布', null, event)"><span class="tree-icon">📊</span><span class="tree-text">人群财富分布</span></a></div>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-title">政治学</div>
@@ -4504,6 +4505,463 @@
                     <div class="quote-box">"大地上的亲人，是我们最深的牵挂，也是我们最大的软肋。"</div>
                     <div class="quote-box">"每一个从农村走出来的人，背后都有一群'大地上的亲人'在托举。"</div>
                     <div class="quote-box">"现代化进程中，农村家庭付出了最大的代价。"</div>
+                </div>
+            </div>
+
+            <!-- 人群财富分布 -->
+        <div class="book-detail" id="book-人群财富分布">
+                <div class="book-header">
+                    <h2 class="book-title">人群财富分布：多维度的财富状况分析</h2>
+                    <div class="book-meta">
+                        <span>📅 当代</span>
+                        <span>🌍 中国</span>
+                    </div>
+                    <p class="book-description">从多个维度深入分析中国人群的财富分布状况，包括职业、行业、年龄、收入、地区、性别、婚姻、学历等，全面了解不同人群的财富现状与差距。</p>
+                    <div class="book-impact"><strong>核心价值：</strong>打破信息差，提供全面客观的财富分布数据，帮助读者理解社会阶层结构和财富分配规律。</div>
+                    <div class="tags"><span class="tag">财富分布</span><span class="tag">社会分层</span><span class="tag">数据分析</span><span class="tag">财富管理</span></div>
+                </div>
+
+                <!-- 一、按职业分析 -->
+                <div class="section">
+                    <h3 class="section-title">💼 按职业分析财富状况</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">不同职业的收入水平、资产积累和财富增长路径存在显著差异。</p>
+                    
+                    <table class="data-table">
+                        <tr><th>职业类别</th><th>平均年薪（万元）</th><th>财富积累特点</th><th>主要资产类型</th><th>风险等级</th></tr>
+                        <tr><td>企业高管</td><td>100-500+</td><td>股权激励+高薪，快速积累</td><td>股权、房产、理财产品</td><td>高（集中度高）</td></tr>
+                        <tr><td>金融从业者</td><td>50-200</td><td>奖金+提成，波动较大</td><td>金融产品、房产、股票</td><td>中高</td></tr>
+                        <tr><td>互联网/IT</td><td>30-150</td><td>高薪+期权，年轻暴富</td><td>期权、股票、房产</td><td>中</td></tr>
+                        <tr><td>专业人士</td><td>20-80</td><td>稳定增长，抗风险能力强</td><td>房产、养老金、教育金</td><td>中低</td></tr>
+                        <tr><td>公务员/事业单位</td><td>15-40</td><td>稳定福利，隐性收入高</td><td>房产、养老金、公积金</td><td>低</td></tr>
+                        <tr><td>制造业/技术工人</td><td>8-20</td><td>工资稳定，增长缓慢</td><td>房产、少量储蓄</td><td>中低</td></tr>
+                        <tr><td>服务业/零售</td><td>5-12</td><td>收入低，资产积累困难</td><td>少量储蓄</td><td>低</td></tr>
+                        <tr><td>农民</td><td>3-8</td><td>收入低且不稳定</td><td>土地、农房、少量储蓄</td><td>高（依赖天气/政策）</td></tr>
+                    </table>
+
+                    <div class="core-points-grid" style="margin-top:20px;">
+                        <div class="core-point-card">
+                            <h4>职业分化的加剧</h4>
+                            <p>数字经济和知识经济时代的到来，使得高技能人才的收入远超体力劳动者，职业间的财富差距不断扩大。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <h4>股权激励的影响</h4>
+                            <p>企业高管和核心技术人员的股权激励使得他们的财富增长与公司业绩挂钩，可能实现跨越式财富积累。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <h4>稳定性溢价</h4>
+                            <p>公务员和事业单位虽然表面工资不高，但福利待遇好、工作稳定、风险低，隐性收入和社会地位高。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 二、按行业分析 -->
+                <div class="section">
+                    <h3 class="section-title">🏭 按行业分析财富状况</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">不同行业的盈利能力和发展前景决定了从业人员的财富水平。</p>
+                    
+                    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:15px;margin-bottom:20px;">
+                        <div style="background:#e3f2fd;border-radius:12px;padding:18px;border-left:4px solid #2196f3;">
+                            <h4 style="color:#1565c0;margin-bottom:10px;">📈 高增长行业</h4>
+                            <ul style="font-size:13px;color:#424242;padding-left:20px;">
+                                <li>互联网：高薪、期权、快速增长</li>
+                                <li>金融：奖金高、风险大</li>
+                                <li>新能源：政策红利、投资回报高</li>
+                                <li>生物医药：研发驱动、专业要求高</li>
+                            </ul>
+                        </div>
+                        <div style="background:#e8f5e9;border-radius:12px;padding:18px;border-left:4px solid #4caf50;">
+                            <h4 style="color:#2e7d32;margin-bottom:10px;">🏢 传统行业</h4>
+                            <ul style="font-size:13px;color:#424242;padding-left:20px;">
+                                <li>房地产：暴利时代结束，存量市场</li>
+                                <li>制造业：转型升级，高端化</li>
+                                <li>能源：国企为主，稳定但增长慢</li>
+                                <li>交通运输：传统模式面临冲击</li>
+                            </ul>
+                        </div>
+                        <div style="background:#fff3e0;border-radius:12px;padding:18px;border-left:4px solid #ff9800;">
+                            <h4 style="color:#e65100;margin-bottom:10px;">🛍️ 消费行业</h4>
+                            <ul style="font-size:13px;color:#424242;padding-left:20px;">
+                                <li>电商：竞争激烈，分化明显</li>
+                                <li>零售：线上冲击，转型压力大</li>
+                                <li>餐饮：门槛低，成功概率小</li>
+                                <li>文旅：疫情后复苏，机会多</li>
+                            </ul>
+                        </div>
+                        <div style="background:#f3e5f5;border-radius:12px;padding:18px;border-left:4px solid #9c27b0;">
+                            <h4 style="color:#6a1b9a;margin-bottom:10px;">🎓 服务业</h4>
+                            <ul style="font-size:13px;color:#424242;padding-left:20px;">
+                                <li>教育：政策调整，分化严重</li>
+                                <li>医疗：需求稳定，专业门槛高</li>
+                                <li>养老服务：朝阳行业，需求增长</li>
+                                <li>娱乐：内容驱动，波动大</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="quote-box">
+                        <strong>行业选择的关键：</strong>选择一个有增长前景的行业，比在一个衰退行业里努力工作更重要。但也要考虑自己的兴趣、能力和机会成本。
+                    </div>
+                </div>
+
+                <!-- 三、按年龄分析 -->
+                <div class="section">
+                    <h3 class="section-title">👥 按年龄分析财富状况</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">财富积累是一个长期过程，不同年龄段的财富特点和需求各不相同。</p>
+                    
+                    <div class="timeline-horizontal">
+                        <div class="timeline-item">
+                            <div class="timeline-age">20-25岁</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">初入职场</div>
+                            <div class="timeline-desc">收入低，负债少，积累资本</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-age">25-30岁</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">快速发展</div>
+                            <div class="timeline-desc">收入增长，买房买车</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-age">30-40岁</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">黄金时期</div>
+                            <div class="timeline-desc">收入高峰，投资理财</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-age">40-50岁</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">稳定积累</div>
+                            <div class="timeline-desc">财富积累，子女教育</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-age">50-60岁</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">财富顶峰</div>
+                            <div class="timeline-desc">财富顶峰，准备退休</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-age">60岁+</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">财富传承</div>
+                            <div class="timeline-desc">财富传承，享受生活</div>
+                        </div>
+                    </div>
+
+                    <table class="data-table" style="margin-top:20px;">
+                        <tr><th>年龄段</th><th>平均资产（万元）</th><th>主要资产</th><th>主要支出</th><th>理财重点</th></tr>
+                        <tr><td>20-25岁</td><td>5-15</td><td>储蓄、少量投资</td><td>房租、社交、学习</td><td>积累本金、提升技能</td></tr>
+                        <tr><td>25-30岁</td><td>20-80</td><td>房产、储蓄</td><td>房贷、车贷、结婚</td><td>买房、保险配置</td></tr>
+                        <tr><td>30-40岁</td><td>50-200</td><td>房产、股票、基金</td><td>子女教育、房贷</td><td>多元化投资、子女教育金</td></tr>
+                        <tr><td>40-50岁</td><td>100-300</td><td>房产、金融资产</td><td>子女教育、赡养老人</td><td>养老规划、风险控制</td></tr>
+                        <tr><td>50-60岁</td><td>150-400</td><td>房产、存款、债券</td><td>医疗、养老准备</td><td>稳健投资、财富传承</td></tr>
+                        <tr><td>60岁+</td><td>100-300</td><td>房产、存款、养老金</td><td>医疗、生活支出</td><td>保值增值、健康管理</td></tr>
+                    </table>
+                </div>
+
+                <!-- 四、按收入分析 -->
+                <div class="section">
+                    <h3 class="section-title">💰 按收入分析财富状况</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">收入水平直接决定了生活质量和财富积累速度。</p>
+                    
+                    <table class="data-table">
+                        <tr><th>收入等级</th><th>年收入（万元）</th><th>人口占比</th><th>主要特征</th><th>理财能力</th></tr>
+                        <tr><td>超高收入</td><td>100+</td><td>&lt;1%</td><td>企业家、高管、投资人</td><td>家族财富管理、海外资产</td></tr>
+                        <tr><td>高收入</td><td>50-100</td><td>2-3%</td><td>企业高管、专业人士</td><td>多元化投资、税务筹划</td></tr>
+                        <tr><td>中高收入</td><td>30-50</td><td>5-8%</td><td>中层管理、技术骨干</td><td>房产、基金、保险</td></tr>
+                        <tr><td>中等收入</td><td>15-30</td><td>15-20%</td><td>白领、技术工人</td><td>储蓄、基金、理财产品</td></tr>
+                        <tr><td>中低收入</td><td>8-15</td><td>30-40%</td><td>普通工人、服务业</td><td>储蓄、少量投资</td></tr>
+                        <tr><td>低收入</td><td>&lt;8</td><td>30-40%</td><td>农民、非正规就业</td><td>基本储蓄</td></tr>
+                    </table>
+
+                    <div class="core-points-grid" style="margin-top:20px;">
+                        <div class="core-point-card">
+                            <h4>收入差距的扩大</h4>
+                            <p>中国收入基尼系数长期在0.47左右，收入差距较大。高收入群体的收入增长速度远快于低收入群体。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <h4>中产阶级焦虑</h4>
+                            <p>中产阶级面临房价、教育、医疗的多重压力，抗风险能力较弱，容易滑落到底层。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <h4>财富门槛</h4>
+                            <p>要实现财务自由，需要被动收入覆盖日常支出。一线城市约需1000万资产，二线城市约需500万。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 五、按地区分析 -->
+                <div class="section">
+                    <h3 class="section-title">🗺️ 按地区分析财富状况</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">地域经济发展水平差异导致不同地区的财富分布不均衡。</p>
+                    
+                    <table class="data-table">
+                        <tr><th>地区</th><th>人均GDP（万元）</th><th>平均房价（元/㎡）</th><th>主要产业</th><th>财富特点</th></tr>
+                        <tr><td>北京</td><td>19-20</td><td>6-8万</td><td>金融、科技、文化</td><td>高房价、高收入、资产重</td></tr>
+                        <tr><td>上海</td><td>18-19</td><td>6-7万</td><td>金融、贸易、航运</td><td>国际化、服务业发达</td></tr>
+                        <tr><td>深圳</td><td>17-18</td><td>6-8万</td><td>科技、金融、制造</td><td>创新驱动、年轻活力</td></tr>
+                        <tr><td>广州</td><td>15-16</td><td>4-5万</td><td>贸易、制造、服务</td><td>商业发达、生活成本适中</td></tr>
+                        <tr><td>杭州</td><td>14-15</td><td>3-4万</td><td>互联网、电商、旅游</td><td>数字经济、创新创业</td></tr>
+                        <tr><td>南京</td><td>13-14</td><td>3-4万</td><td>教育、软件、制造</td><td>科教资源丰富</td></tr>
+                        <tr><td>成都</td><td>10-11</td><td>2-3万</td><td>科技、消费、旅游</td><td>新一线、发展快</td></tr>
+                        <tr><td>武汉</td><td>10-11</td><td>2-3万</td><td>制造、教育、科技</td><td>中部枢纽、科教强</td></tr>
+                        <tr><td>西安</td><td>9-10</td><td>1.5-2万</td><td>科技、文化、旅游</td><td>历史文化、硬科技</td></tr>
+                        <tr><td>重庆</td><td>9-10</td><td>1.5-2万</td><td>制造、服务、物流</td><td>西部枢纽、人口多</td></tr>
+                        <tr><td>三线城市</td><td>7-9</td><td>1-2万</td><td>制造、传统产业</td><td>生活成本低，发展慢</td></tr>
+                        <tr><td>县城/农村</td><td>4-6</td><td>0.3-0.8万</td><td>农业、小工业</td><td>收入低、资产少</td></tr>
+                    </table>
+
+                    <div class="compare-grid" style="margin-top:20px;">
+                        <div class="compare-card friend">
+                            <h4>一线城市财富特点</h4>
+                            <ul>
+                                <li>收入高但生活成本更高</li>
+                                <li>房产是主要资产，价值高</li>
+                                <li>机会多，竞争激烈</li>
+                                <li>投资渠道丰富</li>
+                                <li>人才聚集，创新活跃</li>
+                            </ul>
+                        </div>
+                        <div class="compare-card enemy">
+                            <h4>三四线城市财富特点</h4>
+                            <ul>
+                                <li>收入低但生活成本低</li>
+                                <li>房产增值慢，流动性差</li>
+                                <li>机会少，发展受限</li>
+                                <li>投资渠道有限</li>
+                                <li>人口外流，创新不足</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 六、按性别分析 -->
+                <div class="section">
+                    <h3 class="section-title">⚧️ 按性别分析财富状况</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">性别差异在财富积累中仍然存在，但正在逐步缩小。</p>
+                    
+                    <table class="data-table">
+                        <tr><th>维度</th><th>男性</th><th>女性</th><th>差距说明</th></tr>
+                        <tr><td>平均收入</td><td>100%</td><td>75-80%</td><td>存在20-25%的性别收入差距</td></tr>
+                        <tr><td>平均资产</td><td>100%</td><td>70-75%</td><td>女性资产积累相对较少</td></tr>
+                        <tr><td>房产持有</td><td>较高</td><td>较低</td><td>男性更倾向于房产投资</td></tr>
+                        <tr><td>金融投资</td><td>较高</td><td>较低</td><td>男性更积极参与股市</td></tr>
+                        <tr><td>消费倾向</td><td>较低</td><td>较高</td><td>女性消费支出更多</td></tr>
+                        <tr><td>理财风格</td><td>激进</td><td>保守</td><td>女性更注重安全稳健</td></tr>
+                        <tr><td>创业比例</td><td>较高</td><td>较低</td><td>男性创业比例更高</td></tr>
+                        <tr><td>职业选择</td><td>理工、管理</td><td>教育、医疗、服务</td><td>职业分布差异影响收入</td></tr>
+                    </table>
+
+                    <div class="core-points-grid" style="margin-top:20px;">
+                        <div class="core-point-card">
+                            <h4>性别收入差距的原因</h4>
+                            <p>职业隔离、生育影响、晋升歧视、议价能力差异等多重因素导致性别收入差距。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <h4>女性财富增长趋势</h4>
+                            <p>随着教育水平提高和性别平等意识增强，女性的财富积累速度正在加快，差距逐步缩小。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <h4>女性理财优势</h4>
+                            <p>女性更注重长期规划，风险控制能力强，在稳健理财方面具有优势。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 七、按婚姻状况分析 -->
+                <div class="section">
+                    <h3 class="section-title">💑 按婚姻状况分析财富状况</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">婚姻状况对财富积累有重要影响，家庭结构决定了支出模式和投资策略。</p>
+                    
+                    <table class="data-table">
+                        <tr><th>婚姻状态</th><th>平均资产（万元）</th><th>主要支出</th><th>财富积累特点</th><th>风险承受力</th></tr>
+                        <tr><td>单身</td><td>30-80</td><td>个人消费、房租</td><td>自主性强，灵活性高</td><td>中高</td></tr>
+                        <tr><td>已婚无子女</td><td>50-150</td><td>房贷、家庭消费</td><td>共同积累，效率提升</td><td>中</td></tr>
+                        <tr><td>已婚有子女</td><td>80-250</td><td>房贷、子女教育</td><td>支出大，长期规划</td><td>中低</td></tr>
+                        <tr><td>离异</td><td>40-100</td><td>赡养费、律师费</td><td>资产分割，重新开始</td><td>中</td></tr>
+                        <tr><td>丧偶</td><td>50-120</td><td>生活支出、医疗</td><td>继承资产，生活调整</td><td>低</td></tr>
+                    </table>
+
+                    <div class="quote-box">
+                        <strong>婚姻的财富效应：</strong>结婚可以实现资源共享和规模经济，提高财富积累效率。但离婚往往导致资产分割和财富缩水，是财富积累的重要风险因素。
+                    </div>
+                </div>
+
+                <!-- 八、按学历分析 -->
+                <div class="section">
+                    <h3 class="section-title">🎓 按学历分析财富状况</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">教育水平是影响收入和财富积累的重要因素，学历越高，平均收入越高。</p>
+                    
+                    <table class="data-table">
+                        <tr><th>学历</th><th>平均年薪（万元）</th><th>失业率</th><th>主要职业</th><th>财富增长潜力</th></tr>
+                        <tr><td>博士</td><td>30-80</td><td>&lt;2%</td><td>高校、科研、高端技术</td><td>高（专业壁垒）</td></tr>
+                        <tr><td>硕士</td><td>25-60</td><td>2-3%</td><td>专业服务、管理、技术</td><td>高</td></tr>
+                        <tr><td>本科</td><td>15-40</td><td>3-5%</td><td>白领、专业服务</td><td>中高</td></tr>
+                        <tr><td>专科</td><td>10-25</td><td>5-7%</td><td>技术工人、服务业</td><td>中</td></tr>
+                        <tr><td>高中/中专</td><td>6-15</td><td>8-10%</td><td>工人、服务业</td><td>中低</td></tr>
+                        <tr><td>初中及以下</td><td>4-10</td><td>12-15%</td><td>体力劳动、非正规就业</td><td>低</td></tr>
+                    </table>
+
+                    <div class="core-points-grid" style="margin-top:20px;">
+                        <div class="core-point-card">
+                            <h4>教育回报率</h4>
+                            <p>中国教育回报率约为8-10%，即每增加一年教育，收入增加8-10%。学历是跨越阶层的重要途径。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <h4>学历通胀</h4>
+                            <p>随着高等教育普及，学历的边际收益递减，但高学历仍然是进入高收入行业的重要门槛。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <h4>终身学习</h4>
+                            <p>学历只是起点，持续学习和技能提升才是保持竞争力的关键。职业教育和技能培训越来越重要。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 九、综合分析 -->
+                <div class="section">
+                    <h3 class="section-title">📊 财富分布综合分析</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">从多个维度综合分析，了解不同人群的财富状况和影响因素。</p>
+                    
+                    <div class="data-cards">
+                        <div class="data-card">
+                            <div class="data-card-value">0.47</div>
+                            <div class="data-card-label">中国基尼系数</div>
+                        </div>
+                        <div class="data-card">
+                            <div class="data-card-value">1%</div>
+                            <div class="data-card-label">超高收入人群占比</div>
+                        </div>
+                        <div class="data-card">
+                            <div class="data-card-value">20%</div>
+                            <div class="data-card-label">中产阶级占比</div>
+                        </div>
+                        <div class="data-card">
+                            <div class="data-card-value">60%</div>
+                            <div class="data-card-label">房产占家庭资产比重</div>
+                        </div>
+                        <div class="data-card">
+                            <div class="data-card-value">5-10%</div>
+                            <div class="data-card-label">教育回报率</div>
+                        </div>
+                        <div class="data-card">
+                            <div class="data-card-value">20-25%</div>
+                            <div class="data-card-label">性别收入差距</div>
+                        </div>
+                    </div>
+
+                    <div class="framework-box" style="margin-top:20px;">
+                        <h4>财富分布的影响因素</h4>
+                        <div class="framework-item">
+                            <div class="framework-label">个人因素</div>
+                            <div class="framework-content">教育水平、职业技能、工作态度、学习能力、风险偏好</div>
+                        </div>
+                        <div class="framework-item">
+                            <div class="framework-label">家庭因素</div>
+                            <div class="framework-content">家庭背景、父母教育、早期资源、社会网络、代际传递</div>
+                        </div>
+                        <div class="framework-item">
+                            <div class="framework-label">职业因素</div>
+                            <div class="framework-content">行业选择、职业发展、收入水平、股权激励、晋升机会</div>
+                        </div>
+                        <div class="framework-item">
+                            <div class="framework-label">地域因素</div>
+                            <div class="framework-content">经济发展、机会密度、房价水平、教育资源、公共服务</div>
+                        </div>
+                        <div class="framework-item">
+                            <div class="framework-label">时代因素</div>
+                            <div class="framework-content">政策红利、技术革命、产业周期、人口结构、全球化</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 十、财富积累建议 -->
+                <div class="section">
+                    <h3 class="section-title">💡 财富积累建议</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">基于以上分析，给出不同人群的财富积累建议。</p>
+                    
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>👨‍💼 给职场新人的建议</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <ul style="font-size:0.9rem;padding-left:20px;">
+                                    <li>提升技能，选择高增长行业</li>
+                                    <li>积累本金，开始投资理财</li>
+                                    <li>控制消费，避免负债过重</li>
+                                    <li>建立人脉，寻找发展机会</li>
+                                    <li>持续学习，保持竞争力</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>👩‍💼 给中产阶级的建议</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <ul style="font-size:0.9rem;padding-left:20px;">
+                                    <li>多元化投资，降低风险</li>
+                                    <li>合理配置保险，防范风险</li>
+                                    <li>子女教育规划，长期投资</li>
+                                    <li>控制房贷比例，留足流动性</li>
+                                    <li>考虑副业，增加收入来源</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>👴 给准备退休人群的建议</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <ul style="font-size:0.9rem;padding-left:20px;">
+                                    <li>保守投资，确保资金安全</li>
+                                    <li>规划养老，保证生活质量</li>
+                                    <li>考虑养老社区，降低负担</li>
+                                    <li>健康管理，减少医疗支出</li>
+                                    <li>传承规划，合理分配资产</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>🚀 给创业者的建议</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <ul style="font-size:0.9rem;padding-left:20px;">
+                                    <li>选择有前景的行业和赛道</li>
+                                    <li>控制成本，保持现金流</li>
+                                    <li>组建团队，发挥各自优势</li>
+                                    <li>持续创新，保持竞争力</li>
+                                    <li>合理融资，平衡风险与回报</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 十一、总结 -->
+                <div class="section">
+                    <h3 class="section-title">📌 总结</h3>
+                    <div class="quote-box">
+                        <p><strong>1. 财富分布不均</strong>：中国财富分布存在明显差距，职业、行业、地域、教育等因素都是重要影响因素。</p>
+                        <p><strong>2. 跨越阶层难度</strong>：从底层到中产阶级需要教育、努力和机遇，从中产阶级到上层需要创新、冒险和资源。</p>
+                        <p><strong>3. 时代红利消失</strong>：过去的快速发展和人口红利正在消失，个人需要更加努力和创新才能实现财富增长。</p>
+                        <p><strong>4. 持续学习重要</strong>：在快速变化的时代，持续学习和技能提升是保持竞争力的唯一途径。</p>
+                        <p><strong>5. 理财规划必要</strong>：无论处于哪个群体，合理的理财规划都能帮助更好地积累和传承财富。</p>
+                    </div>
                 </div>
             </div>
 
