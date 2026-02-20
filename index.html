@@ -667,6 +667,7 @@
             <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('教育指南', null, event)"><span class="tree-icon">🎓</span><span class="tree-text">教育指南</span></a></div>
             <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('人群财富分布', null, event)"><span class="tree-icon">📊</span><span class="tree-text">人群财富分布</span></a></div>
             <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('国家权力结构', null, event)"><span class="tree-icon">🏛️</span><span class="tree-text">国家权力结构</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('国家统计局', null, event)"><span class="tree-icon">📈</span><span class="tree-text">国家统计局</span></a></div>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-title">政治学</div>
@@ -6789,6 +6790,651 @@
                         <p>🛡️ 了解政府运作可以帮助我们维护自身权益</p>
                         <p>📋 了解政府运作可以帮助我们做出正确决策</p>
                         <p>🤝 了解政府运作可以帮助我们更好地参与社会治理</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 国家统计局 -->
+        <div class="book-detail" id="book-国家统计局">
+                <div class="book-header">
+                    <h2 class="book-title">国家统计局：读懂中国经济数据</h2>
+                    <div class="book-meta">
+                        <span>📅 当代</span>
+                        <span>🌍 中国</span>
+                        <span>🏛️ 国务院直属机构</span>
+                    </div>
+                    <p class="book-description">全面介绍国家统计局发布的主要经济数据，包括数据的统计方法、发布历程、数据意义以及如何理解和应用这些数据。帮助读者读懂中国经济运行状况。</p>
+                    <div class="quote-box">"数据不会说谎，但需要正确理解。读懂国家统计数据，就是读懂中国经济的脉搏。"</div>
+                    <div class="book-impact"><strong>核心价值：</strong>理解经济数据的统计方法和意义，提高数据素养，用数据思维分析经济形势。</div>
+                    <div class="tags"><span class="tag">统计数据</span><span class="tag">经济指标</span><span class="tag">数据分析</span><span class="tag">国民经济</span></div>
+                </div>
+
+                <!-- 一、国家统计局概述 -->
+                <div class="section">
+                    <h3 class="section-title">🏛️ 国家统计局概述</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">了解国家统计局的职能、地位和作用。</p>
+                    
+                    <table class="data-table">
+                        <tr><th>项目</th><th>内容</th></tr>
+                        <tr><td>性质</td><td>国务院直属机构，主管全国统计和国民经济核算工作</td></tr>
+                        <tr><td>成立时间</td><td>1952年8月</td></tr>
+                        <tr><td>主要职责</td><td>建立和完善国民经济核算体系，制定统计标准，组织实施重大国情国力普查</td></tr>
+                        <tr><td>数据范围</td><td>国民经济、社会发展、科技进步、资源环境等各个领域</td></tr>
+                        <tr><td>数据发布</td><td>定期发布月度、季度、年度统计数据</td></tr>
+                        <tr><td>官方网站</td><td>www.stats.gov.cn</td></tr>
+                    </table>
+
+                    <div class="core-points-grid" style="margin-top:20px;">
+                        <div class="core-point-card">
+                            <h4>统计职能</h4>
+                            <p>搜集、整理、分析和发布统计数据，反映国民经济和社会发展情况。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <h4>监督职能</h4>
+                            <p>监督统计法律法规的实施，查处统计违法行为。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <h4>服务职能</h4>
+                            <p>为政府决策、企业经营、社会公众提供统计服务。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 二、GDP数据 -->
+                <div class="section">
+                    <h3 class="section-title">📊 GDP：国内生产总值</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">GDP是衡量一个国家或地区经济总量的核心指标。</p>
+                    
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>📖 什么是GDP</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <p><strong>定义：</strong>GDP（Gross Domestic Product）是指一个国家或地区在一定时期内（通常为一年或一季度）生产的所有最终产品和服务的市场价值。</p>
+                                <p><strong>特点：</strong></p>
+                                <ul style="font-size:0.9rem;padding-left:20px;">
+                                    <li>只计算最终产品和服务，不计算中间产品</li>
+                                    <li>只计算合法的市场交易，不计算非法交易和家务劳动</li>
+                                    <li>按市场价值计算，反映经济活动的货币价值</li>
+                                </ul>
+                                <p><strong>计算方法：</strong>支出法、收入法、生产法三种方法，结果应该一致。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>📅 GDP数据发布历程</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <table class="data-table">
+                                    <tr><th>时间节点</th><th>事件</th><th>意义</th></tr>
+                                    <tr><td>1985年</td><td>开始建立GDP核算制度</td><td>从MPS体系转向SNA体系</td></tr>
+                                    <tr><td>1992年</td><td>正式采用GDP作为核心指标</td><td>与国际接轨</td></tr>
+                                    <tr><td>2003年</td><td>建立GDP数据修订制度</td><td>提高数据准确性</td></tr>
+                                    <tr><td>2015年</td><td>采用新的核算方法</td><td>更加科学规范</td></tr>
+                                    <tr><td>2020年</td><td>修订GDP核算方法</td><td>纳入研发支出等</td></tr>
+                                </table>
+                                <div class="timeline-horizontal" style="margin-top:20px;">
+                                    <div class="timeline-item">
+                                        <div class="timeline-age">1985</div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-title">建立核算</div>
+                                        <div class="timeline-desc">GDP核算制度</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-age">1992</div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-title">正式采用</div>
+                                        <div class="timeline-desc">作为核心指标</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-age">2003</div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-title">修订制度</div>
+                                        <div class="timeline-desc">提高准确性</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-age">2015</div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-title">新方法</div>
+                                        <div class="timeline-desc">科学规范</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-age">2020</div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-title">再次修订</div>
+                                        <div class="timeline-desc">纳入研发</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>📈 GDP统计方法</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <table class="data-table">
+                                    <tr><th>方法</th><th>计算公式</th><th>特点</th></tr>
+                                    <tr><td>支出法</td><td>GDP = C + I + G + (X-M)</td><td>从需求角度，最常用</td></tr>
+                                    <tr><td>收入法</td><td>GDP = 工资 + 利润 + 税收 + 折旧</td><td>从收入角度</td></tr>
+                                    <tr><td>生产法</td><td>GDP = 各行业增加值之和</td><td>从生产角度</td></tr>
+                                </table>
+                                <p style="margin-top:15px;font-size:0.9rem;"><strong>支出法详细说明：</strong></p>
+                                <ul style="font-size:0.9rem;padding-left:20px;">
+                                    <li><strong>C（消费）：</strong>居民消费支出 + 政府消费支出</li>
+                                    <li><strong>I（投资）：</strong>固定资产投资 + 存货变动</li>
+                                    <li><strong>G（政府支出）：</strong>政府购买的商品和服务</li>
+                                    <li><strong>X-M（净出口）：</strong>出口 - 进口</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>💡 如何理解GDP数据</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <ul style="font-size:0.9rem;padding-left:20px;">
+                                    <li><strong>GDP增长率：</strong>反映经济增长速度，正常范围5-8%，低于5%增长乏力，高于10%可能过热</li>
+                                    <li><strong>GDP总量：</strong>反映经济规模，中国GDP总量世界第二</li>
+                                    <li><strong>人均GDP：</strong>反映人均经济水平，中国人均GDP约1.2万美元</li>
+                                    <li><strong>GDP结构：</strong>消费、投资、净出口的比例反映经济结构</li>
+                                    <li><strong>GDP质量：</strong>不仅要看总量，还要看增长质量、可持续性</li>
+                                </ul>
+                                <div class="strategy-card" style="margin-top:15px;">
+                                    <h4>📝 常见误区</h4>
+                                    <p>❌ GDP越高越好 → ✅ GDP增长要适度，过快可能过热<br>❌ GDP代表一切 → ✅ GDP不反映收入分配、环境成本、幸福度<br>❌ GDP可以比较不同地区 → ✅ 要考虑物价水平（用PPP）</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>🎯 GDP数据应用</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <ul style="font-size:0.9rem;padding-left:20px;">
+                                    <li><strong>政府决策：</strong>判断经济形势，制定财政货币政策</li>
+                                    <li><strong>企业经营：</strong>分析市场需求，制定经营策略</li>
+                                    <li><strong>投资决策：</strong>判断经济周期，选择投资时机</li>
+                                    <li><strong>就业规划：</strong>GDP增长1%，可带动约200万就业</li>
+                                    <li><strong>国际比较：</strong>比较各国经济实力</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 三、CPI数据 -->
+                <div class="section">
+                    <h3 class="section-title">🛒 CPI：居民消费价格指数</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">CPI是衡量通货膨胀水平的重要指标，直接影响生活成本。</p>
+                    
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>📖 什么是CPI</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <p><strong>定义：</strong>CPI（Consumer Price Index）反映居民家庭购买的消费品和服务价格水平的变动情况，是衡量通货膨胀的重要指标。</p>
+                                <p><strong>统计范围：</strong>包括食品、衣着、居住、生活用品及服务、交通和通信、教育文化和娱乐、医疗保健、其他用品和服务8大类。</p>
+                                <p><strong>权重设置：</strong>食品占比较大（约30%），其次是居住、教育文化娱乐等。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>📅 CPI数据发布历程</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <table class="data-table">
+                                    <tr><th>时间节点</th><th>事件</th><th>意义</th></tr>
+                                    <tr><td>1990年代</td><td>开始编制CPI</td><td>建立价格监测体系</td></tr>
+                                    <tr><td>2001年</td><td>采用新的计算方法</td><td>与国际标准接轨</td></tr>
+                                    <tr><td>2011年</td><td>调整权重和分类</td><td>更加反映消费结构变化</td></tr>
+                                    <tr><td>2016年</td><td>再次调整权重</td><td>提高居住类权重</td></tr>
+                                    <tr><td>2021年</td><td>优化统计方法</td><td>更加科学准确</td></tr>
+                                </table>
+                                <div class="timeline-horizontal" style="margin-top:20px;">
+                                    <div class="timeline-item">
+                                        <div class="timeline-age">1990s</div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-title">开始编制</div>
+                                        <div class="timeline-desc">建立体系</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-age">2001</div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-title">新方法</div>
+                                        <div class="timeline-desc">国际接轨</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-age">2011</div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-title">调整权重</div>
+                                        <div class="timeline-desc">反映变化</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-age">2016</div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-title">再次调整</div>
+                                        <div class="timeline-desc">提高居住</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-age">2021</div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-title">优化方法</div>
+                                        <div class="timeline-desc">科学准确</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>📈 CPI统计方法</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <p><strong>采样方法：</strong>在全国500多个城市、县选取6万多个调查网点，采集262个基本分类商品和服务的价格。</p>
+                                <p><strong>计算方法：</strong>采用拉氏公式，以基期数量为权数，计算价格指数。</p>
+                                <p><strong>发布频率：</strong>每月发布一次，次月中旬发布上月数据。</p>
+                                <p><strong>基期调整：</strong>每5年调整一次基期和权重。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>💡 如何理解CPI数据</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <ul style="font-size:0.9rem;padding-left:20px;">
+                                    <li><strong>CPI涨幅：</strong>2%左右为温和通胀，3-5%为中度通胀，超过5%为严重通胀</li>
+                                    <li><strong>CPI为负：</strong>表示通货紧缩，经济可能不景气</li>
+                                    <li><strong>核心CPI：</strong>扣除食品和能源后的CPI，更能反映长期通胀趋势</li>
+                                    <li><strong>与PPI关系：</strong>CPI滞后于PPI（生产者价格指数），PPI上涨会传导到CPI</li>
+                                    <li><strong>与货币政策：</strong>CPI是央行制定货币政策的重要参考</li>
+                                </ul>
+                                <div class="strategy-card" style="margin-top:15px;">
+                                    <h4>📝 常见误区</h4>
+                                    <p>❌ CPI涨幅就是我的生活成本涨幅 → ✅ CPI反映平均水平，个体感受可能不同<br>❌ CPI包含房价 → ✅ CPI不包含房价，只包含房租<br>❌ CPI越高对个人越不利 → ✅ 适度通胀有利于经济增长</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>🎯 CPI数据应用</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <ul style="font-size:0.9rem;padding-left:20px;">
+                                    <li><strong>货币政策：</strong>CPI过高央行可能加息，CPI过低可能降息</li>
+                                    <li><strong>工资谈判：</strong>CPI涨幅是工资增长的重要参考</li>
+                                    <li><strong>投资决策：</strong>通胀高企时，实物资产（黄金、房产）更保值</li>
+                                    <li><strong>债券投资：</strong>CPI上升会降低债券实际收益</li>
+                                    <li><strong>生活规划：</strong>了解通胀趋势，合理安排消费和储蓄</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 四、PMI数据 -->
+                <div class="section">
+                    <h3 class="section-title">🏭 PMI：采购经理指数</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">PMI是衡量制造业和服务业景气程度的先行指标。</p>
+                    
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>📖 什么是PMI</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <p><strong>定义：</strong>PMI（Purchasing Managers' Index）通过对企业采购经理的月度调查，汇总编制而成的指数，反映企业生产经营状况。</p>
+                                <p><strong>数值范围：</strong>0-100，50为荣枯线。高于50表示扩张，低于50表示收缩。</p>
+                                <p><strong>分类：</strong>制造业PMI、非制造业PMI、综合PMI。</p>
+                                <p><strong>调查内容：</strong>新订单、生产、从业人员、供应商配送时间、原材料库存等。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>📅 PMI数据发布历程</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <table class="data-table">
+                                    <tr><th>时间节点</th><th>事件</th><th>意义</th></tr>
+                                    <tr><td>2005年</td><td>开始发布制造业PMI</td><td>建立先行指标体系</td></tr>
+                                    <tr><td>2007年</td><td>开始发布非制造业PMI</td><td>覆盖服务业</td></tr>
+                                    <tr><td>2016年</td><td>优化调查样本</td><td>提高代表性</td></tr>
+                                    <tr><td>2018年</td><td>调整计算方法</td><td>更加科学</td></tr>
+                                    <tr><td>2020年</td><td>疫情期间高频发布</td><td>及时反映疫情影响</td></tr>
+                                </table>
+                                <div class="timeline-horizontal" style="margin-top:20px;">
+                                    <div class="timeline-item">
+                                        <div class="timeline-age">2005</div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-title">制造业PMI</div>
+                                        <div class="timeline-desc">先行指标</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-age">2007</div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-title">非制造业</div>
+                                        <div class="timeline-desc">覆盖服务</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-age">2016</div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-title">优化样本</div>
+                                        <div class="timeline-desc">提高代表</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-age">2018</div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-title">调整方法</div>
+                                        <div class="timeline-desc">更加科学</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-age">2020</div>
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-title">高频发布</div>
+                                        <div class="timeline-desc">疫情影响</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>💡 如何理解PMI数据</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <ul style="font-size:0.9rem;padding-left:20px;">
+                                    <li><strong>PMI > 50：</strong>经济扩张，制造业和服务业景气</li>
+                                    <li><strong>PMI < 50：</strong>经济收缩，制造业和服务业不景气</li>
+                                    <li><strong>PMI = 50：</strong>荣枯线，经济处于临界点</li>
+                                    <li><strong>PMI变化趋势：</strong>连续3个月高于50或低于50，趋势确立</li>
+                                    <li><strong>新订单指数：</strong>反映市场需求，是最重要的分项指标</li>
+                                    <li><strong>从业人员指数：</strong>反映就业状况</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>🎯 PMI数据应用</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <ul style="font-size:0.9rem;padding-left:20px;">
+                                    <li><strong>经济预测：</strong>PMI是先行指标，能提前反映经济走势</li>
+                                    <li><strong>股市投资：</strong>PMI超预期利好股市，不及预期利空股市</li>
+                                    <li><strong>企业经营：</strong>根据PMI调整生产和库存</li>
+                                    <li><strong>政策制定：</strong>政府根据PMI判断经济状况，制定政策</li>
+                                    <li><strong>期货交易：</strong>大宗商品价格与PMI密切相关</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 五、就业数据 -->
+                <div class="section">
+                    <h3 class="section-title">👥 就业数据</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">就业数据反映劳动力市场状况，是民生的重要指标。</p>
+                    
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>📖 主要就业指标</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <table class="data-table">
+                                    <tr><th>指标</th><th>定义</th><th>意义</th></tr>
+                                    <tr><td>城镇调查失业率</td><td>16岁及以上城镇劳动力中失业人口占比</td><td>反映失业状况，核心指标</td></tr>
+                                    <tr><td>城镇新增就业</td><td>当月新增就业人数</td><td>反映就业创造能力</td></tr>
+                                    <tr><td>登记失业率</td><td>在公共就业服务机构登记的失业率</td><td>反映登记失业情况</td></tr>
+                                    <tr><td>农民工就业</td><td>农民工数量和就业情况</td><td>反映农村劳动力转移</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>📅 就业数据发布历程</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <table class="data-table">
+                                    <tr><th>时间节点</th><th>事件</th><th>意义</th></tr>
+                                    <tr><td>2018年</td><td>开始发布调查失业率</td><td>建立科学的失业统计体系</td></tr>
+                                    <tr><td>2019年</td><td>提高发布频率</td><td>每月发布，及时监测</td></tr>
+                                    <tr><td>2020年</td><td>疫情期间增加发布频次</td><td>反映疫情影响</td></tr>
+                                    <tr><td>2021年</td><td>优化统计方法</td><td>提高数据准确性</td></tr>
+                                    <tr><td>2023年</td><td>完善青年失业统计</td><td>聚焦青年就业问题</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>💡 如何理解就业数据</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <ul style="font-size:0.9rem;padding-left:20px;">
+                                    <li><strong>城镇调查失业率：</strong>正常范围5-5.5%，超过5.5%就业压力大</li>
+                                    <li><strong>青年失业率：</strong>16-24岁失业率通常高于整体，超过20%需重点关注</li>
+                                    <li><strong>城镇新增就业：</strong>年均新增就业约1100-1300万人，低于1000万压力大</li>
+                                    <li><strong>季节性因素：</strong>春节前后、毕业季失业率会有波动</li>
+                                    <li><strong>结构问题：</strong>失业率高往往伴随着结构性失业（技能不匹配）</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>🎯 就业数据应用</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <ul style="font-size:0.9rem;padding-left:20px;">
+                                    <li><strong>政策制定：</strong>失业率高时政府会出台稳就业政策</li>
+                                    <li><strong>求职规划：</strong>了解就业市场状况，调整求职策略</li>
+                                    <li><strong>经济判断：</strong>就业恶化意味着经济不景气</li>
+                                    <li><strong>投资决策：</strong>就业数据影响消费预期，进而影响股市</li>
+                                    <li><strong>社会稳定：</strong>高失业率影响社会稳定</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 六、其他重要数据 -->
+                <div class="section">
+                    <h3 class="section-title">📋 其他重要数据</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">了解其他重要的经济统计数据。</p>
+                    
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>🏠 房地产数据</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <table class="data-table">
+                                    <tr><th>指标</th><th>定义</th><th>意义</th></tr>
+                                    <tr><td>商品房销售面积</td><td>当月销售的商品房面积</td><td>反映房地产市场需求</td></tr>
+                                    <tr><td>房地产开发投资</td><td>当月房地产投资额</td><td>反映房地产投资热度</td></tr>
+                                    <tr><td>70城房价指数</td><td>70个大中城市房价变动</td><td>反映房价走势</td></tr>
+                                    <tr><td>土地购置面积</td><td>当月土地购置面积</td><td>反映房企信心</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>💰 货币数据</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <table class="data-table">
+                                    <tr><th>指标</th><th>定义</th><th>意义</th></tr>
+                                    <tr><td>M2（广义货币）</td><td>流通中的现金 + 活期存款 + 定期存款</td><td>反映货币供应量</td></tr>
+                                    <tr><td>M1（狭义货币）</td><td>流通中的现金 + 活期存款</td><td>反映短期购买力</td></tr>
+                                    <tr><td>M0（流通中现金）</td><td>银行体系之外的现金</td><td>反映现金需求</td></tr>
+                                    <tr><td>社会融资规模</td><td>实体经济从金融体系获得的资金</td><td>反映融资状况</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>🌍 外贸数据</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <table class="data-table">
+                                    <tr><th>指标</th><th>定义</th><th>意义</th></tr>
+                                    <tr><td>出口额</td><td>当月出口货物和服务金额</td><td>反映外需</td></tr>
+                                    <tr><td>进口额</td><td>当月进口货物和服务金额</td><td>反映内需</td></tr>
+                                    <tr><td>贸易顺差</td><td>出口 - 进口</td><td>反映贸易竞争力</td></tr>
+                                    <tr><td>外汇储备</td><td>国家持有的外汇资产</td><td>反映国际支付能力</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 七、数据发布时间表 -->
+                <div class="section">
+                    <h3 class="section-title">📅 主要数据发布时间表</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">了解主要经济数据的发布时间，及时获取信息。</p>
+                    
+                    <table class="data-table">
+                        <tr><th>数据</th><th>发布频率</th><th>发布时间</th></tr>
+                        <tr><td>PMI</td><td>每月</td><td>每月最后一天或次月1日</td></tr>
+                        <tr><td>CPI、PPI</td><td>每月</td><td>每月9-10日</td></tr>
+                        <tr><td>进出口数据</td><td>每月</td><td>每月7-8日</td></tr>
+                        <tr><td>货币数据</td><td>每月</td><td>每月10-15日</td></tr>
+                        <tr><td>工业增加值</td><td>每月</td><td>每月13-15日</td></tr>
+                        <tr><td>社会消费品零售</td><td>每月</td><td>每月13-15日</td></tr>
+                        <tr><td>固定资产投资</td><td>每月</td><td>每月13-15日</td></tr>
+                        <tr><td>就业数据</td><td>每月</td><td>每月中旬</td></tr>
+                        <tr><td>GDP</td><td>季度</td><td>每季度中旬（4月、7月、10月、1月）</td></tr>
+                        <tr><td>人口数据</td><td>年度</td><td>每年1月</td></tr>
+                    </table>
+                </div>
+
+                <!-- 八、如何正确使用统计数据 -->
+                <div class="section">
+                    <h3 class="section-title">💡 如何正确使用统计数据</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:20px;font-size:0.9rem;">掌握正确使用统计数据的方法和原则。</p>
+                    
+                    <div class="core-points-grid">
+                        <div class="core-point-card">
+                            <h4>理解数据含义</h4>
+                            <p>了解每个指标的定义、统计范围、计算方法，避免误读。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <h4>关注数据趋势</h4>
+                            <p>单个数据点意义有限，要看趋势、同比、环比变化。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <h4>结合多个指标</h4>
+                            <p>不要只看一个指标，要综合分析多个相关指标。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <h4>注意数据修订</h4>
+                            <p>特别是季度GDP等数据，会有后续修订，要关注最新数据。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <h4>考虑季节因素</h4>
+                            <p>很多数据有季节性波动，要看经季节调整后的数据。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <h4>警惕数据造假</h4>
+                            <p>个别地方可能存在数据造假，要关注中央数据。</p>
+                        </div>
+                    </div>
+
+                    <div class="quote-box" style="margin-top:20px;">
+                        <p><strong>数据使用原则：</strong></p>
+                        <p>✅ 以官方数据为准，谨慎对待第三方数据</p>
+                        <p>✅ 看长期趋势，不过度解读短期波动</p>
+                        <p>✅ 综合分析多个指标，避免单一指标判断</p>
+                        <p>✅ 理解数据局限，避免过度解读</p>
+                        <p>✅ 结合实际情况，数据要与实践结合</p>
+                    </div>
+                </div>
+
+                <!-- 九、总结 -->
+                <div class="section">
+                    <h3 class="section-title">📌 总结</h3>
+                    <div class="quote-box">
+                        <p><strong>读懂统计数据的重要性：</strong></p>
+                        <p>📊 了解经济运行状况，把握经济脉搏</p>
+                        <p>🎯 辅助决策制定，提高决策质量</p>
+                        <p>📈 判断投资机会，规避投资风险</p>
+                        <p>🏢 了解行业趋势，把握发展机遇</p>
+                        <p>👥 关注民生指标，改善生活质量</p>
+                    </div>
+
+                    <div class="quote-box" style="margin-top:20px;">
+                        <p><strong>核心数据速查：</strong></p>
+                        <p>📈 GDP增长率：5-8%正常，低于5%增长乏力</p>
+                        <p>🛒 CPI涨幅：2%左右温和通胀，3-5%中度通胀</p>
+                        <p>🏭 PMI：50是荣枯线，高于50扩张，低于50收缩</p>
+                        <p>👥 城镇调查失业率：5-5.5%正常，超过5.5%压力大</p>
+                        <p>💰 M2增速：与GDP增速+通胀率匹配</p>
                     </div>
                 </div>
             </div>
