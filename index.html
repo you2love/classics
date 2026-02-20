@@ -123,6 +123,11 @@
             margin-top: 60px;
             padding: 30px;
             min-height: calc(100vh - 60px);
+            transition: margin-left 0.3s;
+        }
+
+        .main-content.sidebar-collapsed {
+            margin-left: 0;
         }
 
         /* 书籍详情 */
@@ -715,6 +720,10 @@
             <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国是部金融史', null, event)"><span class="tree-icon">📜</span><span class="tree-text">中国是部金融史</span></a></div>
             <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('何以中国何以帝国', null, event)"><span class="tree-icon">📜</span><span class="tree-text">何以中国·何以帝国</span></a></div>
             <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('粮食运河与白银', null, event)"><span class="tree-icon">📜</span><span class="tree-text">粮食、运河与白银</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('新中国税收70年', null, event)"><span class="tree-icon">📊</span><span class="tree-text">新中国税收70年</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('中国税收制度2025', null, event)"><span class="tree-icon">📋</span><span class="tree-text">中国税收制度(2025)</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('税收学第三版', null, event)"><span class="tree-icon">📚</span><span class="tree-text">税收学(第三版)</span></a></div>
+            <div class="tree-item"><a href="#" class="tree-item-content" onclick="showBook('财税史话中国古代', null, event)"><span class="tree-icon">🏛️</span><span class="tree-text">财税史话——中国古代财税演进</span></a></div>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-title">金融实务</div>
@@ -10867,9 +10876,168 @@
             </p>
         </div>
     </div>
+
+            <!-- 新中国税收70年 -->
+        <div class="book-detail" id="book-新中国税收70年">
+                <div class="book-header">
+                    <h2 class="book-title">新中国税收70年</h2>
+                    <div class="book-meta">
+                        <span>👤 作者：财政部税务总局</span>
+                        <span>📅 2019年</span>
+                        <span>📚 中国财政经济出版社</span>
+                        <span>🌍 中国</span>
+                    </div>
+                    <p class="book-description">全面回顾新中国成立70年来税收制度改革与发展的历史进程，系统梳理税收政策变迁、征管体制改革、税收法治建设等重要内容。</p>
+                    <div class="quote-box">"税收是国家治理的基础性、支柱性、保障性制度安排。"</div>
+                    <div class="book-impact"><strong>本书影响：</strong>权威记录中国税收制度70年发展历程，为税收理论研究和政策制定提供重要参考。</div>
+                    <div class="tags"><span class="tag">税收</span><span class="tag">财政</span><span class="tag">制度改革</span></div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📊 税收制度发展历程</h3>
+                    <table class="data-table">
+                        <tr><th>时期</th><th>时间</th><th>主要特点</th><th>标志性事件</th></tr>
+                        <tr><td>恢复期</td><td>1949-1956</td><td>恢复国民经济，初步建立税收制度</td><td>1950年《税收征收管理暂行条例》</td></tr>
+                        <tr><td>探索期</td><td>1956-1978</td><td>计划经济为主，税收制度相对单一</td><td>1958年税制改革，实行统一税率</td></tr>
+                        <tr><td>改革开放</td><td>1979-1993</td><td>开始税制改革，引入外资税收优惠</td><td>1980年外资企业所得税法</td></tr>
+                        <tr><td>分税制</td><td>1994-2000</td><td>实行分税制改革，中央与地方分税</td><td>1994年分税制改革</td></tr>
+                        <tr><td>现代化</td><td>2001-2012</td><td>深化税制改革，完善税收法律体系</td><td>2008年营业税改增值税试点</td></tr>
+                        <tr><td>新时代</td><td>2013-2019</td><td>全面深化改革，推进税收治理现代化</td><td>2016年深化国税地税征管体制改革</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📈 税收收入增长数据</h3>
+                    <table class="data-table">
+                        <tr><th>年份</th><th>税收收入（亿元）</th><th>同比增速（%）</th><th>占GDP比重（%）</th></tr>
+                        <tr><td>1950年</td><td>6.2</td><td>--</td><td>2.2</td></tr>
+                        <tr><td>1978年</td><td>1132.3</td><td>--</td><td>6.7</td></tr>
+                        <tr><td>1994年</td><td>3,691.7</td><td>22.9</td><td>10.2</td></tr>
+                        <tr><td>2001年</td><td>15,505.5</td><td>16.5</td><td>14.8</td></tr>
+                        <tr><td>2012年</td><td>87,040.2</td><td>12.1</td><td>19.4</td></tr>
+                        <tr><td>2019年</td><td>134,214.8</td><td>3.8</td><td>17.8</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔄 主要税收制度改革</h3>
+                    <div class="framework-box">
+                        <h4>1994年分税制改革</h4>
+                        <div class="framework-item">
+                            <span class="framework-label">背景</span>
+                            <span class="framework-content">中央财政收入占全国财政比重过低，中央政府财力不足</span>
+                        </div>
+                        <div class="framework-item">
+                            <span class="framework-label">内容</span>
+                            <span class="framework-content">划分共享税、中央税、地方税，建立中央对地方转移支付制度</span>
+                        </div>
+                        <div class="framework-item">
+                            <span class="framework-label">影响</span>
+                            <span class="framework-content">中央财政实力显著增强，为后续改革奠定基础</span>
+                        </div>
+                    </div>
+
+                    <div class="framework-box">
+                        <h4>2008年营业税改增值税</h4>
+                        <div class="framework-item">
+                            <span class="framework-label">目的</span>
+                            <span class="framework-content">理顺税制结构，减少重复征税，降低企业负担</span>
+                        </div>
+                        <div class="framework-item">
+                            <span class="framework-label">范围</span>
+                            <span class="framework-content">从服务业扩大到制造业、建筑业等全行业</span>
+                        </div>
+                        <div class="framework-item">
+                            <span class="framework-label">成果</span>
+                            <span class="framework-content">实现税制现代化，促进经济结构调整</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">📌 核心要点</h3>
+                    <div class="core-points-grid">
+                        <div class="core-point-card">
+                            <div class="point-number">1</div>
+                            <h4>税收制度演进</h4>
+                            <p>从单一税制到复合税制，从计划经济税收到市场经济税收，体现了中国经济体制的转变。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">2</div>
+                            <h4>分税制改革</h4>
+                            <p>1994年分税制改革是新中国税收史上最重要的改革，确立了中央与地方的财权事权关系。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">3</div>
+                            <h4>税收法治建设</h4>
+                            <p>税收立法逐步完善，从行政法规到法律体系，税收征管逐步规范化、法治化。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">4</div>
+                            <h4>征管体制改革</h4>
+                            <p>国税地税征管体制改革，实现征管统一，提高征管效率，减少征缴矛盾。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">5</div>
+                            <h4>税收支撑经济发展</h4>
+                            <p>税收从单纯的财政收入功能转向调节经济、促进社会公平、支持国家治理的综合功能。</p>
+                        </div>
+                        <div class="core-point-card">
+                            <div class="point-number">6</div>
+                            <h4>国际税收合作</h4>
+                            <p>积极参与国际税收治理，完善税收条约网络，防范税收风险，促进国际经济合作。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
     </main>
 
     <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            var mainContent = document.querySelector('.main-content');
+            sidebar.classList.toggle('active');
+            if (sidebar.classList.contains('active')) {
+                mainContent.classList.remove('sidebar-collapsed');
+            } else {
+                mainContent.classList.add('sidebar-collapsed');
+            }
+        }
+
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            var mainContent = document.querySelector('.main-content');
+            sidebar.classList.toggle('active');
+            if (sidebar.classList.contains('active')) {
+                mainContent.classList.remove('sidebar-collapsed');
+            } else {
+                mainContent.classList.add('sidebar-collapsed');
+            }
+        }
+
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            var mainContent = document.querySelector('.main-content');
+            sidebar.classList.toggle('active');
+            if (sidebar.classList.contains('active')) {
+                mainContent.classList.remove('sidebar-collapsed');
+            } else {
+                mainContent.classList.add('sidebar-collapsed');
+            }
+        }
+
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            var mainContent = document.querySelector('.main-content');
+            sidebar.classList.toggle('active');
+            if (sidebar.classList.contains('active')) {
+                mainContent.classList.remove('sidebar-collapsed');
+            } else {
+                mainContent.classList.add('sidebar-collapsed');
+            }
+        }
+
         function showBook(bookId, element, evt) {
             console.log('showBook 被调用, bookId:', bookId, 'element:', element);
             document.querySelectorAll('.book-detail').forEach(function(el) {
@@ -10895,12 +11063,22 @@
             }
             if (window.innerWidth < 768) {
                 document.getElementById('sidebar').classList.remove('active');
+                document.querySelector('.main-content').classList.add('sidebar-collapsed');
+            } else {
+                document.querySelector('.main-content').classList.remove('sidebar-collapsed');
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('active');
+            var sidebar = document.getElementById('sidebar');
+            var mainContent = document.querySelector('.main-content');
+            sidebar.classList.toggle('active');
+            if (sidebar.classList.contains('active')) {
+                mainContent.classList.remove('sidebar-collapsed');
+            } else {
+                mainContent.classList.add('sidebar-collapsed');
+            }
         }
 
         function toggleAccordion(header) {

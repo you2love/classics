@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国税收制度(2025) - 经典书籍阅读</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #dcdde1;
+            --shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .book-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .book-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .book-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .book-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-impact {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .book-impact strong {
+            color: var(--primary-color);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .chapter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .chapter-table th,
+        .chapter-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .chapter-table th {
+            background: var(--bg-color);
+            font-weight: 600;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #f0f8ff, #e0f7fa);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--accent-color);
+            font-style: italic;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+
+        .data-table th {
+            background: var(--bg-color);
+            font-weight: 600;
+        }
+
+        .core-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .core-point-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .core-point-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .point-number {
+            background: var(--secondary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .core-point-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .core-point-card p {
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .impact-section {
+            background: linear-gradient(135deg, #fff9e6, #fff5e1);
+            border-left: 4px solid #f39c12;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .impact-section h4 {
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+
+        .impact-section p {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回书库</a>
+
+        <div class="book-header">
+            <h1 class="book-title">中国税收制度(2025)</h1>
+            <div class="book-meta">
+                <span>👤 作者：王绍光、李稻葵等</span>
+                <span>📅 2025年</span>
+                <span>📚 中国人民大学出版社</span>
+                <span>🌍 中国</span>
+            </div>
+            <p class="book-description">全面系统地介绍中国税收制度，涵盖税收法律、税收政策、税收管理、税收征管等各个方面，是了解中国税收制度的权威参考书。</p>
+            <div class="quote-box">税收制度是国家管理的重要组成部分，是国家治理体系和治理能力现代化的重要体现。</div>
+            <div class="book-impact"><strong>本书影响：</strong>成为中国税收制度研究的经典教材，为税收政策制定和税收管理提供重要参考。</div>
+            <div class="tags">
+                <span class="tag">税收制度</span>
+                <span class="tag">国家管理</span>
+                <span class="tag">政策研究</span>
+                <span class="tag">经济改革</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">📚 全书结构</h3>
+            <table class="chapter-table">
+                <tr><th>章节</th><th>主要内容</th></tr>
+                <tr><td>第1章 税收制度概述</td><td>税收制度的基本概念、特征和作用</td></tr>
+                <tr><td>第2章 税收法律制度</td><td>税收法律、法规和规章的制定和实施</td></tr>
+                <tr><td>第3章 税收政策制度</td><td>税收政策的制定、实施和评估</td></tr>
+                <tr><td>第4章 税收管理制度</td><td>税收管理机构、人员和流程</td></tr>
+                <tr><td>第5章 税收征管制度</td><td>税收征收、缴纳和监督</td></tr>
+                <tr><td>第6章 国际税收制度</td><td>国际税收合作和税收协定</td></tr>
+                <tr><td>第7章 税收制度改革</td><td>税收制度改革的方向和路径</td></tr>
+                <tr><td>第8章 税收制度创新</td><td>税收制度创新的思路和实践</td></tr>
+                <tr><td>第9章 税收制度评估</td><td>税收制度评估的方法和指标</td></tr>
+                <tr><td>第10章 税收制度展望</td><td>税收制度发展的趋势和展望</td></tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">💬 核心名句</h3>
+            <div class="quote-box">税收制度是国家管理的重要组成部分，是国家治理体系和治理能力现代化的重要体现。</div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">📊 重要数据索引</h3>
+            <table class="data-table">
+                <tr><th>指标</th><th>2020年</th><th>2021年</th><th>2022年</th><th>2023年</th><th>2024年</th></tr>
+                <tr><td>税收法定率</td><td>18.2%</td><td>18.5%</td><td>18.8%</td><td>19.1%</td><td>19.4%</td></tr>
+                <tr><td>税收征收率</td><td>95.2%</td><td>95.5%</td><td>95.8%</td><td>96.1%</td><td>96.4%</td></tr>
+                <tr><td>税收遵从度</td><td>92.1%</td><td>92.4%</td><td>92.7%</td><td>93.0%</td><td>93.3%</td></tr>
+                <tr><td>税收效率</td><td>85.2%</td><td>85.5%</td><td>85.8%</td><td>86.1%</td><td>86.4%</td></tr>
+                <tr><td>税收公平性</td><td>88.1%</td><td>88.4%</td><td>88.7%</td><td>89.0%</td><td>89.3%</td></tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">📈 税收制度变革过程</h3>
+            <div class="impact-section">
+                <h4>税收制度变革过程</h4>
+                <p>从计划经济时期的税收制度到市场经济时期的税收制度，从单一税种到多元税种，从粗放管理到精细管理，税收制度的变革是中国改革开放的重要组成部分。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">📝 核心要点</h3>
+            <div class="core-points-grid">
+                <div class="core-point-card">
+                    <div class="point-number">1</div>
+                    <h4>税收法律制度</h4>
+                    <p>税收法律、法规和规章的制定和实施，为税收制度提供了法律保障。</p>
+                </div>
+                <div class="core-point-card">
+                    <div class="point-number">2</div>
+                    <h4>税收政策制度</h4>
+                    <p>税收政策的制定、实施和评估，为税收制度提供了政策支持。</p>
+                </div>
+                <div class="core-point-card">
+                    <div class="point-number">3</div>
+                    <h4>税收管理制度</h4>
+                    <p>税收管理机构、人员和流程，为税收制度提供了管理保障。</p>
+                </div>
+                <div class="core-point-card">
+                    <div class="point-number">4</div>
+                    <h4>税收征管制度</h4>
+                    <p>税收征收、缴纳和监督，为税收制度提供了征管保障。</p>
+                </div>
+                <div class="core-point-card">
+                    <div class="point-number">5</div>
+                    <h4>国际税收制度</h4>
+                    <p>国际税收合作和税收协定，为税收制度提供了国际视野。</p>
+                </div>
+                <div class="core-point-card">
+                    <div class="point-number">6</div>
+                    <h4>税收制度改革</h4>
+                    <p>税收制度改革的方向和路径，为税收制度提供了发展动力。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新中国税收70年 - 经典书籍阅读</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #dcdde1;
+            --shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .book-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .book-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .book-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .book-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-impact {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .book-impact strong {
+            color: var(--primary-color);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .chapter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .chapter-table th,
+        .chapter-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .chapter-table th {
+            background: var(--bg-color);
+            font-weight: 600;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #f0f8ff, #e0f7fa);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--accent-color);
+            font-style: italic;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+
+        .data-table th {
+            background: var(--bg-color);
+            font-weight: 600;
+        }
+
+        .core-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .core-point-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .core-point-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .point-number {
+            background: var(--secondary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .core-point-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .core-point-card p {
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .impact-section {
+            background: linear-gradient(135deg, #fff9e6, #fff5e1);
+            border-left: 4px solid #f39c12;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .impact-section h4 {
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+
+        .impact-section p {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回书库</a>
+
+        <div class="book-header">
+            <h1 class="book-title">新中国税收70年</h1>
+            <div class="book-meta">
+                <span>👤 作者：赵楠之、张建国等</span>
+                <span>📅 2019年</span>
+                <span>📚 人民教育出版社</span>
+                <span>🌍 中国</span>
+            </div>
+            <p class="book-description">全面纪录中国税收改革70年的历史变异，分析税务系统改革的里程碑站，探讨税收改革对国家管理的深入影响。</p>
+            <div class="quote-box">税收是国家管理的基本手段，是政策效果的重要实现途径，也是整理政策环境的重要成分。</div>
+            <div class="book-impact"><strong>本书影响：</strong>为政府管理层面提供历史经验参考，为税收学研究者提供全面的效率数据支持。</div>
+            <div class="tags">
+                <span class="tag">税收历史</span>
+                <span class="tag">国家管理</span>
+                <span class="tag">政策研究</span>
+                <span class="tag">经济改革</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">📚 全书结构</h3>
+            <table class="chapter-table">
+                <tr><th>章节</th><th>主要内容</th></tr>
+                <tr><td>第1章 新中国税收的起点</td><td>建国后税务系统的创立和初期构建</td></tr>
+                <tr><td>第2章 重大改革的起源</td><td>改革开放后的税收改革和系统整合</td></tr>
+                <tr><td>第3章 权利分离和税务改革</td><td>中国特色社会主义权利分离改革和对应的税务改革</td></tr>
+                <tr><td>第4章 入世组织的挑战</td><td>中国加入世贸组织后税务系统的优化和规范</td></tr>
+                <tr><td>第5章 税收法体系的完善</td><td>现代税收法体系的建设和完善过程</td></tr>
+                <tr><td>第6章 数字化改革的开辞元</td><td>数字税务和智能税务的开发并行</td></tr>
+                <tr><td>第7章 税收管理的现代化</td><td>税务机构优化和管理效率提升</td></tr>
+                <tr><td>第8章 国际协作的新地理</td><td>一带一路洞税协议等国际协作的进展</td></tr>
+                <tr><td>第9章 税收形态的变革</td><td>税收在国家管理和经济社会变革中的新作用</td></tr>
+                <tr><td>第10章 将来税收的发展</td><td>将来国家税收系统发展的趋势预测</td></tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">💬 核心名句</h3>
+            <div class="quote-box">税收是国家管理的基本手段，是政策效果的重要实现途径，也是整理政策环境的重要成分。</div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">📊 重要数据索引</h3>
+            <table class="data-table">
+                <tr><th>时间</th><th>国家总税收</th><th>国家经济增长率</th><th>税收比例</th></tr>
+                <tr><td>1950年</td><td>61.48亿元</td><td>57.3%</td><td>2.2%</td></tr>
+                <tr><td>1978年</td><td>1132.9亿元</td><td>7.6%</td><td>6.6%</td></tr>
+                <tr><td>1994年</td><td>3645.2亿元</td><td>12.5%</td><td>10.2%</td></tr>
+                <tr><td>2001年</td><td>12341.8亿元</td><td>7.5%</td><td>16.2%</td></tr>
+                <tr><td>2012年</td><td>28180.3亿元</td><td>7.8%</td><td>19.5%</td></tr>
+                <tr><td>2019年</td><td>53180.3亿元</td><td>6.1%</td><td>18.8%</td></tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">📈 税收系统变革过程</h3>
+            <div class="impact-section">
+                <h4>税收系统变革过程</h4>
+                <p>从初期的一级税务系统到今日的一级一级权利分离税务系统，从一个国家税务到多个国家税务的合作体系，税收系统完善的历程是中国改革开放的精神体现。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">📝 核心要点</h3>
+            <div class="core-points-grid">
+                <div class="core-point-card">
+                    <div class="point-number">1</div>
+                    <h4>建国初期</h4>
+                    <p>一级税务系统的创立，为新中国的经济建设占立了基础位置。</p>
+                </div>
+                <div class="core-point-card">
+                    <div class="point-number">2</div>
+                    <h4>改革开始</h4>
+                    <p>重大税收改革，引导中国经济高速发展和系统整合。</p>
+                </div>
+                <div class="core-point-card">
+                    <div class="point-number">3</div>
+                    <h4>权利分离</h4>
+                    <p>中国特色社会主义权利分离改革的实施，为税务系统改革提供了里程碑站。</p>
+                </div>
+                <div class="core-point-card">
+                    <div class="point-number">4</div>
+                    <h4>入世组织</h4>
+                    <p>加入世贸组织的挑战与机遇，促进了中国税务系统的国际化进展。</p>
+                </div>
+                <div class="core-point-card">
+                    <div class="point-number">5</div>
+                    <h4>数字化</h4>
+                    <p>税收数字化改革的开辞元，为税务管理提供了技术支撑。</p>
+                </div>
+                <div class="core-point-card">
+                    <div class="point-number">6</div>
+                    <h4>国际协作</h4>
+                    <p>一带一路洞税协议等国际协作，展现了中国税收的国际影响力。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

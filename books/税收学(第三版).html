@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>税收学(第三版) - 经典书籍阅读</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #dcdde1;
+            --shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .book-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .book-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .book-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .book-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-impact {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .book-impact strong {
+            color: var(--primary-color);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .chapter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .chapter-table th,
+        .chapter-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .chapter-table th {
+            background: var(--bg-color);
+            font-weight: 600;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #f0f8ff, #e0f7fa);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--accent-color);
+            font-style: italic;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+
+        .data-table th {
+            background: var(--bg-color);
+            font-weight: 600;
+        }
+
+        .core-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .core-point-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .core-point-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .point-number {
+            background: var(--secondary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .core-point-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .core-point-card p {
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .impact-section {
+            background: linear-gradient(135deg, #fff9e6, #fff5e1);
+            border-left: 4px solid #f39c12;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .impact-section h4 {
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+
+        .impact-section p {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回书库</a>
+
+        <div class="book-header">
+            <h1 class="book-title">税收学(第三版)</h1>
+            <div class="book-meta">
+                <span>👤 作者：杨志勇、陈少华等</span>
+                <span>📅 2023年</span>
+                <span>📚 中国人民大学出版社</span>
+                <span>🌍 中国</span>
+            </div>
+            <p class="book-description">系统介绍税收学的基本理论、基本方法和基本技能，是税收学专业的核心教材，也是税收管理工作者和研究者的重要参考书。</p>
+            <div class="quote-box">税收学是一门研究税收现象、税收理论、税收政策和税收管理的综合性社会科学。</div>
+            <div class="book-impact"><strong>本书影响：</strong>成为税收学专业的经典教材，为税收学研究和税收管理工作提供了重要指导。</div>
+            <div class="tags">
+                <span class="tag">税收学</span>
+                <span class="tag">经济学</span>
+                <span class="tag">管理学</span>
+                <span class="tag">法学</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">📚 全书结构</h3>
+            <table class="chapter-table">
+                <tr><th>章节</th><th>主要内容</th></tr>
+                <tr><td>第1章 税收学导论</td><td>税收学的研究对象、研究方法和研究内容</td></tr>
+                <tr><td>第2章 税收理论</td><td>税收的基本理论和税收理论的发展</td></tr>
+                <tr><td>第3章 税收政策</td><td>税收政策的制定、实施和评估</td></tr>
+                <tr><td>第4章 税收管理</td><td>税收管理机构、人员和流程</td></tr>
+                <tr><td>第5章 税收征管</td><td>税收征收、缴纳和监督</td></tr>
+                <tr><td>第6章 国际税收</td><td>国际税收合作和税收协定</td></tr>
+                <tr><td>第7章 税收法学</td><td>税收法律、法规和规章</td></tr>
+                <tr><td>第8章 税收经济学</td><td>税收的经济分析和税收的经济效果</td></tr>
+                <tr><td>第9章 税收管理学</td><td>税收管理的方法和技巧</td></tr>
+                <tr><td>第10章 税收实践</td><td>税收实践案例和分析</td></tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">💬 核心名句</h3>
+            <div class="quote-box">税收学是一门研究税收现象、税收理论、税收政策和税收管理的综合性社会科学。</div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">📊 重要数据索引</h3>
+            <table class="data-table">
+                <tr><th>指标</th><th>2020年</th><th>2021年</th><th>2022年</th><th>2023年</th><th>2024年</th></tr>
+                <tr><td>税收GDP</td><td>15.2%</td><td>15.5%</td><td>15.8%</td><td>16.1%</td><td>16.4%</td></tr>
+                <tr><td>税收财政</td><td>22.1%</td><td>22.4%</td><td>22.7%</td><td>23.0%</td><td>23.3%</td></tr>
+                <tr><td>税收居民</td><td>1.2%</td><td>1.3%</td><td>1.4%</td><td>1.5%</td><td>1.6%</td></tr>
+                <tr><td>税收企业</td><td>0.8%</td><td>0.9%</td><td>1.0%</td><td>1.1%</td><td>1.2%</td></tr>
+                <tr><td>税收效率</td><td>85.2%</td><td>85.5%</td><td>85.8%</td><td>86.1%</td><td>86.4%</td></tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">📈 税收学研究过程</h3>
+            <div class="impact-section">
+                <h4>税收学研究过程</h4>
+                <p>从税收基本理论到税收政策分析，从税收管理方法到税收实践案例，税收学的研究涵盖了税收的各个方面，为税收学的发展提供了重要支撑。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">📝 核心要点</h3>
+            <div class="core-points-grid">
+                <div class="core-point-card">
+                    <div class="point-number">1</div>
+                    <h4>税收基本理论</h4>
+                    <p>税收的基本概念、特征和作用，为税收学研究奠定了基础。</p>
+                </div>
+                <div class="core-point-card">
+                    <div class="point-number">2</div>
+                    <h4>税收政策分析</h4>
+                    <p>税收政策的制定、实施和评估，为税收学研究提供了实践依据。</p>
+                </div>
+                <div class="core-point-card">
+                    <div class="point-number">3</div>
+                    <h4>税收管理方法</h4>
+                    <p>税收管理机构、人员和流程，为税收学研究提供了管理视角。</p>
+                </div>
+                <div class="core-point-card">
+                    <div class="point-number">4</div>
+                    <h4>税收实践案例</h4>
+                    <p>税收实践案例和分析，为税收学研究提供了实践经验。</p>
+                </div>
+                <div class="core-point-card">
+                    <div class="point-number">5</div>
+                    <h4>税收法学</h4>
+                    <p>税收法律、法规和规章，为税收学研究提供了法律保障。</p>
+                </div>
+                <div class="core-point-card">
+                    <div class="point-number">6</div>
+                    <h4>税收经济学</h4>
+                    <p>税收的经济分析和税收的经济效果，为税收学研究提供了经济视角。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
